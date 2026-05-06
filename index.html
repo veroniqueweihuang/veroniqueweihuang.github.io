@@ -22,9 +22,9 @@ html,body{background:var(--bg);color:var(--black)}
 body{
   font-family:var(--sans);
   font-weight:300;
-  max-width:1280px;
+  max-width:1400px;
   margin:0 auto;
-  padding:0 5%;
+  padding:0 8%;
   min-height:100vh;
 }
 
@@ -39,7 +39,7 @@ header{padding:2.25rem 0 0}
 .site-name{
   font-family:var(--serif);
   font-weight:300;
-  font-size:17px;
+  font-size:20px;
   letter-spacing:0.07em;
   color:var(--black);
   cursor:pointer;
@@ -47,7 +47,7 @@ header{padding:2.25rem 0 0}
 }
 nav{display:flex;gap:2.25rem;align-items:center}
 nav a{
-  font-size:10px;
+  font-size:12px;
   letter-spacing:0.18em;
   text-transform:uppercase;
   text-decoration:none;
@@ -72,7 +72,7 @@ nav a.active{color:var(--black)}
   border-bottom:0.5px solid var(--faint);
 }
 .col-h{
-  font-size:9px;
+  font-size:10px;
   letter-spacing:0.2em;
   color:var(--faint);
   text-transform:uppercase;
@@ -80,7 +80,7 @@ nav a.active{color:var(--black)}
 .row{
   display:grid;
   grid-template-columns:1fr 158px 56px;
-  padding:14px 0;
+  padding:18px 0;
   border-bottom:0.5px solid #e4e0db;
   cursor:default;
   transition:opacity 0.22s;
@@ -88,14 +88,14 @@ nav a.active{color:var(--black)}
 }
 .works-wrap.hovering .row:not(:hover){opacity:0.22}
 .proj-name{
-  font-size:12.5px;
+  font-size:15px;
   letter-spacing:0.03em;
   color:var(--black);
   font-family:var(--sans);
   font-weight:300;
 }
 .proj-type,.proj-year{
-  font-size:10px;
+  font-size:12px;
   letter-spacing:0.07em;
   color:var(--mid);
   align-self:center;
@@ -155,7 +155,7 @@ nav a.active{color:var(--black)}
 }
 .bio{padding-top:0.5rem}
 .bio p{
-  font-size:11.5px;
+  font-size:13px;
   line-height:1.75;
   letter-spacing:0.04em;
   color:var(--black);
@@ -164,7 +164,7 @@ nav a.active{color:var(--black)}
 }
 .bio .edu{
   color:var(--mid);
-  font-size:10.5px;
+  font-size:12px;
   line-height:1.85;
   margin-bottom:0;
   font-style:italic;
@@ -175,7 +175,7 @@ nav a.active{color:var(--black)}
 .field{margin-bottom:2rem}
 .field label{
   display:block;
-  font-size:9px;
+  font-size:10px;
   letter-spacing:0.2em;
   text-transform:uppercase;
   color:var(--mid);
@@ -187,7 +187,7 @@ nav a.active{color:var(--black)}
   border:none;
   border-bottom:0.5px solid var(--faint);
   padding:6px 0 10px;
-  font-size:12px;
+  font-size:14px;
   font-family:var(--sans);
   font-weight:300;
   letter-spacing:0.04em;
@@ -202,12 +202,12 @@ nav a.active{color:var(--black)}
 .field input:focus,.field textarea:focus{border-bottom-color:var(--black)}
 .send-btn{
   margin-top:1rem;
-  font-size:10px;
+  font-size:11px;
   letter-spacing:0.2em;
   text-transform:uppercase;
   background:none;
   border:0.5px solid var(--faint);
-  padding:11px 28px;
+  padding:12px 32px;
   cursor:pointer;
   font-family:var(--sans);
   font-weight:400;
@@ -230,12 +230,12 @@ nav a.active{color:var(--black)}
   bottom:0;
   left:0;
   right:0;
-  padding:1rem 5%;
+  padding:1rem 8%;
   display:flex;
   justify-content:flex-end;
 }
 .footer-inner{
-  font-size:9px;
+  font-size:10px;
   letter-spacing:0.14em;
   color:var(--faint);
   text-transform:uppercase;
@@ -243,11 +243,114 @@ nav a.active{color:var(--black)}
 
 /* ── Responsive ── */
 @media(max-width:580px){
-  body{padding:0 6%}
+  body{padding:0 8%}
   .about-grid{grid-template-columns:1fr;gap:2.25rem}
   .col-heads,.row{grid-template-columns:1fr 90px}
   .proj-year{display:none}
   nav{gap:1.5rem}
+}
+
+/* ── Project page ── */
+.proj-page{display:none;padding:0 0 7rem}
+.proj-page.active{display:block}
+.back-link{
+  display:inline-block;
+  font-size:11px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--mid);
+  cursor:pointer;
+  margin:2.5rem 0 2.5rem;
+  text-decoration:none;
+  transition:color 0.18s;
+}
+.back-link:hover{color:var(--black)}
+.proj-header{
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:end;
+  border-bottom:0.5px solid var(--faint);
+  padding-bottom:1.25rem;
+  margin-bottom:3rem;
+  gap:2rem;
+}
+.proj-title{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:32px;
+  letter-spacing:0.04em;
+  color:var(--black);
+  line-height:1.1;
+}
+.proj-meta{
+  text-align:right;
+}
+.proj-meta span{
+  display:block;
+  font-size:11px;
+  letter-spacing:0.1em;
+  color:var(--mid);
+  line-height:2;
+  text-transform:uppercase;
+}
+.proj-hero{
+  width:100%;
+  aspect-ratio:16/9;
+  background:#d8d3cd;
+  overflow:hidden;
+  margin-bottom:1.5rem;
+}
+.proj-hero img{width:100%;height:100%;object-fit:cover}
+.proj-desc{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5rem;
+  margin:3rem 0;
+}
+.proj-text p{
+  font-size:13px;
+  line-height:1.85;
+  letter-spacing:0.03em;
+  color:var(--black);
+  font-weight:300;
+  margin-bottom:1rem;
+}
+.proj-credits{
+  font-size:11px;
+  letter-spacing:0.08em;
+  color:var(--mid);
+  line-height:2.1;
+  font-weight:300;
+}
+.proj-credits span{display:block}
+.img-grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  margin-bottom:1rem;
+}
+.img-grid-2 .img-slot{
+  aspect-ratio:4/3;
+  background:#ddd8d2;
+  overflow:hidden;
+}
+.img-slot-full{
+  width:100%;
+  aspect-ratio:3/1;
+  background:#d4cfc9;
+  overflow:hidden;
+  margin-bottom:1rem;
+}
+.img-slot img,.img-grid-2 .img-slot img,.img-slot-full img{
+  width:100%;height:100%;object-fit:cover;
+}
+.img-caption{
+  font-size:10px;
+  letter-spacing:0.1em;
+  color:var(--faint);
+  text-transform:uppercase;
+  margin-top:6px;
+  margin-bottom:2rem;
 }
 </style>
 </head>
@@ -283,7 +386,7 @@ nav a.active{color:var(--black)}
       <span class="proj-type">Residential</span>
       <span class="proj-year">2018</span>
     </div>
-    <div class="row" data-i="2">
+    <div class="row" data-i="2" onclick="showProject('housefaces')" style="cursor:pointer">
       <span class="proj-name">House with Two Faces</span>
       <span class="proj-type">Residential</span>
       <span class="proj-year">2020</span>
@@ -401,6 +504,16 @@ document.querySelectorAll('.row').forEach(row => {
   });
 });
 
+/* ── Project navigation ── */
+function showProject(id) {
+  document.querySelectorAll('.page, .proj-page').forEach(p => p.classList.remove('active'));
+  document.getElementById('pg-' + id).classList.add('active');
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  window.scrollTo(0, 0);
+  card.style.display = 'none';
+  wrap && wrap.classList.remove('hovering');
+}
+
 /* ── Page navigation ── */
 function showPage(pg, navId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -440,5 +553,66 @@ form.addEventListener('submit', async e => {
 });
 </script>
 
+
+<!-- ═══ PROJECT: House with Two Faces ═══ -->
+<div id="pg-housefaces" class="proj-page">
+  <span class="back-link" onclick="showPage('works','nav-works')">← Works</span>
+
+  <div class="proj-header">
+    <h1 class="proj-title">House with<br>Two Faces</h1>
+    <div class="proj-meta">
+      <span>Residential</span>
+      <span>Singapore — 2020</span>
+      <span>RT+Q Architects</span>
+    </div>
+  </div>
+
+  <!-- Hero image — replace src with real image -->
+  <div class="proj-hero">
+    <img src="images/housefaces_hero.jpg" alt="House with Two Faces" onerror="this.style.display='none'">
+  </div>
+  <p class="img-caption">Exterior view — photography: Masano Kawana</p>
+
+  <div class="proj-desc">
+    <div class="proj-text">
+      <p>A conservation shophouse in Singapore, reworked as a private residence. The building presents two distinct faces: a restored heritage facade to the street, and a new courtyard elevation opened entirely to water and sky.</p>
+      <p>The design negotiates between preservation and intervention — every addition legible as contemporary, every retained element left intact. The water court at the centre of the plan mediates light, ventilation, and the experience of moving through the house.</p>
+    </div>
+    <div class="proj-credits">
+      <span>Architect — RT+Q Architects</span>
+      <span>Role — Designer & Project Coordinator</span>
+      <span>Location — Singapore</span>
+      <span>Year — 2020</span>
+      <span>Photography — Masano Kawana</span>
+      <span style="margin-top:0.75rem;display:block;">WAF Shortlist 2020</span>
+      <span>ArchDaily Feature</span>
+    </div>
+  </div>
+
+  <!-- Image grid — replace src paths with real images -->
+  <div class="img-grid-2">
+    <div class="img-slot">
+      <img src="images/housefaces_01.jpg" alt="" onerror="this.style.display='none'">
+    </div>
+    <div class="img-slot">
+      <img src="images/housefaces_02.jpg" alt="" onerror="this.style.display='none'">
+    </div>
+  </div>
+
+  <div class="img-slot-full">
+    <img src="images/housefaces_03.jpg" alt="" onerror="this.style.display='none'">
+  </div>
+  <p class="img-caption">Water court — interior</p>
+
+  <div class="img-grid-2">
+    <div class="img-slot">
+      <img src="images/housefaces_04.jpg" alt="" onerror="this.style.display='none'">
+    </div>
+    <div class="img-slot">
+      <img src="images/housefaces_05.jpg" alt="" onerror="this.style.display='none'">
+    </div>
+  </div>
+
+</div>
 </body>
 </html>
