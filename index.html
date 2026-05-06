@@ -380,6 +380,234 @@ nav a.active{color:var(--black)}
   .proj-info{grid-template-columns:1fr;gap:2.5rem}
   .proj-details{grid-template-columns:1fr 1fr}
 }
+
+/* ── Project page ── */
+.proj-page{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:var(--bg);
+  z-index:100;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+.proj-page.active{display:block}
+
+/* Top bar — same as main header */
+.proj-topbar{
+  padding:1.5rem 8% 0.5rem;
+}
+.proj-topbar-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-bottom:1.2rem;
+}
+.proj-topbar-name{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:20px;
+  letter-spacing:0.07em;
+  color:var(--black);
+  cursor:pointer;
+}
+/* proj-topbar-rule removed */
+
+/* Breadcrumb bar */
+.proj-breadcrumb{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 8% 0;
+  margin-bottom:1.5rem;
+}
+.breadcrumb-label{
+  font-size:11px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--mid);
+  cursor:pointer;
+  transition:color 0.18s;
+}
+.breadcrumb-label:hover{color:var(--black)}
+.close-btn{
+  font-size:24px;
+  font-weight:200;
+  color:var(--mid);
+  cursor:pointer;
+  line-height:1;
+  transition:color 0.18s;
+  font-family:var(--sans);
+  padding:4px 0 4px 16px;
+}
+.close-btn:hover{color:var(--black)}
+
+/* Project title */
+.proj-title-wrap{
+  padding:0.5rem 8% 1.5rem;
+  margin-bottom:2rem;
+}
+.proj-title{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:28px;
+  letter-spacing:0.04em;
+  color:var(--black);
+  line-height:1.1;
+  white-space:nowrap;
+}
+
+/* Two-column image layout */
+.proj-columns{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.25rem;
+  padding:0 8%;
+  margin-bottom:3rem;
+}
+.proj-col{position:relative}
+
+/* Image slot — fixed height, images cycle */
+.col-img-wrap{
+  position:relative;
+  width:100%;
+  background:#d8d3cd;
+  overflow:hidden;
+  min-height:320px;
+}
+.col-img-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity 0.4s ease;
+}
+.col-img-wrap img.visible{opacity:1}
+
+/* Column nav arrows */
+.col-nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:10px;
+}
+.col-arrow{
+  font-size:11px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--mid);
+  cursor:pointer;
+  transition:color 0.18s;
+  user-select:none;
+  padding:4px 0;
+}
+.col-arrow:hover{color:var(--black)}
+.col-counter{
+  font-size:10px;
+  letter-spacing:0.1em;
+  color:var(--faint);
+}
+
+/* Info zone */
+.proj-info{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5rem;
+  padding:2rem 8% 7rem;
+  border-top:0.5px solid var(--faint);
+}
+.proj-text p{
+  font-size:13px;
+  line-height:1.85;
+  letter-spacing:0.03em;
+  color:var(--black);
+  font-weight:300;
+  margin-bottom:1rem;
+}
+.proj-details{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.25rem 2rem;
+  align-content:start;
+}
+.detail-label{
+  font-size:9px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-bottom:4px;
+}
+.detail-value{
+  font-size:12px;
+  letter-spacing:0.04em;
+  color:var(--mid);
+  font-weight:300;
+  line-height:1.6;
+}
+.detail-value a{
+  color:var(--mid);
+  text-decoration:none;
+  border-bottom:0.5px solid var(--faint);
+  transition:color 0.18s, border-color 0.18s;
+}
+.detail-value a:hover{color:var(--black);border-color:var(--black)}
+
+/* Lightbox */
+#lightbox{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(15,15,14,0.95);
+  z-index:300;
+  align-items:center;
+  justify-content:center;
+}
+#lightbox.open{display:flex}
+#lightbox img{
+  max-width:90vw;
+  max-height:90vh;
+  object-fit:contain;
+  cursor:default;
+}
+.lb-close{
+  position:fixed;
+  top:1.5rem;
+  right:2rem;
+  font-size:28px;
+  color:#888;
+  cursor:pointer;
+  font-weight:200;
+  font-family:var(--sans);
+  transition:color 0.18s;
+  z-index:301;
+}
+.lb-close:hover{color:#fff}
+.lb-arrow{
+  position:fixed;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:13px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:#888;
+  cursor:pointer;
+  transition:color 0.18s;
+  z-index:301;
+  user-select:none;
+  padding:1rem;
+}
+.lb-arrow:hover{color:#fff}
+#lb-prev{left:2rem}
+#lb-next{right:2rem}
+
+@media(max-width:680px){
+  .proj-columns{grid-template-columns:1fr}
+  .proj-info{grid-template-columns:1fr;gap:2.5rem}
+  .proj-title{font-size:22px;white-space:normal}
+}
 </style>
 </head>
 <body>
@@ -630,94 +858,191 @@ form.addEventListener('submit', async e => {
 
 </div>
 
+<!-- ═══ LIGHTBOX ═══ -->
+<div id="lightbox">
+  <span class="lb-close" onclick="closeLightbox()">&#215;</span>
+  <span class="lb-arrow" id="lb-prev" onclick="lbStep(-1)">&#8592; Prev</span>
+  <img id="lb-img" src="" alt="">
+  <span class="lb-arrow" id="lb-next" onclick="lbStep(1)">Next &#8594;</span>
+</div>
+
 <!-- ═══ PROJECT: House with Two Faces ═══ -->
 <div id="pg-housefaces" class="proj-page">
 
-  <!-- Top bar mirrors main header -->
+  <!-- Project header: Works centred, no rule, title + close below -->
   <div class="proj-topbar">
-    <span class="proj-topbar-name" onclick="showPage('works','nav-works')">Veronique Huang Wei</span>
-    <span class="close-btn" onclick="showPage('works','nav-works')">&#215;</span>
-  </div>
-  <div class="proj-rule"></div>
-
-  <!-- Title + meta -->
-  <div class="proj-title-row">
-    <h1 class="proj-title">House with<br>Two Faces</h1>
-    <div class="proj-meta">
-      <span>Residential · Singapore</span>
-      <span>2020</span>
-      <span>RT+Q Architects</span>
+    <div class="proj-topbar-inner" style="justify-content:center;">
+      <span class="breadcrumb-label" onclick="showPage('works','nav-works')">Works</span>
     </div>
   </div>
 
-  <!-- Two columns: photos left, drawings right -->
-  <!-- Replace src paths with real images. Suggested file names shown. -->
-  <!-- Left col: photography. Right col: drawings/plans. -->
+  <div class="proj-title-wrap">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;">
+      <h1 class="proj-title">A Courtyard House</h1>
+      <span class="close-btn" onclick="showPage('works','nav-works')">&#215;</span>
+    </div>
+  </div>
+
+  <!-- Two columns — left: photography, right: drawings -->
+  <!-- Add real image paths to the arrays in the JS below -->
   <div class="proj-columns">
     <div class="proj-col">
-      <!-- Photo 1 — hero exterior -->
-      <div class="img-slot ratio-4-3">
-        <img src="images/housefaces_photo1.jpg" alt="Exterior" onerror="this.style.display='none'">
+      <div class="col-img-wrap" id="col-housefaces-L" style="aspect-ratio:4/3">
+        <!-- images injected by JS -->
       </div>
-      <!-- Photo 2 — water court -->
-      <div class="img-slot ratio-3-4">
-        <img src="images/housefaces_photo2.jpg" alt="Water court" onerror="this.style.display='none'">
-      </div>
-      <!-- Photo 3 — interior detail -->
-      <div class="img-slot ratio-4-3">
-        <img src="images/housefaces_photo3.jpg" alt="Interior" onerror="this.style.display='none'">
+      <div class="col-nav">
+        <span class="col-arrow" onclick="colStep('housefaces','L',-1)">&#8592; Prev</span>
+        <span class="col-counter" id="ctr-housefaces-L"></span>
+        <span class="col-arrow" onclick="colStep('housefaces','L',1)">Next &#8594;</span>
       </div>
     </div>
     <div class="proj-col">
-      <!-- Drawing 1 — section or elevation -->
-      <div class="img-slot ratio-3-2">
-        <img src="images/housefaces_section.jpg" alt="Section" onerror="this.style.display='none'">
+      <div class="col-img-wrap" id="col-housefaces-R" style="aspect-ratio:4/3">
+        <!-- images injected by JS -->
       </div>
-      <!-- Drawing 2 — floor plan -->
-      <div class="img-slot ratio-1-1">
-        <img src="images/housefaces_plan.jpg" alt="Floor plan" onerror="this.style.display='none'">
-      </div>
-      <!-- Photo 4 — facade detail or staircase -->
-      <div class="img-slot ratio-4-3">
-        <img src="images/housefaces_photo4.jpg" alt="Detail" onerror="this.style.display='none'">
+      <div class="col-nav">
+        <span class="col-arrow" onclick="colStep('housefaces','R',-1)">&#8592; Prev</span>
+        <span class="col-counter" id="ctr-housefaces-R"></span>
+        <span class="col-arrow" onclick="colStep('housefaces','R',1)">Next &#8594;</span>
       </div>
     </div>
   </div>
 
-  <!-- Info + description below -->
   <div class="proj-info">
     <div class="proj-text">
-      <p>A conservation shophouse in Singapore, reworked as a private residence. The building presents two distinct faces — a restored heritage facade to the street, and a new courtyard elevation opened entirely to water and sky.</p>
-      <p>The design negotiates between preservation and intervention. Every addition is legible as contemporary; every retained element is left intact. The water court at the centre mediates light, ventilation, and movement through the house.</p>
+      <p>A three-generation family inherited a solid, dim house and needed it entirely rethought. A decent pool, a garden, a koi pond and a hobby room — the brief was domestic and specific.</p>
+      <p>Three hierarchic blocks arranged in a C-shape emerged around a central courtyard. Light enters through voids punched through ceilings and walls, coloured in different shades drawn from Le Corbusier's palette. The linkages between blocks — staircases, bridges, hallways — were crafted to create unexpected moments of living.</p>
     </div>
     <div class="proj-details">
-      <div class="detail-item">
+      <div>
         <div class="detail-label">Location</div>
         <div class="detail-value">Singapore</div>
       </div>
-      <div class="detail-item">
+      <div>
         <div class="detail-label">Year</div>
         <div class="detail-value">2020</div>
       </div>
-      <div class="detail-item">
-        <div class="detail-label">Type</div>
-        <div class="detail-value">Residential</div>
-      </div>
-      <div class="detail-item">
+      <div>
         <div class="detail-label">Role</div>
-        <div class="detail-value">Designer & Project Coordinator</div>
+        <div class="detail-value">Project Designer & Manager</div>
       </div>
-      <div class="detail-item">
+      <div>
+        <div class="detail-label">GFA</div>
+        <div class="detail-value">535 sqm</div>
+      </div>
+      <div>
         <div class="detail-label">Office</div>
-        <div class="detail-value">RT+Q Architects</div>
+        <div class="detail-value"><a href="https://www.rtq.com.sg" target="_self">RT+Q Architects</a></div>
       </div>
-      <div class="detail-item">
-        <div class="detail-label">Recognition</div>
-        <div class="detail-value">WAF Shortlist 2020<br>ArchDaily</div>
+      <div>
+        <div class="detail-label">Published</div>
+        <div class="detail-value"><a href="https://www.tatlerasia.com" target="_self">Singapore Tatler Homes</a></div>
       </div>
     </div>
   </div>
 
 </div>
+
+<script>
+/* ══════════════════════════════════════════
+   COLUMN IMAGE SYSTEM
+   To add real images: edit the projectImages object below.
+   Left column = photography, Right column = drawings/plans.
+   Each entry is an array of image paths relative to index.html.
+   ══════════════════════════════════════════ */
+const projectImages = {
+  'housefaces-L': [
+    'images/housefaces_photo1.jpg',
+    'images/housefaces_photo2.jpg',
+    'images/housefaces_photo3.jpg',
+    'images/housefaces_photo4.jpg',
+  ],
+  'housefaces-R': [
+    'images/housefaces_section.jpg',
+    'images/housefaces_plan_gf.jpg',
+    'images/housefaces_plan_1f.jpg',
+    'images/housefaces_detail.jpg',
+  ],
+};
+
+const colState = {}; // tracks current index per column
+const lbState  = { images:[], index:0 }; // lightbox state
+
+function initCol(projId, side) {
+  const key   = projId + '-' + side;
+  const imgs  = projectImages[key] || [];
+  const wrap  = document.getElementById('col-' + key);
+  const ctr   = document.getElementById('ctr-' + key);
+  if (!wrap) return;
+  colState[key] = 0;
+  wrap.innerHTML = '';
+  imgs.forEach((src, i) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = '';
+    if (i === 0) img.classList.add('visible');
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => openLightbox(key, i));
+    img.onerror = function(){ this.style.display='none' };
+    wrap.appendChild(img);
+  });
+  if (ctr) ctr.textContent = imgs.length ? '1 / ' + imgs.length : '';
+}
+
+function colStep(projId, side, dir) {
+  const key  = projId + '-' + side;
+  const imgs = projectImages[key] || [];
+  if (!imgs.length) return;
+  const wrap = document.getElementById('col-' + key);
+  const ctr  = document.getElementById('ctr-' + key);
+  const all  = wrap.querySelectorAll('img');
+  all[colState[key]].classList.remove('visible');
+  colState[key] = (colState[key] + dir + imgs.length) % imgs.length;
+  all[colState[key]].classList.add('visible');
+  if (ctr) ctr.textContent = (colState[key] + 1) + ' / ' + imgs.length;
+}
+
+/* Lightbox */
+function openLightbox(key, startIndex) {
+  const imgs = projectImages[key] || [];
+  if (!imgs.length) return;
+  lbState.images = imgs;
+  lbState.index  = startIndex;
+  document.getElementById('lb-img').src = imgs[startIndex];
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function lbStep(dir) {
+  lbState.index = (lbState.index + dir + lbState.images.length) % lbState.images.length;
+  document.getElementById('lb-img').src = lbState.images[lbState.index];
+}
+document.getElementById('lightbox').addEventListener('click', function(e){
+  if (e.target === this) closeLightbox();
+});
+document.addEventListener('keydown', e => {
+  const lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft')  lbStep(-1);
+  if (e.key === 'ArrowRight') lbStep(1);
+});
+
+/* Init columns when project page opens */
+const origShowProject = window.showProject;
+window.showProject = function(id) {
+  origShowProject && origShowProject(id);
+  if (id === 'housefaces') {
+    initCol('housefaces','L');
+    initCol('housefaces','R');
+  }
+};
+// also init on page load in case of direct link
+initCol('housefaces','L');
+initCol('housefaces','R');
+</script>
 </body>
 </html>
