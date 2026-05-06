@@ -759,7 +759,7 @@ const projects = [
   { img:'images/azenith_hover.jpg',   bg:'#d0cec8', cap:'A-Zenith — China 2023' },
   { img:'images/guangzhou_hover.jpg', bg:'#d5cec8', cap:'Guangzhou — 2022' },
   { img:'images/uthant_hover.jpg',    bg:'#c7cfcc', cap:'Kuala Lumpur — 2018' },
-  { img:'images/housefaces_hover.jpg',bg:'#cbc9d3', cap:'Singapore — 2020' },
+  { img:'images/housefaces/hover.jpg', bg:'#cbc9d3', cap:'Singapore — 2020' },
   { img:'images/courtyard_hover.jpg', bg:'#d0ccc8', cap:'Singapore — 2020' },
   { img:'images/inmemory_hover.jpg',  bg:'#d2cbc9', cap:'Singapore — 2019' },
 ];
@@ -1224,9 +1224,26 @@ const projectImages = {
   'uthant-L': ['images/uthant_photo1.jpg','images/uthant_photo2.jpg','images/uthant_photo3.jpg'],
   'uthant-R': ['images/uthant_drawing1.jpg','images/uthant_drawing2.jpg','images/uthant_drawing3.jpg'],
   /* ── House with Two Faces ── */
-  'housefaces-L': ['images/housefaces_photo1.jpg','images/housefaces_photo2.jpg','images/housefaces_photo3.jpg','images/housefaces_photo4.jpg'],
-  'housefaces-R': ['images/housefaces_drawing_Site_Diagram.jpg','images/housefaces_drawing_plan.jpg','images/housefaces_drawing_section.jpg'],
-  'housefaces-B': ['images/housefaces_beforeafter1.jpg','images/housefaces_beforeafter2.jpg'],
+  'housefaces-L': [
+    'images/housefaces/photo_nigh.jpg',
+    'images/housefaces/photo_living.jpg',
+    'images/housefaces/photo_red_bridge.jpg',
+    'images/housefaces/photo_rear.jpg',
+    'images/housefaces/photo_rear_stair.jpg',
+    'images/housefaces/photo_courtyard.jpg',
+    'images/housefaces/photo_D1.jpg',
+    'images/housefaces/photo_D2.jpg',
+  ],
+  'housefaces-R': [
+    'images/housefaces/drawing_site1.jpg',
+    'images/housefaces/drawing_site2.jpg',
+    'images/housefaces/drawing_section.jpg',
+    'images/housefaces/drawing_plan.jpg',
+    'images/housefaces/drawing_courtyard.jpg',
+    'images/housefaces/drawing_sketchup.jpg',
+    'images/housefaces/drawing_detail.jpg',
+  ],
+  'housefaces-B': ['images/housefaces/beforeafter1.jpg','images/housefaces/beforeafter2.jpg'],
   /* ── Courtyard House ── */
   'courtyard-L': ['images/courtyard_photo1.jpg','images/courtyard_photo2.jpg','images/courtyard_photo3.jpg'],
   'courtyard-R': ['images/courtyard_drawing1.jpg','images/courtyard_drawing2.jpg','images/courtyard_drawing3.jpg'],
@@ -1252,7 +1269,7 @@ function initCol(projId, side) {
     img.alt = '';
     if (i === 0) img.classList.add('visible');
     img.style.cursor = 'zoom-in';
-    img.addEventListener('click', () => openLightbox(key, i));
+    img.addEventListener('click', () => openLightbox(key, colState[key]));
     img.onerror = function(){ this.style.display='none' };
     wrap.appendChild(img);
   });
