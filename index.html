@@ -612,6 +612,19 @@ nav a.active{color:var(--black)}
   .proj-info{grid-template-columns:1fr;gap:2.5rem}
   .proj-title{font-size:22px;white-space:normal}
 }
+
+/* ── Template B — single centred row ── */
+.proj-columns-b{
+  padding:1.25rem 5% 0;
+}
+.proj-col-b{
+  width:100%;
+}
+.proj-col-b .col-img-wrap{
+  width:100%;
+  background:#d8d3cd;
+  overflow:hidden;
+}
 </style>
 </head>
 <body>
@@ -1122,10 +1135,9 @@ form.addEventListener('submit', async e => {
   <span class="lb-arrow" id="lb-next" onclick="lbStep(1)">Next &#8594;</span>
 </div>
 
-<!-- ═══ PROJECT: House with Two Faces ═══ -->
+<!-- ═══ PROJECT: House with Two Faces (Template B) ═══ -->
 <div id="pg-housefaces" class="proj-page">
 
-  <!-- Project header: Works centred, no rule, title + close below -->
   <div class="proj-topbar">
     <div class="proj-topbar-inner" style="justify-content:center;">
       <span class="breadcrumb-label" onclick="showPage('works','nav-works')">Works</span>
@@ -1134,18 +1146,15 @@ form.addEventListener('submit', async e => {
 
   <div class="proj-title-wrap">
     <div style="display:flex;justify-content:space-between;align-items:baseline;">
-      <h1 class="proj-title">A Courtyard House</h1>
+      <h1 class="proj-title">House with Two Faces</h1>
       <span class="close-btn" onclick="showPage('works','nav-works')">&#215;</span>
     </div>
   </div>
 
-  <!-- Two columns — left: photography, right: drawings -->
-  <!-- Add real image paths to the arrays in the JS below -->
+  <!-- Row 1: Two columns — left: photography, right: drawings -->
   <div class="proj-columns">
     <div class="proj-col">
-      <div class="col-img-wrap" id="col-housefaces-L" style="aspect-ratio:4/3">
-        <!-- images injected by JS -->
-      </div>
+      <div class="col-img-wrap" id="col-housefaces-L" style="aspect-ratio:4/3"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStep('housefaces','L',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-housefaces-L"></span>
@@ -1153,9 +1162,7 @@ form.addEventListener('submit', async e => {
       </div>
     </div>
     <div class="proj-col">
-      <div class="col-img-wrap" id="col-housefaces-R" style="aspect-ratio:4/3">
-        <!-- images injected by JS -->
-      </div>
+      <div class="col-img-wrap" id="col-housefaces-R" style="aspect-ratio:4/3"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStep('housefaces','R',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-housefaces-R"></span>
@@ -1164,36 +1171,33 @@ form.addEventListener('submit', async e => {
     </div>
   </div>
 
+  <!-- Row 2 (Template B): Single centred column — before/after and narrative images -->
+  <div class="proj-columns-b">
+    <div class="proj-col-b">
+      <div class="col-img-wrap" id="col-housefaces-B" style="aspect-ratio:16/7"></div>
+      <div class="col-nav">
+        <span class="col-arrow" onclick="colStep('housefaces','B',-1)">&#8592; Prev</span>
+        <span class="col-counter" id="ctr-housefaces-B"></span>
+        <span class="col-arrow" onclick="colStep('housefaces','B',1)">Next &#8594;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project info -->
   <div class="proj-info">
     <div class="proj-text">
-      <p>A three-generation family inherited a solid, dim house and needed it entirely rethought. A decent pool, a garden, a koi pond and a hobby room — the brief was domestic and specific.</p>
-      <p>Three hierarchic blocks arranged in a C-shape emerged around a central courtyard. Light enters through voids punched through ceilings and walls, coloured in different shades drawn from Le Corbusier's palette. The linkages between blocks — staircases, bridges, hallways — were crafted to create unexpected moments of living.</p>
+      <p>The house, originally built in the 1930s as a shophouse, was acquired by a young couple with a passion for modern design and vernacular art. The design bridges old and new — preserving the conservation facade while introducing a contemporary rear addition separated by a water court that draws light deep into the plan. The tiered profile of the new addition responds to Singapore's urban envelope regulations, turning a constraint into an architectural opportunity.</p>
+      <p>Double-height volumes, a hidden mezzanine, bridges and spiral staircases address the limits of a narrow plot while enriching daily life with changing spatial experiences. The vocabulary draws from early modernism — steel, glass, industrial craftsmanship — with red-painted fire-rated steel becoming a defining material element, a quiet reference to the Maison de Verre in Paris.</p>
     </div>
     <div class="proj-details">
-      <div>
-        <div class="detail-label">Location</div>
-        <div class="detail-value">Singapore</div>
-      </div>
-      <div>
-        <div class="detail-label">Year</div>
-        <div class="detail-value">2020</div>
-      </div>
-      <div>
-        <div class="detail-label">Role</div>
-        <div class="detail-value">Project Designer & Manager</div>
-      </div>
-      <div>
-        <div class="detail-label">GFA</div>
-        <div class="detail-value">535 sqm</div>
-      </div>
-      <div>
-        <div class="detail-label">Office</div>
-        <div class="detail-value"><a href="https://www.rtq.com.sg" target="_self">RT+Q Architects</a></div>
-      </div>
-      <div>
-        <div class="detail-label">Published</div>
-        <div class="detail-value"><a href="https://www.tatlerasia.com" target="_self">Singapore Tatler Homes</a></div>
-      </div>
+      <div><div class="detail-label">Location</div><div class="detail-value">Singapore</div></div>
+      <div><div class="detail-label">Year</div><div class="detail-value">2020</div></div>
+      <div><div class="detail-label">Status</div><div class="detail-value">Built</div></div>
+      <div><div class="detail-label">GFA</div><div class="detail-value">324 sqm</div></div>
+      <div><div class="detail-label">Role</div><div class="detail-value">Project Designer & Manager</div></div>
+      <div><div class="detail-label">Office</div><div class="detail-value"><a href="https://www.rtq.com.sg" target="_self">RT+Q Architects</a></div></div>
+      <div><div class="detail-label">Published</div><div class="detail-value"><a href="https://www.archdaily.com/937953/house-with-two-faces-rt-plus-q-architects" target="_self">ArchDaily</a></div></div>
+      <div><div class="detail-label">Recognition</div><div class="detail-value">WAF 2021 Shortlist</div></div>
     </div>
   </div>
 
@@ -1220,8 +1224,9 @@ const projectImages = {
   'uthant-L': ['images/uthant_photo1.jpg','images/uthant_photo2.jpg','images/uthant_photo3.jpg'],
   'uthant-R': ['images/uthant_drawing1.jpg','images/uthant_drawing2.jpg','images/uthant_drawing3.jpg'],
   /* ── House with Two Faces ── */
-  'housefaces-L': ['images/housefaces_photo1.jpg','images/housefaces_photo2.jpg','images/housefaces_photo3.jpg'],
-  'housefaces-R': ['images/housefaces_drawing1.jpg','images/housefaces_drawing2.jpg','images/housefaces_drawing3.jpg'],
+  'housefaces-L': ['images/housefaces_photo1.jpg','images/housefaces_photo2.jpg','images/housefaces_photo3.jpg','images/housefaces_photo4.jpg'],
+  'housefaces-R': ['images/housefaces_drawing_Site_Diagram.jpg','images/housefaces_drawing_plan.jpg','images/housefaces_drawing_section.jpg'],
+  'housefaces-B': ['images/housefaces_beforeafter1.jpg','images/housefaces_beforeafter2.jpg'],
   /* ── Courtyard House ── */
   'courtyard-L': ['images/courtyard_photo1.jpg','images/courtyard_photo2.jpg','images/courtyard_photo3.jpg'],
   'courtyard-R': ['images/courtyard_drawing1.jpg','images/courtyard_drawing2.jpg','images/courtyard_drawing3.jpg'],
@@ -1305,17 +1310,25 @@ window.showProject = function(id) {
     'azenith':['azenith'],
     'guangzhou':['guangzhou'],
     'uthant':['uthant'],
-    'housefaces':['housefaces'],
+    'housefaces':['housefaces','housefaces_B'],
     'courtyard':['courtyard'],
     'inmemory':['inmemory'],
   };
   if (cols[id]) {
-    cols[id].forEach(k => { initCol(k,'L'); initCol(k,'R'); });
+    cols[id].forEach(k => {
+      if (k.endsWith('_B')) {
+        initCol(k.replace('_B',''), 'B');
+      } else {
+        initCol(k,'L');
+        initCol(k,'R');
+      }
+    });
   }
 };
 // also init on page load in case of direct link
 initCol('housefaces','L');
 initCol('housefaces','R');
+initCol('housefaces','B');
 </script>
 </body>
 </html>
