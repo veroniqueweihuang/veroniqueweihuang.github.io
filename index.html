@@ -472,23 +472,17 @@ nav a.active{color:var(--black)}
 
 /* Image slot — fixed height, images cycle */
 .col-img-wrap{
-  position:relative;
   width:100%;
   background:#d8d3cd;
   overflow:hidden;
-  min-height:320px;
+  min-height:40px;
 }
 .col-img-wrap img{
   width:100%;
-  height:100%;
-  object-fit:cover;
+  height:auto;
   display:block;
-  position:absolute;
-  inset:0;
-  opacity:0;
-  transition:opacity 0.4s ease;
+  transition:opacity 0.3s ease;
 }
-.col-img-wrap img.visible{opacity:1}
 
 /* Column nav arrows */
 .col-nav{
@@ -624,6 +618,7 @@ nav a.active{color:var(--black)}
   width:100%;
   background:#d8d3cd;
   overflow:hidden;
+  min-height:40px;
 }
 </style>
 </head>
@@ -860,7 +855,7 @@ form.addEventListener('submit', async e => {
   </div>
   <div class="proj-columns">
     <div class="proj-col">
-      <div class="col-img-wrap" id="col-kharkiv-L" style="aspect-ratio:4/3"></div>
+      <div class="col-img-wrap" id="col-kharkiv-L"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStep('kharkiv','L',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-kharkiv-L"></span>
@@ -868,7 +863,7 @@ form.addEventListener('submit', async e => {
       </div>
     </div>
     <div class="proj-col">
-      <div class="col-img-wrap" id="col-kharkiv-R" style="aspect-ratio:4/3"></div>
+      <div class="col-img-wrap" id="col-kharkiv-R"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStep('kharkiv','R',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-kharkiv-R"></span>
@@ -907,7 +902,7 @@ form.addEventListener('submit', async e => {
   </div>
   <div class="proj-columns">
     <div class="proj-col">
-      <div class="col-img-wrap" id="col-azenith-L" style="aspect-ratio:4/3"></div>
+      <div class="col-img-wrap" id="col-azenith-L"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStep('azenith','L',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-azenith-L"></span>
@@ -915,7 +910,7 @@ form.addEventListener('submit', async e => {
       </div>
     </div>
     <div class="proj-col">
-      <div class="col-img-wrap" id="col-azenith-R" style="aspect-ratio:4/3"></div>
+      <div class="col-img-wrap" id="col-azenith-R"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStep('azenith','R',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-azenith-R"></span>
@@ -953,7 +948,7 @@ form.addEventListener('submit', async e => {
   </div>
   <div class="proj-columns">
     <div class="proj-col">
-      <div class="col-img-wrap" id="col-guangzhou-L" style="aspect-ratio:4/3"></div>
+      <div class="col-img-wrap" id="col-guangzhou-L"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStep('guangzhou','L',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-guangzhou-L"></span>
@@ -961,7 +956,7 @@ form.addEventListener('submit', async e => {
       </div>
     </div>
     <div class="proj-col">
-      <div class="col-img-wrap" id="col-guangzhou-R" style="aspect-ratio:4/3"></div>
+      <div class="col-img-wrap" id="col-guangzhou-R"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStep('guangzhou','R',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-guangzhou-R"></span>
@@ -1000,7 +995,7 @@ form.addEventListener('submit', async e => {
   </div>
   <div class="proj-columns">
     <div class="proj-col">
-      <div class="col-img-wrap" id="col-uthant-L" style="aspect-ratio:4/3"></div>
+      <div class="col-img-wrap" id="col-uthant-L"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStep('uthant','L',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-uthant-L"></span>
@@ -1008,7 +1003,7 @@ form.addEventListener('submit', async e => {
       </div>
     </div>
     <div class="proj-col">
-      <div class="col-img-wrap" id="col-uthant-R" style="aspect-ratio:4/3"></div>
+      <div class="col-img-wrap" id="col-uthant-R"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStep('uthant','R',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-uthant-R"></span>
@@ -1048,7 +1043,7 @@ form.addEventListener('submit', async e => {
   </div>
   <div class="proj-columns">
     <div class="proj-col">
-      <div class="col-img-wrap" id="col-courtyard-L" style="aspect-ratio:4/3"></div>
+      <div class="col-img-wrap" id="col-courtyard-L"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStep('courtyard','L',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-courtyard-L"></span>
@@ -1056,7 +1051,7 @@ form.addEventListener('submit', async e => {
       </div>
     </div>
     <div class="proj-col">
-      <div class="col-img-wrap" id="col-courtyard-R" style="aspect-ratio:4/3"></div>
+      <div class="col-img-wrap" id="col-courtyard-R"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStep('courtyard','R',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-courtyard-R"></span>
@@ -1096,7 +1091,7 @@ form.addEventListener('submit', async e => {
   </div>
   <div class="proj-columns">
     <div class="proj-col">
-      <div class="col-img-wrap" id="col-inmemory-L" style="aspect-ratio:4/3"></div>
+      <div class="col-img-wrap" id="col-inmemory-L"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStep('inmemory','L',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-inmemory-L"></span>
@@ -1104,7 +1099,7 @@ form.addEventListener('submit', async e => {
       </div>
     </div>
     <div class="proj-col">
-      <div class="col-img-wrap" id="col-inmemory-R" style="aspect-ratio:4/3"></div>
+      <div class="col-img-wrap" id="col-inmemory-R"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStep('inmemory','R',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-inmemory-R"></span>
@@ -1154,7 +1149,7 @@ form.addEventListener('submit', async e => {
   <!-- Row 1: Two columns — left: photography, right: drawings -->
   <div class="proj-columns">
     <div class="proj-col">
-      <div class="col-img-wrap" id="col-housefaces-L" style="aspect-ratio:4/3"></div>
+      <div class="col-img-wrap" id="col-housefaces-L"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStep('housefaces','L',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-housefaces-L"></span>
@@ -1162,7 +1157,7 @@ form.addEventListener('submit', async e => {
       </div>
     </div>
     <div class="proj-col">
-      <div class="col-img-wrap" id="col-housefaces-R" style="aspect-ratio:4/3"></div>
+      <div class="col-img-wrap" id="col-housefaces-R"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStep('housefaces','R',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-housefaces-R"></span>
@@ -1174,7 +1169,7 @@ form.addEventListener('submit', async e => {
   <!-- Row 2 (Template B): Single centred column — before/after and narrative images -->
   <div class="proj-columns-b">
     <div class="proj-col-b">
-      <div class="col-img-wrap" id="col-housefaces-B" style="aspect-ratio:16/7"></div>
+      <div class="col-img-wrap" id="col-housefaces-B"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStep('housefaces','B',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-housefaces-B"></span>
@@ -1256,36 +1251,36 @@ const colState = {}; // tracks current index per column
 const lbState  = { images:[], index:0 }; // lightbox state
 
 function initCol(projId, side) {
-  const key   = projId + '-' + side;
-  const imgs  = projectImages[key] || [];
-  const wrap  = document.getElementById('col-' + key);
-  const ctr   = document.getElementById('ctr-' + key);
-  if (!wrap) return;
+  const key  = projId + '-' + side;
+  const imgs = projectImages[key] || [];
+  const wrap = document.getElementById('col-' + key);
+  const ctr  = document.getElementById('ctr-' + key);
+  if (!wrap || !imgs.length) return;
   colState[key] = 0;
   wrap.innerHTML = '';
-  imgs.forEach((src, i) => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.alt = '';
-    if (i === 0) img.classList.add('visible');
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', () => openLightbox(key, colState[key]));
-    img.onerror = function(){ this.style.display='none' };
-    wrap.appendChild(img);
-  });
-  if (ctr) ctr.textContent = imgs.length ? '1 / ' + imgs.length : '';
+  // Single image — src swapped on navigate
+  const img = document.createElement('img');
+  img.src = imgs[0];
+  img.alt = '';
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', () => openLightbox(key, colState[key]));
+  img.onerror = function(){ this.style.background='#d8d3cd'; };
+  wrap.appendChild(img);
+  if (ctr) ctr.textContent = imgs.length > 1 ? '1 / ' + imgs.length : '';
 }
 
 function colStep(projId, side, dir) {
   const key  = projId + '-' + side;
   const imgs = projectImages[key] || [];
-  if (!imgs.length) return;
+  if (imgs.length <= 1) return;
   const wrap = document.getElementById('col-' + key);
   const ctr  = document.getElementById('ctr-' + key);
-  const all  = wrap.querySelectorAll('img');
-  all[colState[key]].classList.remove('visible');
+  const img  = wrap.querySelector('img');
+  if (!img) return;
   colState[key] = (colState[key] + dir + imgs.length) % imgs.length;
-  all[colState[key]].classList.add('visible');
+  img.style.opacity = '0';
+  img.src = imgs[colState[key]];
+  img.onload = () => { img.style.opacity = '1'; };
   if (ctr) ctr.textContent = (colState[key] + 1) + ' / ' + imgs.length;
 }
 
