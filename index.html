@@ -445,6 +445,31 @@ nav a.active{color:var(--black)}
   padding:4px 0 4px 16px;
 }
 .close-btn:hover{color:var(--black)}
+.close-btn-fixed{
+  position:fixed;
+  top:1.5rem;
+  right:2.5rem;
+  font-size:26px;
+  font-weight:200;
+  color:var(--mid);
+  cursor:pointer;
+  line-height:1;
+  transition:color 0.18s;
+  font-family:var(--sans);
+  z-index:200;
+  display:none;
+}
+.close-btn-fixed:hover{color:var(--black)}
+.proj-copyright{
+  padding:2rem 5% 4rem;
+  text-align:right;
+  font-size:10px;
+  letter-spacing:0.14em;
+  color:var(--faint);
+  text-transform:uppercase;
+  border-top:0.5px solid var(--faint);
+  margin-top:2rem;
+}
 
 /* Project title */
 .proj-title-wrap{
@@ -452,7 +477,7 @@ nav a.active{color:var(--black)}
   margin-bottom:2rem;
 }
 .proj-title{
-  font-family:var(--serif);
+  font-family:var(--sans);
   font-weight:300;
   font-size:28px;
   letter-spacing:0.04em;
@@ -809,6 +834,7 @@ function showPage(pg, navId) {
   window.scrollTo(0, 0);
   card.style.display = 'none';
   wrap && wrap.classList.remove('hovering');
+  document.getElementById('fixed-close').style.display = 'none';
 }
 
 /* ── Contact form: prevent default, submit via fetch for nicer UX ── */
@@ -850,7 +876,7 @@ form.addEventListener('submit', async e => {
   <div class="proj-title-wrap">
     <div style="display:flex;justify-content:space-between;align-items:baseline;">
       <h1 class="proj-title">Architecture at the Intersection of Destination and Transition</h1>
-      <span class="close-btn" onclick="showPage('works','nav-works')">&#215;</span>
+      
     </div>
   </div>
   <div class="proj-columns">
@@ -885,6 +911,8 @@ form.addEventListener('submit', async e => {
       <div><div class="detail-label">Organisation</div><div class="detail-value"><a href="https://www.normanfosterfoundation.org" target="_self">Norman Foster Foundation</a></div></div>
     </div>
   </div>
+
+  <div class="proj-copyright">© Veronique Huang Wei</div>
 </div>
 
 <!-- ═══ PROJECT: A-Zenith ═══ -->
@@ -897,7 +925,7 @@ form.addEventListener('submit', async e => {
   <div class="proj-title-wrap">
     <div style="display:flex;justify-content:space-between;align-items:baseline;">
       <h1 class="proj-title">A-Zenith Factory Showroom</h1>
-      <span class="close-btn" onclick="showPage('works','nav-works')">&#215;</span>
+      
     </div>
   </div>
   <div class="proj-columns">
@@ -931,6 +959,8 @@ form.addEventListener('submit', async e => {
       <div><div class="detail-label">Office</div><div class="detail-value">Studio LÁNG</div></div>
     </div>
   </div>
+
+  <div class="proj-copyright">© Veronique Huang Wei</div>
 </div>
 
 <!-- ═══ PROJECT: Guangzhou ═══ -->
@@ -943,7 +973,7 @@ form.addEventListener('submit', async e => {
   <div class="proj-title-wrap">
     <div style="display:flex;justify-content:space-between;align-items:baseline;">
       <h1 class="proj-title">Guangzhou Fashion Headquarters</h1>
-      <span class="close-btn" onclick="showPage('works','nav-works')">&#215;</span>
+      
     </div>
   </div>
   <div class="proj-columns">
@@ -978,6 +1008,8 @@ form.addEventListener('submit', async e => {
       <div><div class="detail-label">Office</div><div class="detail-value"><a href="https://www.jeannouvel.com/en/" target="_self">Atelier Jean Nouvel</a></div></div>
     </div>
   </div>
+
+  <div class="proj-copyright">© Veronique Huang Wei</div>
 </div>
 
 <!-- ═══ PROJECT: U-Thant ═══ -->
@@ -990,7 +1022,7 @@ form.addEventListener('submit', async e => {
   <div class="proj-title-wrap">
     <div style="display:flex;justify-content:space-between;align-items:baseline;">
       <h1 class="proj-title">U-Thant Place</h1>
-      <span class="close-btn" onclick="showPage('works','nav-works')">&#215;</span>
+      
     </div>
   </div>
   <div class="proj-columns">
@@ -1026,6 +1058,8 @@ form.addEventListener('submit', async e => {
       <div><div class="detail-label">Office</div><div class="detail-value"><a href="https://www.rtq.com.sg" target="_self">RT+Q Architects</a></div></div>
     </div>
   </div>
+
+  <div class="proj-copyright">© Veronique Huang Wei</div>
 </div>
 
 <!-- ═══ PROJECT: Courtyard House ═══ -->
@@ -1038,7 +1072,7 @@ form.addEventListener('submit', async e => {
   <div class="proj-title-wrap">
     <div style="display:flex;justify-content:space-between;align-items:baseline;">
       <h1 class="proj-title">A Courtyard House</h1>
-      <span class="close-btn" onclick="showPage('works','nav-works')">&#215;</span>
+      
     </div>
   </div>
   <div class="proj-columns">
@@ -1074,6 +1108,8 @@ form.addEventListener('submit', async e => {
       <div><div class="detail-label">Office</div><div class="detail-value"><a href="https://www.rtq.com.sg" target="_self">RT+Q Architects</a></div></div>
     </div>
   </div>
+
+  <div class="proj-copyright">© Veronique Huang Wei</div>
 </div>
 
 <!-- ═══ PROJECT: In Memory of ═══ -->
@@ -1086,7 +1122,7 @@ form.addEventListener('submit', async e => {
   <div class="proj-title-wrap">
     <div style="display:flex;justify-content:space-between;align-items:baseline;">
       <h1 class="proj-title">In Memory of...</h1>
-      <span class="close-btn" onclick="showPage('works','nav-works')">&#215;</span>
+      
     </div>
   </div>
   <div class="proj-columns">
@@ -1121,6 +1157,8 @@ form.addEventListener('submit', async e => {
       <div><div class="detail-label">Recognition</div><div class="detail-value">SIA Merit Award 2020</div></div>
     </div>
   </div>
+
+  <div class="proj-copyright">© Veronique Huang Wei</div>
 </div>
 
 <!-- ═══ PROJECT: House with Two Faces (Template B) ═══ -->
@@ -1135,7 +1173,7 @@ form.addEventListener('submit', async e => {
   <div class="proj-title-wrap">
     <div style="display:flex;justify-content:space-between;align-items:baseline;">
       <h1 class="proj-title">House with Two Faces</h1>
-      <span class="close-btn" onclick="showPage('works','nav-works')">&#215;</span>
+      
     </div>
   </div>
 
@@ -1163,7 +1201,7 @@ form.addEventListener('submit', async e => {
   <div class="proj-info">
     <div class="proj-text">
       <p>The house, originally built in the 1930s as a shophouse, was acquired by a young couple with a passion for modern design and vernacular art. The design bridges old and new — preserving the conservation facade while introducing a contemporary rear addition separated by a water court that draws light deep into the plan. The tiered profile of the new addition responds to Singapore's urban envelope regulations, turning a constraint into an architectural opportunity.</p>
-      <p>Double-height volumes, a hidden mezzanine, bridges and spiral staircases address the limits of a narrow plot while enriching daily life with changing spatial experiences. The vocabulary draws from early modernism — steel, glass, industrial craftsmanship — with red-painted fire-rated steel becoming a defining material element, a quiet reference to the Maison de Verre in Paris.</p>
+      <p>Double-height volumes, a hidden mezzanine, bridges and spiral staircases address the limits of a narrow plot while enriching daily life with changing spatial experiences. The vocabulary draws from early modernism — steel, glass, industrial craftsmanship — with red-painted fire-rated steel becoming a defining material element, a quiet homage to the Maison de Verre in Paris.</p>
     </div>
     <div class="proj-details">
       <div><div class="detail-label">Location</div><div class="detail-value">Singapore</div></div>
@@ -1177,6 +1215,8 @@ form.addEventListener('submit', async e => {
     </div>
   </div>
 
+
+  <div class="proj-copyright">© Veronique Huang Wei</div>
 </div>
 
 <script>
@@ -1274,6 +1314,7 @@ function lbStep(dir) {
 const origShowProject = window.showProject;
 window.showProject = function(id) {
   origShowProject && origShowProject(id);
+  document.getElementById('fixed-close').style.display = 'block';
   const cols = {
     'kharkiv':['kharkiv'],
     'azenith':['azenith'],
@@ -1296,5 +1337,6 @@ window.showProject = function(id) {
 initCol('housefaces','L');
 initCol('housefaces','R');
 </script>
+<span class="close-btn-fixed" id="fixed-close" onclick="showPage('works','nav-works')" style="display:none">&#215;</span>
 </body>
 </html>
