@@ -618,7 +618,6 @@ nav a.active{color:var(--black)}
   width:100%;
   background:#d8d3cd;
   overflow:hidden;
-  min-height:40px;
 }
 </style>
 </head>
@@ -719,9 +718,9 @@ nav a.active{color:var(--black)}
       FORMSPREE SETUP:
       1. Go to formspree.io and create a free account
       2. Create a new form — you will receive a unique endpoint URL
-      3. Replace "YOUR_FORM_ID" below with your actual ID (looks like: xrgvabc)
+      3. Replace "mwvyqyyd" below with your actual ID (looks like: xrgvabc)
     -->
-    <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form id="contact-form" action="https://formspree.io/f/mwvyqyyd" method="POST">
       <div class="field">
         <label>Name</label>
         <input type="text" name="name" required autocomplete="off">
@@ -1122,13 +1121,6 @@ form.addEventListener('submit', async e => {
     </div>
   </div>
 </div>
-<!-- ═══ LIGHTBOX ═══ -->
-<div id="lightbox">
-  <span class="lb-close" onclick="closeLightbox()">&#215;</span>
-  <span class="lb-arrow" id="lb-prev" onclick="lbStep(-1)">&#8592; Prev</span>
-  <img id="lb-img" src="" alt="">
-  <span class="lb-arrow" id="lb-next" onclick="lbStep(1)">Next &#8594;</span>
-</div>
 
 <!-- ═══ PROJECT: House with Two Faces (Template B) ═══ -->
 <div id="pg-housefaces" class="proj-page">
@@ -1162,18 +1154,6 @@ form.addEventListener('submit', async e => {
         <span class="col-arrow" onclick="colStep('housefaces','R',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-housefaces-R"></span>
         <span class="col-arrow" onclick="colStep('housefaces','R',1)">Next &#8594;</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Row 2 (Template B): Single centred column — before/after and narrative images -->
-  <div class="proj-columns-b">
-    <div class="proj-col-b">
-      <div class="col-img-wrap" id="col-housefaces-B"></div>
-      <div class="col-nav">
-        <span class="col-arrow" onclick="colStep('housefaces','B',-1)">&#8592; Prev</span>
-        <span class="col-counter" id="ctr-housefaces-B"></span>
-        <span class="col-arrow" onclick="colStep('housefaces','B',1)">Next &#8594;</span>
       </div>
     </div>
   </div>
@@ -1238,7 +1218,6 @@ const projectImages = {
     'images/housefaces/drawing_sketchup.jpg',
     'images/housefaces/drawing_detail.jpg',
   ],
-  'housefaces-B': ['images/housefaces/beforeafter1.jpg','images/housefaces/beforeafter2.jpg'],
   /* ── Courtyard House ── */
   'courtyard-L': ['images/courtyard_photo1.jpg','images/courtyard_photo2.jpg','images/courtyard_photo3.jpg'],
   'courtyard-R': ['images/courtyard_drawing1.jpg','images/courtyard_drawing2.jpg','images/courtyard_drawing3.jpg'],
@@ -1248,7 +1227,6 @@ const projectImages = {
 };
 
 const colState = {}; // tracks current index per column
-const lbState  = { images:[], index:0 }; // lightbox state
 
 function initCol(projId, side) {
   const key  = projId + '-' + side;
@@ -1262,8 +1240,6 @@ function initCol(projId, side) {
   const img = document.createElement('img');
   img.src = imgs[0];
   img.alt = '';
-  img.style.cursor = 'zoom-in';
-  img.addEventListener('click', () => openLightbox(key, colState[key]));
   img.onerror = function(){ this.style.background='#d8d3cd'; };
   wrap.appendChild(img);
   if (ctr) ctr.textContent = imgs.length > 1 ? '1 / ' + imgs.length : '';
@@ -1284,16 +1260,6 @@ function colStep(projId, side, dir) {
   if (ctr) ctr.textContent = (colState[key] + 1) + ' / ' + imgs.length;
 }
 
-/* Lightbox */
-function openLightbox(key, startIndex) {
-  const imgs = projectImages[key] || [];
-  if (!imgs.length) return;
-  lbState.images = imgs;
-  lbState.index  = startIndex;
-  document.getElementById('lb-img').src = imgs[startIndex];
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('open');
   document.body.style.overflow = '';
@@ -1302,16 +1268,6 @@ function lbStep(dir) {
   lbState.index = (lbState.index + dir + lbState.images.length) % lbState.images.length;
   document.getElementById('lb-img').src = lbState.images[lbState.index];
 }
-document.getElementById('lightbox').addEventListener('click', function(e){
-  if (e.target === this) closeLightbox();
-});
-document.addEventListener('keydown', e => {
-  const lb = document.getElementById('lightbox');
-  if (!lb.classList.contains('open')) return;
-  if (e.key === 'Escape') closeLightbox();
-  if (e.key === 'ArrowLeft')  lbStep(-1);
-  if (e.key === 'ArrowRight') lbStep(1);
-});
 
 /* Init columns when project page opens */
 const origShowProject = window.showProject;
@@ -1322,25 +1278,22 @@ window.showProject = function(id) {
     'azenith':['azenith'],
     'guangzhou':['guangzhou'],
     'uthant':['uthant'],
-    'housefaces':['housefaces','housefaces_B'],
+    'housefaces':['housefaces'],
     'courtyard':['courtyard'],
     'inmemory':['inmemory'],
   };
   if (cols[id]) {
     cols[id].forEach(k => {
-      if (k.endsWith('_B')) {
-        initCol(k.replace('_B',''), 'B');
-      } else {
+
         initCol(k,'L');
         initCol(k,'R');
-      }
+      
     });
   }
 };
 // also init on page load in case of direct link
 initCol('housefaces','L');
 initCol('housefaces','R');
-initCol('housefaces','B');
 </script>
 </body>
 </html>
