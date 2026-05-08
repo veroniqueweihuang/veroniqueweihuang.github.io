@@ -396,25 +396,27 @@ nav a.active{color:var(--black)}
   z-index:100;
   overflow-y:auto;
   overflow-x:hidden;
-  padding-top:80px;
+  padding-top:90px;
 }
 .proj-page.active{display:block}
 
 /* Top bar — same as main header */
 .proj-topbar{
-  padding:1.5rem 3% 0;
+  padding:2.25rem 3% 0;
   position:fixed;
   top:0;
   left:0;
   right:0;
   background:var(--bg);
   z-index:100;
+  box-sizing:border-box;
 }
 .proj-topbar-inner{
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding-bottom:1.2rem;
+  width:100%;
 }
 .proj-topbar-name{
   font-family:var(--serif);
@@ -536,7 +538,7 @@ nav a.active{color:var(--black)}
 }
 /* Left column photos — grey frame + white border */
 .proj-col:first-child .col-img-wrap{
-  padding:12px;
+  padding:24px;
   background:#f9f8f6;
   outline:1px solid #e4e0db;
   box-sizing:border-box;
@@ -919,7 +921,7 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: Kharkiv ═══ -->
 <div id="pg-kharkiv" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner" style="display:flex;justify-content:space-between;align-items:center;padding-bottom:1.2rem;">
+    <div class="proj-topbar-inner">
       <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
       <nav style="display:flex;gap:2.25rem;align-items:center;">
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
@@ -927,7 +929,6 @@ form.addEventListener('submit', async e => {
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
     </div>
-    <div class="proj-topbar-rule"></div>
   </div>
   <div class="proj-title-wrap">
     <div style="display:flex;justify-content:space-between;align-items:baseline;">
@@ -981,7 +982,7 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: A-Zenith ═══ -->
 <div id="pg-azenith" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner" style="display:flex;justify-content:space-between;align-items:center;padding-bottom:1.2rem;">
+    <div class="proj-topbar-inner">
       <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
       <nav style="display:flex;gap:2.25rem;align-items:center;">
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
@@ -989,7 +990,6 @@ form.addEventListener('submit', async e => {
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
     </div>
-    <div class="proj-topbar-rule"></div>
   </div>
   <div class="proj-title-wrap">
     <div style="display:flex;justify-content:space-between;align-items:baseline;">
@@ -1035,7 +1035,7 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: Guangzhou ═══ -->
 <div id="pg-guangzhou" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner" style="display:flex;justify-content:space-between;align-items:center;padding-bottom:1.2rem;">
+    <div class="proj-topbar-inner">
       <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
       <nav style="display:flex;gap:2.25rem;align-items:center;">
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
@@ -1043,7 +1043,6 @@ form.addEventListener('submit', async e => {
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
     </div>
-    <div class="proj-topbar-rule"></div>
   </div>
   <div class="proj-title-wrap">
     <div style="display:flex;justify-content:space-between;align-items:baseline;">
@@ -1090,7 +1089,7 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: U-Thant ═══ -->
 <div id="pg-uthant" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner" style="display:flex;justify-content:space-between;align-items:center;padding-bottom:1.2rem;">
+    <div class="proj-topbar-inner">
       <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
       <nav style="display:flex;gap:2.25rem;align-items:center;">
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
@@ -1098,7 +1097,6 @@ form.addEventListener('submit', async e => {
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
     </div>
-    <div class="proj-topbar-rule"></div>
   </div>
   <div class="proj-title-wrap">
     <div style="display:flex;justify-content:space-between;align-items:baseline;">
@@ -1146,7 +1144,7 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: Courtyard House ═══ -->
 <div id="pg-courtyard" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner" style="display:flex;justify-content:space-between;align-items:center;padding-bottom:1.2rem;">
+    <div class="proj-topbar-inner">
       <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
       <nav style="display:flex;gap:2.25rem;align-items:center;">
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
@@ -1154,7 +1152,6 @@ form.addEventListener('submit', async e => {
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
     </div>
-    <div class="proj-topbar-rule"></div>
   </div>
   <div class="proj-title-wrap">
     <div style="display:flex;justify-content:space-between;align-items:baseline;">
@@ -1202,7 +1199,7 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: In Memory of ═══ -->
 <div id="pg-inmemory" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner" style="display:flex;justify-content:space-between;align-items:center;padding-bottom:1.2rem;">
+    <div class="proj-topbar-inner">
       <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
       <nav style="display:flex;gap:2.25rem;align-items:center;">
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
@@ -1210,7 +1207,6 @@ form.addEventListener('submit', async e => {
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
     </div>
-    <div class="proj-topbar-rule"></div>
   </div>
   <div class="proj-title-wrap">
     <div style="display:flex;justify-content:space-between;align-items:baseline;">
@@ -1258,7 +1254,7 @@ form.addEventListener('submit', async e => {
 <div id="pg-housefaces" class="proj-page">
 
   <div class="proj-topbar">
-    <div class="proj-topbar-inner" style="display:flex;justify-content:space-between;align-items:center;padding-bottom:1.2rem;">
+    <div class="proj-topbar-inner">
       <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
       <nav style="display:flex;gap:2.25rem;align-items:center;">
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
@@ -1266,7 +1262,6 @@ form.addEventListener('submit', async e => {
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
     </div>
-    <div class="proj-topbar-rule"></div>
   </div>
 
   <div class="proj-title-wrap">
