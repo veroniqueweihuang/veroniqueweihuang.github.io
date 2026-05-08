@@ -396,12 +396,19 @@ nav a.active{color:var(--black)}
   z-index:100;
   overflow-y:auto;
   overflow-x:hidden;
+  padding-top:80px;
 }
 .proj-page.active{display:block}
 
 /* Top bar — same as main header */
 .proj-topbar{
-  padding:1.5rem 3% 0.5rem;
+  padding:1.5rem 3% 0;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  background:var(--bg);
+  z-index:100;
 }
 .proj-topbar-inner{
   display:flex;
@@ -449,7 +456,7 @@ nav a.active{color:var(--black)}
 .close-btn:hover{color:var(--black)}
 .close-btn-fixed{
   position:fixed;
-  top:1.5rem;
+  top:1.4rem;
   right:1.5rem;
   font-size:26px;
   font-weight:200;
@@ -462,6 +469,7 @@ nav a.active{color:var(--black)}
   display:none;
 }
 .close-btn-fixed:hover{color:var(--black)}
+
 .proj-copyright{
   padding:2rem 3% 4rem;
   text-align:right;
@@ -477,6 +485,9 @@ nav a.active{color:var(--black)}
 .proj-title-wrap{
   padding:0.5rem 3% 1.5rem;
   margin-bottom:2rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .proj-title{
   font-family:var(--sans);
@@ -486,6 +497,8 @@ nav a.active{color:var(--black)}
   color:var(--black);
   line-height:1.1;
   white-space:nowrap;
+  text-align:center;
+  width:100%;
 }
 
 /* Two-column image layout */
@@ -502,15 +515,36 @@ nav a.active{color:var(--black)}
 /* Image slot — fixed height, images cycle */
 .col-img-wrap{
   width:100%;
-  background:#d8d3cd;
+  background:#f9f8f6;
   overflow:hidden;
-  min-height:40px;
+  aspect-ratio:10/13;
+  position:relative;
 }
 .col-img-wrap img{
   width:100%;
-  height:auto;
+  height:100%;
   display:block;
+  object-fit:cover;
   transition:opacity 0.3s ease;
+}
+/* Right column drawings — fit with neutral margin */
+.proj-col:last-child .col-img-wrap{
+  background:#f9f8f6;
+}
+.proj-col:last-child .col-img-wrap img{
+  object-fit:contain;
+}
+/* Left column photos — grey frame + white border */
+.proj-col:first-child .col-img-wrap{
+  padding:12px;
+  background:#f9f8f6;
+  outline:1px solid #e4e0db;
+  box-sizing:border-box;
+}
+.proj-col:first-child .col-img-wrap img{
+  object-fit:cover;
+  width:100%;
+  height:100%;
 }
 
 /* Column nav arrows */
@@ -885,10 +919,10 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: Kharkiv ═══ -->
 <div id="pg-kharkiv" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner" style="justify-content:space-between;">
+    <div class="proj-topbar-inner" style="display:flex;justify-content:space-between;align-items:center;padding-bottom:1.2rem;">
       <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
-      <nav style="display:flex;gap:2rem;align-items:center;">
-        <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--black);font-weight:400;border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
+      <nav style="display:flex;gap:2.25rem;align-items:center;">
+        <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('about','nav-about')">About</a>
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
@@ -947,10 +981,10 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: A-Zenith ═══ -->
 <div id="pg-azenith" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner" style="justify-content:space-between;">
+    <div class="proj-topbar-inner" style="display:flex;justify-content:space-between;align-items:center;padding-bottom:1.2rem;">
       <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
-      <nav style="display:flex;gap:2rem;align-items:center;">
-        <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--black);font-weight:400;border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
+      <nav style="display:flex;gap:2.25rem;align-items:center;">
+        <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('about','nav-about')">About</a>
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
@@ -1001,10 +1035,10 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: Guangzhou ═══ -->
 <div id="pg-guangzhou" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner" style="justify-content:space-between;">
+    <div class="proj-topbar-inner" style="display:flex;justify-content:space-between;align-items:center;padding-bottom:1.2rem;">
       <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
-      <nav style="display:flex;gap:2rem;align-items:center;">
-        <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--black);font-weight:400;border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
+      <nav style="display:flex;gap:2.25rem;align-items:center;">
+        <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('about','nav-about')">About</a>
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
@@ -1056,10 +1090,10 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: U-Thant ═══ -->
 <div id="pg-uthant" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner" style="justify-content:space-between;">
+    <div class="proj-topbar-inner" style="display:flex;justify-content:space-between;align-items:center;padding-bottom:1.2rem;">
       <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
-      <nav style="display:flex;gap:2rem;align-items:center;">
-        <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--black);font-weight:400;border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
+      <nav style="display:flex;gap:2.25rem;align-items:center;">
+        <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('about','nav-about')">About</a>
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
@@ -1112,10 +1146,10 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: Courtyard House ═══ -->
 <div id="pg-courtyard" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner" style="justify-content:space-between;">
+    <div class="proj-topbar-inner" style="display:flex;justify-content:space-between;align-items:center;padding-bottom:1.2rem;">
       <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
-      <nav style="display:flex;gap:2rem;align-items:center;">
-        <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--black);font-weight:400;border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
+      <nav style="display:flex;gap:2.25rem;align-items:center;">
+        <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('about','nav-about')">About</a>
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
@@ -1168,10 +1202,10 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: In Memory of ═══ -->
 <div id="pg-inmemory" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner" style="justify-content:space-between;">
+    <div class="proj-topbar-inner" style="display:flex;justify-content:space-between;align-items:center;padding-bottom:1.2rem;">
       <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
-      <nav style="display:flex;gap:2rem;align-items:center;">
-        <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--black);font-weight:400;border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
+      <nav style="display:flex;gap:2.25rem;align-items:center;">
+        <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('about','nav-about')">About</a>
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
@@ -1224,10 +1258,10 @@ form.addEventListener('submit', async e => {
 <div id="pg-housefaces" class="proj-page">
 
   <div class="proj-topbar">
-    <div class="proj-topbar-inner" style="justify-content:space-between;">
+    <div class="proj-topbar-inner" style="display:flex;justify-content:space-between;align-items:center;padding-bottom:1.2rem;">
       <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
-      <nav style="display:flex;gap:2rem;align-items:center;">
-        <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--black);font-weight:400;border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
+      <nav style="display:flex;gap:2.25rem;align-items:center;">
+        <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('about','nav-about')">About</a>
         <a style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
@@ -1385,9 +1419,14 @@ window.showProject = function(id) {
   // Update Next Project link
   const idx = projectOrder.indexOf(id);
   const nextId = projectOrder[(idx + 1) % projectOrder.length];
-  document.querySelectorAll('.next-project-link').forEach(nextEl => {
-    nextEl.textContent = 'Next — ' + projectTitles[nextId] + ' →';
-    nextEl.onclick = () => window.showProject(nextId);
+  const prevId = projectOrder[(idx - 1 + projectOrder.length) % projectOrder.length];
+  document.querySelectorAll('.next-proj-link').forEach(el => {
+    el.textContent = projectTitles[nextId] + ' →';
+    el.onclick = () => window.showProject(nextId);
+  });
+  document.querySelectorAll('.prev-proj-link').forEach(el => {
+    el.textContent = '← ' + projectTitles[prevId];
+    el.onclick = () => window.showProject(prevId);
   });
   const cols = {
     'kharkiv':['kharkiv'],
