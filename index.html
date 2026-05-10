@@ -568,6 +568,22 @@ nav a.active{color:var(--black)}
   width:100%;
   height:100%;
 }
+/* Template C — landscape columns */
+.proj-columns.template-c .col-img-wrap{
+  aspect-ratio:13/10;
+  padding:0;
+  outline:none;
+  background:#f9f8f6;
+}
+.proj-columns.template-c .col-img-wrap img{
+  object-fit:contain;
+}
+.proj-columns.template-c .proj-col:first-child .col-img-wrap{
+  object-fit:cover;
+}
+.proj-columns.template-c .proj-col:first-child .col-img-wrap img{
+  object-fit:cover;
+}
 
 /* Column nav arrows */
 .col-nav{
@@ -1017,7 +1033,7 @@ form.addEventListener('submit', async e => {
       
     </div>
   </div>
-  <div class="proj-columns">
+  <div class="proj-columns template-c">
     <div class="proj-col">
       <div class="col-img-wrap" id="col-azenith-L"></div>
       <div class="col-nav">
