@@ -1393,13 +1393,15 @@ const projectImages = {
   /* ── House with Two Faces ── */
   'housefaces-L': [
     'images/housefaces/photo_nigh.jpg',
+    'images/housefaces/photo_front.jpg',
+    'images/housefaces/photo_light.jpg',
     'images/housefaces/photo_living.jpg',
     'images/housefaces/photo_red_bridge.jpg',
     'images/housefaces/photo_rear.jpg',
     'images/housefaces/photo_rear_stair.jpg',
-    'images/housefaces/photo_courtyard.jpg',
     'images/housefaces/photo_D1.jpg',
     'images/housefaces/photo_D2.jpg',
+    'images/housefaces/photo_courtyard.jpg',
   ],
   'housefaces-R': [
     'images/housefaces/drawing_site1.jpg',
@@ -1434,7 +1436,15 @@ function initCol(projId, side) {
   img.alt = '';
   img.onerror = function(){ this.style.background='#d8d3cd'; };
   img.style.cursor = 'pointer';
-  img.addEventListener('click', () => { const parts = key.split('-'); const side = parts.pop(); const projId = parts.join('-'); colStep(projId, side, 1); });
+  img.addEventListener('click', (e) => {
+    const parts = key.split('-');
+    const side = parts.pop();
+    const projId = parts.join('-');
+    const rect = img.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const dir = clickX < rect.width / 2 ? -1 : 1;
+    colStep(projId, side, dir);
+  });
   wrap.appendChild(img);
   if (ctr) ctr.textContent = imgs.length > 1 ? '1 / ' + imgs.length : '';
 }
