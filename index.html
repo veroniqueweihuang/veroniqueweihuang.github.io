@@ -539,14 +539,11 @@ nav a.active{color:var(--black)}
   width:100%;
   background:#f9f8f6;
   overflow:hidden;
-  aspect-ratio:10/13;
-  position:relative;
 }
 .col-img-wrap img{
   width:100%;
-  height:100%;
+  height:auto;
   display:block;
-  object-fit:cover;
   transition:opacity 0.3s ease;
 }
 /* Right column drawings — fit with neutral margin */
@@ -564,13 +561,11 @@ nav a.active{color:var(--black)}
   box-sizing:border-box;
 }
 .proj-col:first-child .col-img-wrap img{
-  object-fit:cover;
   width:100%;
-  height:100%;
+  height:auto;
 }
 /* Template C — landscape columns */
 .proj-columns.template-c .col-img-wrap{
-  aspect-ratio:13/10;
   padding:0;
   outline:none;
   background:#f9f8f6;
@@ -868,7 +863,7 @@ const projects = [
   { img:'images/guangzhou_hover.jpg', bg:'#d5cec8', cap:'Guangzhou — 2022' },
   { img:'images/uthant_hover.jpg',    bg:'#c7cfcc', cap:'Kuala Lumpur — 2018' },
   { img:'images/housefaces/hover.jpg', bg:'#cbc9d3', cap:'Singapore — 2020' },
-  { img:'images/courtyard_hover.jpg', bg:'#d0ccc8', cap:'Singapore — 2020' },
+  { img:'images/courtyard/photo_1.jpg', bg:'#d0ccc8', cap:'Singapore — 2020' },
   { img:'images/inmemory/hover.jpg', bg:'#d2cbc9', cap:'Singapore — 2019' },
 ];
 
@@ -1413,8 +1408,15 @@ const projectImages = {
     'images/housefaces/drawing_detail.jpg',
   ],
   /* ── Courtyard House ── */
-  'courtyard-L': ['images/courtyard_photo1.jpg','images/courtyard_photo2.jpg','images/courtyard_photo3.jpg'],
-  'courtyard-R': ['images/courtyard_drawing1.jpg','images/courtyard_drawing2.jpg','images/courtyard_drawing3.jpg'],
+  'courtyard-L': [
+    'images/courtyard/photo_1.jpg',
+    'images/courtyard/photo_2.jpg',
+    'images/courtyard/photo_3.jpg',
+    'images/courtyard/photo_4.jpg',
+    'images/courtyard/photo_5.jpg',
+    'images/courtyard/photo_6.jpg',
+  ],
+  'courtyard-R': [],
   /* ── In Memory of ── */
   'inmemory-L': ['images/inmemory/photo_1.jpg'],
   'inmemory-R': ['images/inmemory/drawing_render.jpg','images/inmemory/drawing_flower.jpg','images/inmemory/drawing_plan.jpg','images/inmemory/drawing_axo.jpg'],
