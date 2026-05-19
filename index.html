@@ -16,7 +16,7 @@
   --black:#0f0f0e;
   --mid:#7a7772;
   --faint:#c2bebb;
-  --bg:#f5f0ea;
+  --bg:#f2ece3;
   --rule:2.5px;
 }
 html,body{background:var(--bg);color:var(--black)}
@@ -848,7 +848,7 @@ const projectTitles = {
 };
 
 const projects = [
-  { img:'images/kharkiv_hover.jpg',   bg:'#cccac8', cap:'Kharkiv — Competition 2024' },
+  { img:'images/kharkiv/hover.jpg',   bg:'#cccac8', cap:'Kharkiv — Competition 2024' },
   { img:'images/azenith/hover.jpg',   bg:'#d0cec8', cap:'A-Zenith — China 2023' },
   { img:'images/guangzhou_hover.jpg', bg:'#d5cec8', cap:'Guangzhou — 2022' },
   { img:'images/uthant/hover.jpg',    bg:'#c7cfcc', cap:'Kuala Lumpur — 2018' },
@@ -957,7 +957,7 @@ form.addEventListener('submit', async e => {
       
     </div>
   </div>
-  <div class="proj-columns">
+  <div class="proj-columns template-b">
     <div class="proj-col">
       <div class="col-img-wrap" id="col-kharkiv-L"></div>
       <div class="col-nav">
@@ -1350,8 +1350,25 @@ form.addEventListener('submit', async e => {
    ══════════════════════════════════════════ */
 const projectImages = {
   /* ── Kharkiv ── */
-  'kharkiv-L': ['images/kharkiv_photo1.jpg','images/kharkiv_photo2.jpg','images/kharkiv_photo3.jpg'],
-  'kharkiv-R': ['images/kharkiv_drawing1.jpg','images/kharkiv_drawing2.jpg','images/kharkiv_drawing3.jpg'],
+  'kharkiv-L': ['images/kharkiv/photo_1.jpg','images/kharkiv/photo_2.jpg','images/kharkiv/photo_3.jpg'],
+  'kharkiv-R': [
+    'images/kharkiv/drawing_1.jpg',
+    'images/kharkiv/drawing_1_1.jpg',
+    'images/kharkiv/drawing_2.jpg',
+    'images/kharkiv/drawing_3.jpg',
+    'images/kharkiv/drawing_4.jpg',
+    'images/kharkiv/drawing_4_1.jpg',
+    'images/kharkiv/drawing_5.jpg',
+    'images/kharkiv/drawing_6.jpg',
+    'images/kharkiv/drawing_7.jpg',
+    'images/kharkiv/drawing_8.jpg',
+    'images/kharkiv/drawing_8_1.jpg',
+    'images/kharkiv/drawing_9.jpg',
+    'images/kharkiv/drawing_10_1.jpg',
+    'images/kharkiv/drawing_10_2.jpg',
+    'images/kharkiv/drawing_10_3.jpg',
+    'images/kharkiv/drawing_11.jpg',
+  ],
   /* ── A-Zenith ── */
   'azenith-L': [
     'images/azenith/photo_01.jpg',
