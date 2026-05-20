@@ -549,21 +549,20 @@ nav a.active{color:var(--black)}
 }
 
 /* ── Template A — built projects (default) ──
-   Natural ratio, left column pseudo-element white border overlay,
+   Natural ratio, left column padded frame, image shrinks to fit inside,
    right column object-fit:contain */
 .proj-col:last-child .col-img-wrap img{
   object-fit:contain;
 }
 .proj-col:first-child .col-img-wrap{
   outline:1px solid #e4e0db;
+  padding:24px;
+  box-sizing:border-box;
 }
-.proj-col:first-child .col-img-wrap::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  border:24px solid #f9f8f6;
-  pointer-events:none;
-  z-index:1;
+.proj-col:first-child .col-img-wrap img{
+  object-fit:contain;
+  width:100%;
+  height:auto;
 }
 
 /* ── Template B — unbuilt/rendered projects ──
@@ -707,7 +706,36 @@ nav a.active{color:var(--black)}
   .proj-columns{grid-template-columns:1fr}
   .proj-info{grid-template-columns:1fr;gap:2.5rem}
   .proj-title{font-size:22px;white-space:normal}
-}</style>
+}
+/* Prev / Next project navigation */
+.proj-nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  padding:2.5rem 0 5rem;
+  border-top:0.5px solid var(--faint);
+  margin-top:2rem;
+}
+.proj-nav-link{
+  font-size:11px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--mid);
+  cursor:pointer;
+  transition:color 0.18s;
+  font-weight:400;
+}
+.proj-nav-link:hover{color:var(--black)}
+.proj-nav-title{
+  font-size:12px;
+  letter-spacing:0.04em;
+  color:var(--mid);
+  margin-top:6px;
+  font-family:var(--body);
+  font-style:italic;
+}
+.proj-nav-prev{text-align:left}
+.proj-nav-next{text-align:right}</style>
 </head>
 <body>
 
@@ -988,14 +1016,76 @@ form.addEventListener('submit', async e => {
       <div><div class="detail-label">Organisation</div><div class="detail-value"><a href="https://www.normanfosterfoundation.org" target="_self">Norman Foster Foundation</a></div></div>
     </div>
   </div>
-
-  <div class="proj-next" class="next-project-link" style="padding:2rem 3% 0;font-size:12px;letter-spacing:0.1em;color:var(--mid);cursor:pointer;text-align:right;" onclick=""></div>
-  <div class="proj-next" class="next-project-link" style="padding:2rem 3% 0;font-size:12px;letter-spacing:0.1em;color:var(--mid);cursor:pointer;text-align:right;" onclick=""></div>
-  <div class="proj-next" class="next-project-link" style="padding:2rem 3% 0;font-size:12px;letter-spacing:0.1em;color:var(--mid);cursor:pointer;text-align:right;" onclick=""></div>
-  <div class="proj-next" class="next-project-link" style="padding:2rem 3% 0;font-size:12px;letter-spacing:0.1em;color:var(--mid);cursor:pointer;text-align:right;" onclick=""></div>
-  <div class="proj-next" class="next-project-link" style="padding:2rem 3% 0;font-size:12px;letter-spacing:0.1em;color:var(--mid);cursor:pointer;text-align:right;" onclick=""></div>
-  <div class="proj-next" class="next-project-link" style="padding:2rem 3% 0;font-size:12px;letter-spacing:0.1em;color:var(--mid);cursor:pointer;text-align:right;" onclick=""></div>
-  <div class="proj-next" class="next-project-link" style="padding:2rem 3% 0;font-size:12px;letter-spacing:0.1em;color:var(--mid);cursor:pointer;text-align:right;" onclick=""></div>
+  <div class="proj-nav">
+    <div class="proj-nav-prev">
+      <div class="proj-nav-link" onclick="showProject('inmemory')">&#8592; Prev</div>
+      <div class="proj-nav-title">In Memory of...</div>
+    </div>
+    <div class="proj-nav-next">
+      <div class="proj-nav-link" onclick="showProject('azenith')">Next &#8594;</div>
+      <div class="proj-nav-title">A-Zenith Factory Showroom</div>
+    </div>
+  </div>
+  <div class="proj-nav">
+    <div class="proj-nav-prev">
+      <div class="proj-nav-link" onclick="showProject('kharkiv')">&#8592; Prev</div>
+      <div class="proj-nav-title">Architecture at the Intersection of Destination and Transition</div>
+    </div>
+    <div class="proj-nav-next">
+      <div class="proj-nav-link" onclick="showProject('guangzhou')">Next &#8594;</div>
+      <div class="proj-nav-title">Guangzhou Fashion Headquarters</div>
+    </div>
+  </div>
+  <div class="proj-nav">
+    <div class="proj-nav-prev">
+      <div class="proj-nav-link" onclick="showProject('azenith')">&#8592; Prev</div>
+      <div class="proj-nav-title">A-Zenith Factory Showroom</div>
+    </div>
+    <div class="proj-nav-next">
+      <div class="proj-nav-link" onclick="showProject('uthant')">Next &#8594;</div>
+      <div class="proj-nav-title">U-Thant Place</div>
+    </div>
+  </div>
+  <div class="proj-nav">
+    <div class="proj-nav-prev">
+      <div class="proj-nav-link" onclick="showProject('guangzhou')">&#8592; Prev</div>
+      <div class="proj-nav-title">Guangzhou Fashion Headquarters</div>
+    </div>
+    <div class="proj-nav-next">
+      <div class="proj-nav-link" onclick="showProject('housefaces')">Next &#8594;</div>
+      <div class="proj-nav-title">House with Two Faces</div>
+    </div>
+  </div>
+  <div class="proj-nav">
+    <div class="proj-nav-prev">
+      <div class="proj-nav-link" onclick="showProject('uthant')">&#8592; Prev</div>
+      <div class="proj-nav-title">U-Thant Place</div>
+    </div>
+    <div class="proj-nav-next">
+      <div class="proj-nav-link" onclick="showProject('courtyard')">Next &#8594;</div>
+      <div class="proj-nav-title">A Courtyard House</div>
+    </div>
+  </div>
+  <div class="proj-nav">
+    <div class="proj-nav-prev">
+      <div class="proj-nav-link" onclick="showProject('housefaces')">&#8592; Prev</div>
+      <div class="proj-nav-title">House with Two Faces</div>
+    </div>
+    <div class="proj-nav-next">
+      <div class="proj-nav-link" onclick="showProject('inmemory')">Next &#8594;</div>
+      <div class="proj-nav-title">In Memory of...</div>
+    </div>
+  </div>
+  <div class="proj-nav">
+    <div class="proj-nav-prev">
+      <div class="proj-nav-link" onclick="showProject('courtyard')">&#8592; Prev</div>
+      <div class="proj-nav-title">A Courtyard House</div>
+    </div>
+    <div class="proj-nav-next">
+      <div class="proj-nav-link" onclick="showProject('kharkiv')">Next &#8594;</div>
+      <div class="proj-nav-title">Architecture at the Intersection of Destination and Transition</div>
+    </div>
+  </div>
   <div class="proj-copyright">© Veronique Huang Wei</div>
 </div>
 
@@ -1157,7 +1247,7 @@ form.addEventListener('submit', async e => {
       <div><div class="detail-label">Status</div><div class="detail-value">Built</div></div>
       <div><div class="detail-label">GFA</div><div class="detail-value">9,341 sqm</div></div>
       <div><div class="detail-label">Role</div><div class="detail-value">Architect in Charge</div></div>
-      <div><div class="detail-label">Office</div><div class="detail-value"><a href="https://www.rtq.com.sg" target="_self">RT+Q Architects</a></div></div>
+      <div><div class="detail-label">Office</div><div class="detail-value"><a href="https://www.rtnq.com/" target="_blank">RT+Q Architects</a></div></div>
       <div><div class="detail-label">Published</div><div class="detail-value">d+a Magazine, Issue 107</div></div>
     </div>
   </div>
@@ -1213,7 +1303,7 @@ form.addEventListener('submit', async e => {
       <div><div class="detail-label">Status</div><div class="detail-value">Built</div></div>
       <div><div class="detail-label">GFA</div><div class="detail-value">535 sqm</div></div>
       <div><div class="detail-label">Role</div><div class="detail-value">Architect in Charge</div></div>
-      <div><div class="detail-label">Office</div><div class="detail-value"><a href="https://www.rtq.com.sg" target="_self">RT+Q Architects</a></div></div>
+      <div><div class="detail-label">Office</div><div class="detail-value"><a href="https://www.rtnq.com/" target="_blank">RT+Q Architects</a></div></div>
       <div><div class="detail-label">Published</div><div class="detail-value">Singapore Tatler Homes, Aug–Sep 2019</div></div>
     </div>
   </div>
@@ -1269,7 +1359,7 @@ form.addEventListener('submit', async e => {
       <div><div class="detail-label">Status</div><div class="detail-value">Built</div></div>
       <div><div class="detail-label">Site Area</div><div class="detail-value">3.76 sqm</div></div>
       <div><div class="detail-label">Role</div><div class="detail-value">Architect in Charge</div></div>
-      <div><div class="detail-label">Office</div><div class="detail-value"><a href="https://www.rtq.com.sg" target="_self">RT+Q Architects</a></div></div>
+      <div><div class="detail-label">Office</div><div class="detail-value"><a href="https://www.rtnq.com/" target="_blank">RT+Q Architects</a></div></div>
       <div><div class="detail-label">Recognition</div><div class="detail-value">SIA Merit Award 2020<br>WAF 2021 Shortlist</div></div>
     </div>
   </div>
@@ -1330,7 +1420,7 @@ form.addEventListener('submit', async e => {
       <div><div class="detail-label">Status</div><div class="detail-value">Built</div></div>
       <div><div class="detail-label">GFA</div><div class="detail-value">324 sqm</div></div>
       <div><div class="detail-label">Role</div><div class="detail-value">Architect in Charge</div></div>
-      <div><div class="detail-label">Office</div><div class="detail-value"><a href="https://www.rtq.com.sg" target="_self">RT+Q Architects</a></div></div>
+      <div><div class="detail-label">Office</div><div class="detail-value"><a href="https://www.rtnq.com/" target="_blank">RT+Q Architects</a></div></div>
       <div><div class="detail-label">Published</div><div class="detail-value"><a href="https://www.archdaily.com/937953/house-with-two-faces-rt-plus-q-architects" target="_self">ArchDaily</a></div></div>
       <div><div class="detail-label">Recognition</div><div class="detail-value">WAF 2021 Shortlist</div></div>
     </div>
@@ -1396,6 +1486,8 @@ const projectImages = {
     'images/uthant/photo_2.jpg',
     'images/uthant/photo_3.jpg',
     'images/uthant/photo_4.jpg',
+    'images/uthant/photo_5.jpg',
+    'images/uthant/photo_6.jpg',
   ],
   'uthant-R': [
     'images/uthant/Drawing_mood board.jpg',
