@@ -1546,7 +1546,7 @@ form.addEventListener('submit', async e => {
 
   <!-- Single column image -->
   <div style="margin-bottom:3rem;display:flex;justify-content:center;">
-    <div class="proj-col-single" style="width:66.666%;">
+    <div id="quanzhou-col-wrap" class="proj-col-single" style="width:66.666%;transition:width 0.3s ease;">
       <div class="col-img-wrap" id="col-quanzhou-S" style="cursor:pointer;" onclick="colStepSingleClick('quanzhou', event)"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStepSingle('quanzhou',-1)">&#8592; Prev</span>
@@ -1559,13 +1559,17 @@ form.addEventListener('submit', async e => {
   <!-- PDF reader -->
   <div class="flipbook-wrap">
     <div class="flipbook-label">Chapter 2 — The Cultural Landscape of Jubao</div>
-    <div style="position:relative;width:100%;padding-bottom:75%;background:#f0ede8;outline:0.5px solid #e4e0db;overflow:hidden;" oncontextmenu="return false;">
-      <iframe
-        src="documents/quanzhou_chapter2.pdf#toolbar=0&navpanes=0&scrollbar=1&view=FitH"
-        style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-      ></iframe>
+    <div style="display:flex;justify-content:center;">
+      <div style="width:66.666%;">
+        <div style="position:relative;width:100%;padding-bottom:70%;background:#f0ede8;outline:0.5px solid #e4e0db;overflow:hidden;" oncontextmenu="return false;">
+          <iframe
+            src="documents/quanzhou_chapter2.pdf#toolbar=0&navpanes=0&scrollbar=1&view=FitH&zoom=50"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+          ></iframe>
+        </div>
+        <a href="documents/quanzhou_essay.pdf" target="_blank" class="essay-link">Read full essay &#8594;</a>
+      </div>
     </div>
-    <a href="documents/quanzhou_essay.pdf" target="_blank" class="essay-link">Read full essay &#8594;</a>
   </div>
 
   <div class="proj-info">
@@ -1816,8 +1820,16 @@ function initColSingle(projId) {
   img.src = imgs[0];
   img.alt = '';
   img.onerror = function(){ this.style.background='#d8d3cd'; };
+  img.onload = function() { adjustSingleColWidth(this); };
   wrap.appendChild(img);
   if (ctr) ctr.textContent = imgs.length > 1 ? '1 / ' + imgs.length : '';
+}
+
+function adjustSingleColWidth(img) {
+  const container = document.getElementById('quanzhou-col-wrap');
+  if (!container) return;
+  const isPortrait = img.naturalHeight > img.naturalWidth;
+  container.style.width = isPortrait ? '44%' : '66.666%';
 }
 
 function colStepSingleClick(projId, e) {
@@ -1838,7 +1850,7 @@ function colStepSingle(projId, dir) {
   colState[key] = (colState[key] + dir + imgs.length) % imgs.length;
   img.style.opacity = '0';
   img.src = imgs[colState[key]];
-  img.onload = () => { img.style.opacity = '1'; };
+  img.onload = () => { img.style.opacity = '1'; adjustSingleColWidth(img); };
   if (ctr) ctr.textContent = (colState[key] + 1) + ' / ' + imgs.length;
 }
 
