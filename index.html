@@ -1561,11 +1561,13 @@ form.addEventListener('submit', async e => {
     <div style="font-size:13px;letter-spacing:0.06em;color:var(--black);margin-bottom:1.5rem;font-family:var(--sans);font-weight:400;">Essay Excerpt: Chapter 2 — The Cultural Landscape of Jubao</div>
     <div style="display:flex;justify-content:center;">
       <div style="width:66.666%;">
-        <div style="position:relative;width:100%;padding-bottom:70%;background:#f0ede8;outline:0.5px solid #e4e0db;overflow:hidden;" oncontextmenu="return false;">
-          <iframe
-            src="documents/quanzhou_chapter2.pdf#toolbar=0&navpanes=0&scrollbar=1&view=FitH&zoom=50"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-          ></iframe>
+        <div id="pdf-container" style="width:100%;background:#f0ede8;outline:0.5px solid #e4e0db;overflow:hidden;position:relative;" oncontextmenu="return false;">
+          <canvas id="pdf-canvas" style="display:block;width:100%;"></canvas>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+          <span class="col-arrow" onclick="pdfStep(-1)">&#8592; Prev</span>
+          <span class="col-counter" id="pdf-counter"></span>
+          <span class="col-arrow" onclick="pdfStep(1)">Next &#8594;</span>
         </div>
         <p style="font-size:11px;letter-spacing:0.12em;color:var(--faint);text-transform:uppercase;margin-top:1rem;text-align:right;">Full essay available upon request.</p>
       </div>
@@ -1869,6 +1871,89 @@ function fbStep(dir) {
   const ctr = document.getElementById('fb-counter');
   if (ctr) ctr.textContent = fbCurrent + ' / ' + pages.length;
 }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+/* ── PDF.js two-page spread viewer ── */
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+let pdfDoc = null;
+let pdfCurrentSpread = 1; // spread number (1 = pages 1-2, 2 = pages 3-4, etc.)
+
+async function initPdfViewer() {
+  const container = document.getElementById('pdf-container');
+  if (!container) return;
+  try {
+    pdfDoc = await pdfjsLib.getDocument('documents/quanzhou_chapter2.pdf').promise;
+    renderSpread(1);
+  } catch(e) {
+    console.log('PDF load error:', e);
+  }
+}
+
+async function renderSpread(spreadNum) {
+  if (!pdfDoc) return;
+  const totalPages = pdfDoc.numPages;
+  const leftPageNum  = (spreadNum - 1) * 2 + 1;
+  const rightPageNum = leftPageNum + 1;
+  const totalSpreads = Math.ceil(totalPages / 2);
+
+  const canvas = document.getElementById('pdf-canvas');
+  const ctx = canvas.getContext('2d');
+
+  // Render left page to get dimensions
+  const leftPage = await pdfDoc.getPage(Math.min(leftPageNum, totalPages));
+  const viewport = leftPage.getViewport({ scale: 1 });
+
+  // Scale to container width (two pages side by side)
+  const container = document.getElementById('pdf-container');
+  const containerWidth = container.clientWidth;
+  const scale = (containerWidth / 2) / viewport.width;
+  const scaledVP = leftPage.getViewport({ scale });
+
+  canvas.width  = scaledVP.width * 2;
+  canvas.height = scaledVP.height;
+  canvas.style.width  = '100%';
+  canvas.style.height = 'auto';
+
+  // Render left page
+  await leftPage.render({ canvasContext: ctx, viewport: scaledVP }).promise;
+
+  // Render right page if it exists
+  if (rightPageNum <= totalPages) {
+    const rightPage = await pdfDoc.getPage(rightPageNum);
+    const rightVP = rightPage.getViewport({ scale });
+    // Create temp canvas for right page
+    const tmpCanvas = document.createElement('canvas');
+    tmpCanvas.width  = rightVP.width;
+    tmpCanvas.height = rightVP.height;
+    await rightPage.render({ canvasContext: tmpCanvas.getContext('2d'), viewport: rightVP }).promise;
+    ctx.drawImage(tmpCanvas, scaledVP.width, 0);
+  } else {
+    // Fill right side with background if no right page
+    ctx.fillStyle = '#f0ede8';
+    ctx.fillRect(scaledVP.width, 0, scaledVP.width, scaledVP.height);
+  }
+
+  pdfCurrentSpread = spreadNum;
+  const ctr = document.getElementById('pdf-counter');
+  if (ctr) ctr.textContent = spreadNum + ' / ' + totalSpreads;
+}
+
+function pdfStep(dir) {
+  if (!pdfDoc) return;
+  const totalSpreads = Math.ceil(pdfDoc.numPages / 2);
+  const next = pdfCurrentSpread + dir;
+  if (next < 1 || next > totalSpreads) return;
+  renderSpread(next);
+}
+
+// Init when quanzhou page opens
+const _origShowProjectPdf = window.showProject;
+window.showProject = function(id) {
+  _origShowProjectPdf && _origShowProjectPdf(id);
+  if (id === 'quanzhou') initPdfViewer();
+};
 </script>
 <span class="close-btn-fixed" id="fixed-close" onclick="showPage('works','nav-works')" style="display:none">&#215;</span>
 </body>
