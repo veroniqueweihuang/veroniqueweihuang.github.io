@@ -722,7 +722,109 @@ nav a.active{color:var(--black)}
   font-style:italic;
 }
 .proj-nav-prev{text-align:left}
-.proj-nav-next{text-align:right}</style>
+.proj-nav-next{text-align:right}
+
+/* ── Single-column layout (Quanzhou project) ── */
+.proj-col-single{
+  width:100%;
+  margin-bottom:1.25rem;
+}
+.proj-col-single .col-img-wrap{
+  width:100%;
+  outline:1px solid #e4e0db;
+}
+.proj-col-single .col-img-wrap img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  transition:opacity 0.3s ease;
+}
+
+/* ── Flip book ── */
+.flipbook-wrap{
+  margin:3rem 0;
+  border-top:0.5px solid var(--faint);
+  padding-top:2.5rem;
+}
+.flipbook-label{
+  font-size:10px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-bottom:1.5rem;
+}
+.flipbook{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  border:0.5px solid #e4e0db;
+  padding:3rem;
+  background:var(--bg);
+  min-height:400px;
+  position:relative;
+}
+.flipbook-page{
+  display:none;
+}
+.flipbook-page.active{
+  display:block;
+}
+.flipbook-page p{
+  font-size:13px;
+  line-height:1.9;
+  letter-spacing:0.02em;
+  color:var(--black);
+  font-weight:300;
+  margin-bottom:1rem;
+  font-family:var(--body);
+  text-align:justify;
+  hyphens:auto;
+}
+.flipbook-page img{
+  width:100%;
+  height:auto;
+  display:block;
+  margin:1rem 0;
+  outline:0.5px solid #e4e0db;
+}
+.flipbook-nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:1.5rem;
+}
+.flipbook-arrow{
+  font-size:11px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--mid);
+  cursor:pointer;
+  transition:color 0.18s;
+  user-select:none;
+}
+.flipbook-arrow:hover{color:var(--black)}
+.flipbook-counter{
+  font-size:10px;
+  letter-spacing:0.1em;
+  color:var(--faint);
+}
+.essay-link{
+  display:block;
+  text-align:right;
+  font-size:11px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--mid);
+  text-decoration:none;
+  border-bottom:0.5px solid var(--faint);
+  padding-bottom:2px;
+  width:fit-content;
+  margin-left:auto;
+  margin-top:1.5rem;
+  transition:color 0.18s, border-color 0.18s;
+}
+.essay-link:hover{color:var(--black);border-color:var(--black)}</style>
 </head>
 <body>
 
@@ -780,6 +882,11 @@ nav a.active{color:var(--black)}
       <span class="proj-name">In Memory of...</span>
       <span class="proj-type">Memorial</span>
       <span class="proj-year">2019</span>
+    </div>
+    <div class="row" data-i="7" onclick="showProject('quanzhou')" style="cursor:pointer">
+      <span class="proj-name">The Imaginary Cultural Landscape of the City and Harbor in Quanzhou</span>
+      <span class="proj-type">Research</span>
+      <span class="proj-year">2020</span>
     </div>
   </div>
 
@@ -851,7 +958,7 @@ nav a.active{color:var(--black)}
    Replace each img path with your actual image file once ready.
    Place images in an /images/ folder alongside index.html.
    Suggested names shown below. */
-const projectOrder = ['kharkiv','azenith','guangzhou','uthant','housefaces','courtyard','inmemory'];
+const projectOrder = ['kharkiv','azenith','guangzhou','uthant','housefaces','courtyard','inmemory','quanzhou'];
 const projectTitles = {
   'kharkiv':   'Architecture at the Intersection of Destination and Transition',
   'azenith':   'A-Zenith Factory Showroom',
@@ -860,6 +967,7 @@ const projectTitles = {
   'housefaces':'House with Two Faces',
   'courtyard': 'A Courtyard House',
   'inmemory':  'In Memory of...',
+  'quanzhou':  'The Imaginary Cultural Landscape of the City and Harbor in Quanzhou',
 };
 
 const projects = [
@@ -870,6 +978,7 @@ const projects = [
   { img:'images/housefaces/hover.jpg', bg:'#cbc9d3', cap:'Singapore — 2020' },
   { img:'images/courtyard/hover.jpg', bg:'#d0ccc8', cap:'Singapore — 2020' },
   { img:'images/inmemory/hover.jpg', bg:'#d2cbc9', cap:'Singapore — 2019' },
+  { img:'images/quanzhou/hover.jpg', bg:'#c8cac8', cap:'Quanzhou — Research 2020' },
 ];
 
 const wrap     = document.getElementById('works-wrap');
@@ -1419,6 +1528,79 @@ form.addEventListener('submit', async e => {
   <div class="proj-copyright">© Veronique Huang Wei</div>
 </div>
 
+<!-- ═══ PROJECT: Quanzhou ═══ -->
+<div id="pg-quanzhou" class="proj-page">
+  <div class="proj-topbar">
+    <div class="proj-topbar-inner">
+      <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
+      <nav style="display:flex;gap:2.25rem;align-items:center;">
+        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
+        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('about','nav-about')">About</a>
+        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
+      </nav>
+    </div>
+  </div>
+  <div class="proj-title-wrap">
+    <h1 class="proj-title">The Imaginary Cultural Landscape of the City and Harbor in Quanzhou</h1>
+  </div>
+
+  <!-- Single column image -->
+  <div style="margin-bottom:3rem;">
+    <div class="proj-col-single">
+      <div class="col-img-wrap" id="col-quanzhou-S"></div>
+      <div class="col-nav">
+        <span class="col-arrow" onclick="colStepSingle('quanzhou',-1)">&#8592; Prev</span>
+        <span class="col-counter" id="ctr-quanzhou-S"></span>
+        <span class="col-arrow" onclick="colStepSingle('quanzhou',1)">Next &#8594;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flip book placeholder -->
+  <div class="flipbook-wrap">
+    <div class="flipbook-label">Chapter 2 — The Cultural Landscape of Jubao</div>
+    <div class="flipbook" id="flipbook-quanzhou">
+      <div class="flipbook-page active" id="fb-page-1">
+        <p><em>Text content to be added — Chapter 2 extract.</em></p>
+      </div>
+      <div class="flipbook-page" id="fb-page-2">
+        <p><em>Page 2</em></p>
+      </div>
+    </div>
+    <div class="flipbook-nav">
+      <span class="flipbook-arrow" onclick="fbStep(-1)">&#8592; Prev</span>
+      <span class="flipbook-counter" id="fb-counter">1 / 2</span>
+      <span class="flipbook-arrow" onclick="fbStep(1)">Next &#8594;</span>
+    </div>
+    <a href="documents/quanzhou_chapter2.pdf" target="_blank" class="essay-link">Read full essay &#8594;</a>
+  </div>
+
+  <div class="proj-info">
+    <div class="proj-text">
+      <p>— Description to be confirmed —</p>
+    </div>
+    <div class="proj-details">
+      <div><div class="detail-label">Location</div><div class="detail-value">Quanzhou, China</div></div>
+      <div><div class="detail-label">Year</div><div class="detail-value">2020</div></div>
+      <div><div class="detail-label">Type</div><div class="detail-value">Research</div></div>
+      <div><div class="detail-label">Institution</div><div class="detail-value">The Bartlett UCL</div></div>
+      <div><div class="detail-label">Programme</div><div class="detail-value">MA Architecture &amp; Historic Urban Environment</div></div>
+    </div>
+  </div>
+
+  <div class="proj-nav">
+    <div class="proj-nav-prev">
+      <div class="proj-nav-link" onclick="showProject('inmemory')">&#8592; Prev</div>
+      <div class="proj-nav-title">In Memory of...</div>
+    </div>
+    <div class="proj-nav-next">
+      <div class="proj-nav-link" onclick="showProject('kharkiv')">Next &#8594;</div>
+      <div class="proj-nav-title">Architecture at the Intersection of Destination and Transition</div>
+    </div>
+  </div>
+  <div class="proj-copyright">© Veronique Huang Wei</div>
+</div>
+
 <script>
 /* ══════════════════════════════════════════
    COLUMN IMAGE SYSTEM
@@ -1526,6 +1708,15 @@ const projectImages = {
   /* ── In Memory of ── */
   'inmemory-L': ['images/inmemory/photo_1.jpg'],
   'inmemory-R': ['images/inmemory/drawing_render.jpg','images/inmemory/drawing_flower.jpg','images/inmemory/drawing_plan.jpg','images/inmemory/drawing_axo.jpg'],
+  /* ── Quanzhou ── */
+  'quanzhou-S': [
+    'images/quanzhou/photo_1.jpg',
+    'images/quanzhou/photo_2.jpg',
+    'images/quanzhou/photo_3.jpg',
+    'images/quanzhou/photo_4.jpg',
+    'images/quanzhou/photo_5.jpg',
+    'images/quanzhou/photo_6.jpg',
+  ],
 };
 
 const colState = {}; // tracks current index per column
@@ -1609,16 +1800,60 @@ window.showProject = function(id) {
   };
   if (cols[id]) {
     cols[id].forEach(k => {
-
         initCol(k,'L');
         initCol(k,'R');
-      
     });
   }
+  if (id === 'quanzhou') initColSingle('quanzhou');
 };
 // also init on page load in case of direct link
 initCol('housefaces','L');
 initCol('housefaces','R');
+
+/* ── Single-column image system ── */
+function initColSingle(projId) {
+  const key  = projId + '-S';
+  const imgs = projectImages[key] || [];
+  const wrap = document.getElementById('col-' + key);
+  const ctr  = document.getElementById('ctr-' + key);
+  if (!wrap || !imgs.length) return;
+  colState[key] = 0;
+  wrap.innerHTML = '';
+  const img = document.createElement('img');
+  img.src = imgs[0];
+  img.alt = '';
+  img.onerror = function(){ this.style.background='#d8d3cd'; };
+  wrap.appendChild(img);
+  if (ctr) ctr.textContent = imgs.length > 1 ? '1 / ' + imgs.length : '';
+}
+
+function colStepSingle(projId, dir) {
+  const key  = projId + '-S';
+  const imgs = projectImages[key] || [];
+  if (imgs.length <= 1) return;
+  const wrap = document.getElementById('col-' + key);
+  const ctr  = document.getElementById('ctr-' + key);
+  const img  = wrap.querySelector('img');
+  if (!img) return;
+  colState[key] = (colState[key] + dir + imgs.length) % imgs.length;
+  img.style.opacity = '0';
+  img.src = imgs[colState[key]];
+  img.onload = () => { img.style.opacity = '1'; };
+  if (ctr) ctr.textContent = (colState[key] + 1) + ' / ' + imgs.length;
+}
+
+/* ── Flip book ── */
+let fbCurrent = 1;
+const fbTotal = 2; // update when pages are added
+function fbStep(dir) {
+  const pages = document.querySelectorAll('#flipbook-quanzhou .flipbook-page');
+  if (!pages.length) return;
+  pages[fbCurrent - 1].classList.remove('active');
+  fbCurrent = ((fbCurrent - 1 + dir + pages.length) % pages.length) + 1;
+  pages[fbCurrent - 1].classList.add('active');
+  const ctr = document.getElementById('fb-counter');
+  if (ctr) ctr.textContent = fbCurrent + ' / ' + pages.length;
+}
 </script>
 <span class="close-btn-fixed" id="fixed-close" onclick="showPage('works','nav-works')" style="display:none">&#215;</span>
 </body>
