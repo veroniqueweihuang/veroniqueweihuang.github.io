@@ -1545,9 +1545,9 @@ form.addEventListener('submit', async e => {
   </div>
 
   <!-- Single column image -->
-  <div style="margin-bottom:3rem;">
-    <div class="proj-col-single">
-      <div class="col-img-wrap" id="col-quanzhou-S"></div>
+  <div style="margin-bottom:3rem;display:flex;justify-content:center;">
+    <div class="proj-col-single" style="width:66.666%;">
+      <div class="col-img-wrap" id="col-quanzhou-S" style="cursor:pointer;" onclick="colStepSingleClick('quanzhou', event)"></div>
       <div class="col-nav">
         <span class="col-arrow" onclick="colStepSingle('quanzhou',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-quanzhou-S"></span>
@@ -1556,23 +1556,16 @@ form.addEventListener('submit', async e => {
     </div>
   </div>
 
-  <!-- Flip book placeholder -->
+  <!-- PDF reader -->
   <div class="flipbook-wrap">
     <div class="flipbook-label">Chapter 2 — The Cultural Landscape of Jubao</div>
-    <div class="flipbook" id="flipbook-quanzhou">
-      <div class="flipbook-page active" id="fb-page-1">
-        <p><em>Text content to be added — Chapter 2 extract.</em></p>
-      </div>
-      <div class="flipbook-page" id="fb-page-2">
-        <p><em>Page 2</em></p>
-      </div>
+    <div style="position:relative;width:100%;padding-bottom:75%;background:#f0ede8;outline:0.5px solid #e4e0db;overflow:hidden;" oncontextmenu="return false;">
+      <iframe
+        src="documents/quanzhou_chapter2.pdf#toolbar=0&navpanes=0&scrollbar=1&view=FitH"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+      ></iframe>
     </div>
-    <div class="flipbook-nav">
-      <span class="flipbook-arrow" onclick="fbStep(-1)">&#8592; Prev</span>
-      <span class="flipbook-counter" id="fb-counter">1 / 2</span>
-      <span class="flipbook-arrow" onclick="fbStep(1)">Next &#8594;</span>
-    </div>
-    <a href="documents/quanzhou_chapter2.pdf" target="_blank" class="essay-link">Read full essay &#8594;</a>
+    <a href="documents/quanzhou_essay.pdf" target="_blank" class="essay-link">Read full essay &#8594;</a>
   </div>
 
   <div class="proj-info">
@@ -1825,6 +1818,13 @@ function initColSingle(projId) {
   img.onerror = function(){ this.style.background='#d8d3cd'; };
   wrap.appendChild(img);
   if (ctr) ctr.textContent = imgs.length > 1 ? '1 / ' + imgs.length : '';
+}
+
+function colStepSingleClick(projId, e) {
+  const wrap = document.getElementById('col-quanzhou-S');
+  const rect = wrap.getBoundingClientRect();
+  const dir = (e.clientX - rect.left) < rect.width / 2 ? -1 : 1;
+  colStepSingle(projId, dir);
 }
 
 function colStepSingle(projId, dir) {
