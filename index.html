@@ -850,7 +850,7 @@ nav a.active{color:var(--black)}
     </div>
     <div class="row" data-i="0" onclick="showProject('kharkiv')" style="cursor:pointer">
       <span class="proj-name">Architecture at the Intersection of Destination and Transition</span>
-      <span class="proj-type">Competition</span>
+      <span class="proj-type">Master Plan</span>
       <span class="proj-year">2024</span>
     </div>
     <div class="row" data-i="1" onclick="showProject('azenith')" style="cursor:pointer">
@@ -1559,19 +1559,31 @@ form.addEventListener('submit', async e => {
   <!-- PDF reader -->
   <div class="flipbook-wrap">
     <div style="font-size:13px;letter-spacing:0.06em;color:var(--black);margin-bottom:1.5rem;font-family:var(--sans);font-weight:400;">Essay Excerpt: Chapter 2 — The Cultural Landscape of Jubao</div>
-    <div style="display:flex;justify-content:center;">
-      <div style="width:66.666%;">
-        <div id="pdf-container" style="width:100%;background:#f0ede8;outline:0.5px solid #e4e0db;overflow:hidden;position:relative;" oncontextmenu="return false;">
-          <canvas id="pdf-canvas" style="display:block;width:100%;"></canvas>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-          <span class="col-arrow" onclick="pdfStep(-1)">&#8592; Prev</span>
-          <span class="col-counter" id="pdf-counter"></span>
-          <span class="col-arrow" onclick="pdfStep(1)">Next &#8594;</span>
-        </div>
-        <p style="font-size:11px;letter-spacing:0.12em;color:var(--faint);text-transform:uppercase;margin-top:1rem;text-align:right;">Full essay available upon request.</p>
+    <div>
+      <div id="pdf-container" style="width:100%;background:#f0ede8;outline:0.5px solid #e4e0db;overflow:hidden;position:relative;cursor:zoom-in;" oncontextmenu="return false;" onclick="openPdfLightbox()">
+        <canvas id="pdf-canvas" style="display:block;width:100%;"></canvas>
+        <div style="position:absolute;bottom:10px;right:12px;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--faint);pointer-events:none;">Click to enlarge</div>
       </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+        <span class="col-arrow" onclick="pdfStep(-1)">&#8592; Prev</span>
+        <span class="col-counter" id="pdf-counter"></span>
+        <span class="col-arrow" onclick="pdfStep(1)">Next &#8594;</span>
+      </div>
+      <p style="font-size:11px;letter-spacing:0.12em;color:var(--faint);text-transform:uppercase;margin-top:1rem;text-align:right;">Full essay available upon request.</p>
     </div>
+  </div>
+
+  <!-- PDF lightbox -->
+  <div id="pdf-lightbox" style="display:none;position:fixed;inset:0;background:rgba(15,15,14,0.96);z-index:400;overflow-y:auto;padding:3rem 5%;" oncontextmenu="return false;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
+      <div style="display:flex;gap:2rem;align-items:center;">
+        <span class="col-arrow" style="color:#888;" onclick="pdfStepLightbox(-1)">&#8592; Prev</span>
+        <span style="font-size:10px;letter-spacing:0.1em;color:#666;" id="pdf-lb-counter"></span>
+        <span class="col-arrow" style="color:#888;" onclick="pdfStepLightbox(1)">Next &#8594;</span>
+      </div>
+      <span onclick="closePdfLightbox()" style="font-size:28px;font-weight:200;color:#888;cursor:pointer;font-family:var(--sans);transition:color 0.18s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">&#215;</span>
+    </div>
+    <canvas id="pdf-canvas-lb" style="display:block;width:100%;max-width:1300px;margin:0 auto;"></canvas>
   </div>
 
   <div class="proj-info">
@@ -1874,41 +1886,38 @@ function fbStep(dir) {
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
-/* ── PDF.js two-page spread viewer ── */
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
 let pdfDoc = null;
-let pdfCurrentSpread = 1; // spread number (1 = pages 1-2, 2 = pages 3-4, etc.)
+let pdfCurrentSpread = 1;
 
 async function initPdfViewer() {
   const container = document.getElementById('pdf-container');
   if (!container) return;
   try {
     pdfDoc = await pdfjsLib.getDocument('documents/quanzhou_chapter2.pdf').promise;
-    renderSpread(1);
-  } catch(e) {
-    console.log('PDF load error:', e);
-  }
+    renderSpread(1, 'pdf-canvas', 1.5);
+  } catch(e) { console.log('PDF load error:', e); }
 }
 
-async function renderSpread(spreadNum) {
+async function renderSpread(spreadNum, canvasId, scaleMultiplier) {
   if (!pdfDoc) return;
   const totalPages = pdfDoc.numPages;
   const leftPageNum  = (spreadNum - 1) * 2 + 1;
   const rightPageNum = leftPageNum + 1;
   const totalSpreads = Math.ceil(totalPages / 2);
 
-  const canvas = document.getElementById('pdf-canvas');
+  const canvas = document.getElementById(canvasId);
   const ctx = canvas.getContext('2d');
 
-  // Render left page to get dimensions
   const leftPage = await pdfDoc.getPage(Math.min(leftPageNum, totalPages));
   const viewport = leftPage.getViewport({ scale: 1 });
 
-  // Scale to container width (two pages side by side)
-  const container = document.getElementById('pdf-container');
-  const containerWidth = container.clientWidth;
-  const scale = (containerWidth / 2) / viewport.width;
+  const container = canvasId === 'pdf-canvas'
+    ? document.getElementById('pdf-container')
+    : document.getElementById('pdf-canvas-lb').parentElement;
+  const containerWidth = (canvasId === 'pdf-canvas-lb' ? Math.min(window.innerWidth * 0.9, 1300) : container.clientWidth);
+  const scale = ((containerWidth / 2) / viewport.width) * (scaleMultiplier || 1);
   const scaledVP = leftPage.getViewport({ scale });
 
   canvas.width  = scaledVP.width * 2;
@@ -1916,27 +1925,23 @@ async function renderSpread(spreadNum) {
   canvas.style.width  = '100%';
   canvas.style.height = 'auto';
 
-  // Render left page
+  ctx.fillStyle = '#f0ede8';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
   await leftPage.render({ canvasContext: ctx, viewport: scaledVP }).promise;
 
-  // Render right page if it exists
   if (rightPageNum <= totalPages) {
     const rightPage = await pdfDoc.getPage(rightPageNum);
     const rightVP = rightPage.getViewport({ scale });
-    // Create temp canvas for right page
     const tmpCanvas = document.createElement('canvas');
     tmpCanvas.width  = rightVP.width;
     tmpCanvas.height = rightVP.height;
     await rightPage.render({ canvasContext: tmpCanvas.getContext('2d'), viewport: rightVP }).promise;
     ctx.drawImage(tmpCanvas, scaledVP.width, 0);
-  } else {
-    // Fill right side with background if no right page
-    ctx.fillStyle = '#f0ede8';
-    ctx.fillRect(scaledVP.width, 0, scaledVP.width, scaledVP.height);
   }
 
   pdfCurrentSpread = spreadNum;
-  const ctr = document.getElementById('pdf-counter');
+  const ctr = document.getElementById(canvasId === 'pdf-canvas' ? 'pdf-counter' : 'pdf-lb-counter');
   if (ctr) ctr.textContent = spreadNum + ' / ' + totalSpreads;
 }
 
@@ -1945,14 +1950,33 @@ function pdfStep(dir) {
   const totalSpreads = Math.ceil(pdfDoc.numPages / 2);
   const next = pdfCurrentSpread + dir;
   if (next < 1 || next > totalSpreads) return;
-  renderSpread(next);
+  renderSpread(next, 'pdf-canvas', 1.5);
 }
 
-// Init when quanzhou page opens
+function openPdfLightbox() {
+  if (!pdfDoc) return;
+  document.getElementById('pdf-lightbox').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+  renderSpread(pdfCurrentSpread, 'pdf-canvas-lb', 2.5);
+}
+
+function closePdfLightbox() {
+  document.getElementById('pdf-lightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function pdfStepLightbox(dir) {
+  if (!pdfDoc) return;
+  const totalSpreads = Math.ceil(pdfDoc.numPages / 2);
+  const next = pdfCurrentSpread + dir;
+  if (next < 1 || next > totalSpreads) return;
+  renderSpread(next, 'pdf-canvas-lb', 2.5);
+}
+
 const _origShowProjectPdf = window.showProject;
 window.showProject = function(id) {
   _origShowProjectPdf && _origShowProjectPdf(id);
-  if (id === 'quanzhou') initPdfViewer();
+  if (id === 'quanzhou') setTimeout(initPdfViewer, 100);
 };
 </script>
 <span class="close-btn-fixed" id="fixed-close" onclick="showPage('works','nav-works')" style="display:none">&#215;</span>
