@@ -420,30 +420,24 @@ nav a.active{color:var(--black)}
 }
 .proj-page.active{display:block}
 
-/* Top bar — same as main header */
+/* Top bar — identical to main header, no rule */
 .proj-topbar{
-  padding:2.25rem 0 0;
   position:fixed;
   top:0;
-  left:0;
-  right:0;
-  background:var(--bg);
-  z-index:100;
-  box-sizing:border-box;
-  max-width:1400px;
-  margin:0 auto;
   left:50%;
   transform:translateX(-50%);
   width:100%;
-  padding-left:3%;
-  padding-right:3%;
+  max-width:1400px;
+  background:var(--bg);
+  z-index:100;
+  box-sizing:border-box;
+  padding:2.25rem 3% 0;
 }
 .proj-topbar-inner{
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding-bottom:1.2rem;
-  width:100%;
 }
 .proj-topbar-name{
   font-family:var(--serif);
@@ -1073,12 +1067,12 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: Kharkiv ═══ -->
 <div id="pg-kharkiv" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner">
-      <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
-      <nav style="display:flex;gap:2.25rem;align-items:center;">
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('about','nav-about')">About</a>
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
+    <div class="header-inner">
+      <span class="site-name" onclick="showPage('works','nav-works')">Veronique Huang Wei</span>
+      <nav>
+        <a class="active" onclick="showPage('works','nav-works')">Works</a>
+        <a onclick="showPage('about','nav-about')">About</a>
+        <a onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
     </div>
   </div>
@@ -1135,12 +1129,12 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: A-Zenith ═══ -->
 <div id="pg-azenith" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner">
-      <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
-      <nav style="display:flex;gap:2.25rem;align-items:center;">
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('about','nav-about')">About</a>
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
+    <div class="header-inner">
+      <span class="site-name" onclick="showPage('works','nav-works')">Veronique Huang Wei</span>
+      <nav>
+        <a class="active" onclick="showPage('works','nav-works')">Works</a>
+        <a onclick="showPage('about','nav-about')">About</a>
+        <a onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
     </div>
   </div>
@@ -1204,12 +1198,12 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: Guangzhou ═══ -->
 <div id="pg-guangzhou" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner">
-      <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
-      <nav style="display:flex;gap:2.25rem;align-items:center;">
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('about','nav-about')">About</a>
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
+    <div class="header-inner">
+      <span class="site-name" onclick="showPage('works','nav-works')">Veronique Huang Wei</span>
+      <nav>
+        <a class="active" onclick="showPage('works','nav-works')">Works</a>
+        <a onclick="showPage('about','nav-about')">About</a>
+        <a onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
     </div>
   </div>
@@ -1269,12 +1263,12 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: U-Thant ═══ -->
 <div id="pg-uthant" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner">
-      <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
-      <nav style="display:flex;gap:2.25rem;align-items:center;">
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('about','nav-about')">About</a>
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
+    <div class="header-inner">
+      <span class="site-name" onclick="showPage('works','nav-works')">Veronique Huang Wei</span>
+      <nav>
+        <a class="active" onclick="showPage('works','nav-works')">Works</a>
+        <a onclick="showPage('about','nav-about')">About</a>
+        <a onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
     </div>
   </div>
@@ -1334,12 +1328,12 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: Courtyard House ═══ -->
 <div id="pg-courtyard" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner">
-      <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
-      <nav style="display:flex;gap:2.25rem;align-items:center;">
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('about','nav-about')">About</a>
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
+    <div class="header-inner">
+      <span class="site-name" onclick="showPage('works','nav-works')">Veronique Huang Wei</span>
+      <nav>
+        <a class="active" onclick="showPage('works','nav-works')">Works</a>
+        <a onclick="showPage('about','nav-about')">About</a>
+        <a onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
     </div>
   </div>
@@ -1400,12 +1394,12 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: In Memory of ═══ -->
 <div id="pg-inmemory" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner">
-      <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
-      <nav style="display:flex;gap:2.25rem;align-items:center;">
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('about','nav-about')">About</a>
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
+    <div class="header-inner">
+      <span class="site-name" onclick="showPage('works','nav-works')">Veronique Huang Wei</span>
+      <nav>
+        <a class="active" onclick="showPage('works','nav-works')">Works</a>
+        <a onclick="showPage('about','nav-about')">About</a>
+        <a onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
     </div>
   </div>
@@ -1467,12 +1461,12 @@ form.addEventListener('submit', async e => {
 <div id="pg-housefaces" class="proj-page">
 
   <div class="proj-topbar">
-    <div class="proj-topbar-inner">
-      <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
-      <nav style="display:flex;gap:2.25rem;align-items:center;">
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('about','nav-about')">About</a>
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
+    <div class="header-inner">
+      <span class="site-name" onclick="showPage('works','nav-works')">Veronique Huang Wei</span>
+      <nav>
+        <a class="active" onclick="showPage('works','nav-works')">Works</a>
+        <a onclick="showPage('about','nav-about')">About</a>
+        <a onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
     </div>
   </div>
@@ -1539,12 +1533,12 @@ form.addEventListener('submit', async e => {
 <!-- ═══ PROJECT: Quanzhou ═══ -->
 <div id="pg-quanzhou" class="proj-page">
   <div class="proj-topbar">
-    <div class="proj-topbar-inner">
-      <span class="site-name" onclick="showPage('works','nav-works')" style="cursor:pointer">Veronique Huang Wei</span>
-      <nav style="display:flex;gap:2.25rem;align-items:center;">
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-weight:400;color:var(--black);border-bottom:1px solid var(--black);padding-bottom:2px;">Works</a>
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('about','nav-about')">About</a>
-        <a style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--mid);cursor:pointer;" onclick="showPage('contact','nav-contact')">Contact</a>
+    <div class="header-inner">
+      <span class="site-name" onclick="showPage('works','nav-works')">Veronique Huang Wei</span>
+      <nav>
+        <a class="active" onclick="showPage('works','nav-works')">Works</a>
+        <a onclick="showPage('about','nav-about')">About</a>
+        <a onclick="showPage('contact','nav-contact')">Contact</a>
       </nav>
     </div>
   </div>
