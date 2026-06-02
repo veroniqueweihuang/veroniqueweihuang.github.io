@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>House with Two Faces — Veronique Huang Wei</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="site-name" href="../">Veronique Huang Wei</a>
+    <nav>
+      <a class="active" href="../">Works</a>
+      <a href="../#about">About</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="rule"></div>
+</header>
+
+<div class="proj-content">
+
+  <div class="proj-title-wrap">
+    <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+      <h1 class="proj-title" style="flex:1;">House with Two Faces</h1>
+      <a href="../" style="font-size:22px;font-weight:200;color:var(--mid);text-decoration:none;padding-left:1.5rem;flex-shrink:0;font-family:var(--sans);transition:color 0.18s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--mid)'">&#215;</a>
+    </div>
+  </div>
+
+  <!-- Images — left: photography, right: drawings -->
+  <div class="proj-columns">
+    <div class="proj-col">
+      <div class="col-img-wrap" id="col-L"></div>
+      <div class="col-nav">
+        <span class="col-arrow" onclick="colStep('L',-1)">&#8592; Prev</span>
+        <span class="col-counter" id="ctr-L"></span>
+        <span class="col-arrow" onclick="colStep('L',1)">Next &#8594;</span>
+      </div>
+    </div>
+    <div class="proj-col">
+      <div class="col-img-wrap" id="col-R"></div>
+      <div class="col-nav">
+        <span class="col-arrow" onclick="colStep('R',-1)">&#8592; Prev</span>
+        <span class="col-counter" id="ctr-R"></span>
+        <span class="col-arrow" onclick="colStep('R',1)">Next &#8594;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info -->
+  <div class="proj-info">
+    <div class="proj-text">
+      <p>The house, originally built in the 1930s as a shophouse, was acquired by a young couple with a passion for modern design and vernacular art. The design bridges old and new — preserving the conservation facade while introducing a contemporary rear addition separated by a water court that draws light deep into the plan. The tiered profile of the new addition responds to Singapore's urban envelope regulations, turning a constraint into an architectural opportunity.</p>
+      <p>Double-height volumes, a hidden mezzanine, bridges and spiral staircases address the limits of a narrow plot while enriching daily life with changing spatial experiences. The vocabulary draws from early modernism — steel, glass, industrial craftsmanship — with red-painted fire-rated steel becoming a defining material element, a quiet homage to the Maison de Verre in Paris.</p>
+    </div>
+    <div class="proj-details">
+      <div><div class="detail-label">Location</div><div class="detail-value">Singapore</div></div>
+      <div><div class="detail-label">Year</div><div class="detail-value">2020</div></div>
+      <div><div class="detail-label">Status</div><div class="detail-value">Built</div></div>
+      <div><div class="detail-label">GFA</div><div class="detail-value">324 sqm</div></div>
+      <div><div class="detail-label">Role</div><div class="detail-value">Architect in Charge</div></div>
+      <div><div class="detail-label">Office</div><div class="detail-value"><a href="https://www.rtnq.com/" target="_blank">RT+Q Architects</a></div></div>
+      <div><div class="detail-label">Published</div><div class="detail-value"><a href="https://www.archdaily.com/937953/house-with-two-faces-rt-plus-q-architects" target="_blank">ArchDaily</a></div></div>
+      <div><div class="detail-label">Recognition</div><div class="detail-value">WAF 2021 Shortlist</div></div>
+    </div>
+  </div>
+
+  <!-- Prev / Next -->
+  <div class="proj-nav">
+    <div class="proj-nav-prev">
+      <a href="../u-thant-place/" class="proj-nav-link">&#8592; Prev</a>
+      <div class="proj-nav-title">U-Thant Place</div>
+    </div>
+    <div class="proj-nav-next">
+      <a href="../a-courtyard-house/" class="proj-nav-link">Next &#8594;</a>
+      <div class="proj-nav-title">A Courtyard House</div>
+    </div>
+  </div>
+
+  <div class="proj-copyright">© 2026 Veronique Huang Wei</div>
+
+</div><!-- /proj-content -->
+
+<div class="footer">
+  <span class="footer-inner">© 2026 Veronique Huang Wei</span>
+</div>
+
+<script>
+const images = {
+  L: [
+    '../images/housefaces/photo_nigh.jpg',
+    '../images/housefaces/photo_front.jpg',
+    '../images/housefaces/photo_light.jpg',
+    '../images/housefaces/photo_living.jpg',
+    '../images/housefaces/photo_red_bridge.jpg',
+    '../images/housefaces/photo_rear.jpg',
+    '../images/housefaces/photo_rear_stair.jpg',
+    '../images/housefaces/photo_D1.jpg',
+    '../images/housefaces/photo_D2.jpg',
+    '../images/housefaces/photo_courtyard.jpg',
+  ],
+  R: [
+    '../images/housefaces/drawing_site1.jpg',
+    '../images/housefaces/drawing_site2.jpg',
+    '../images/housefaces/drawing_section.jpg',
+    '../images/housefaces/drawing_plan.jpg',
+    '../images/housefaces/drawing_courtyard.jpg',
+    '../images/housefaces/drawing_sketchup.jpg',
+    '../images/housefaces/drawing_detail.jpg',
+  ],
+};
+
+const state = { L: 0, R: 0 };
+
+function initCol(side) {
+  const imgs = images[side];
+  const wrap = document.getElementById('col-' + side);
+  const ctr  = document.getElementById('ctr-' + side);
+  if (!wrap || !imgs.length) return;
+  wrap.innerHTML = '';
+  const img = document.createElement('img');
+  img.src = imgs[0];
+  img.alt = '';
+  img.onerror = function(){ this.style.background='#d8d3cd'; };
+  img.style.cursor = imgs.length > 1 ? 'pointer' : 'default';
+  img.addEventListener('click', e => {
+    const rect = img.getBoundingClientRect();
+    colStep(side, e.clientX - rect.left < rect.width / 2 ? -1 : 1);
+  });
+  wrap.appendChild(img);
+  if (ctr) ctr.textContent = imgs.length > 1 ? '1 / ' + imgs.length : '';
+}
+
+function colStep(side, dir) {
+  const imgs = images[side];
+  if (imgs.length <= 1) return;
+  const wrap = document.getElementById('col-' + side);
+  const ctr  = document.getElementById('ctr-' + side);
+  const img  = wrap.querySelector('img');
+  if (!img) return;
+  state[side] = (state[side] + dir + imgs.length) % imgs.length;
+  img.style.opacity = '0';
+  img.src = imgs[state[side]];
+  img.onload = () => { img.style.opacity = '1'; };
+  if (ctr) ctr.textContent = (state[side] + 1) + ' / ' + imgs.length;
+}
+
+initCol('L');
+initCol('R');
+</script>
+</body>
+</html>
