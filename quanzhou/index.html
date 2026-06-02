@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Imaginary Cultural Landscape of the City and Harbor in Quanzhou — Veronique Huang Wei</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="site-name" href="../">Veronique Huang Wei</a>
+    <nav>
+      <a class="active" href="../">Works</a>
+      <a href="../#about">About</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="rule"></div>
+</header>
+
+<div class="proj-content">
+
+  <div class="proj-title-wrap">
+    <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+      <h1 class="proj-title" style="flex:1;">The Imaginary Cultural Landscape of the City and Harbor in Quanzhou</h1>
+      <a href="../" style="font-size:22px;font-weight:200;color:var(--mid);text-decoration:none;padding-left:1.5rem;flex-shrink:0;font-family:var(--sans);transition:color 0.18s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--mid)'">&#215;</a>
+    </div>
+  </div>
+
+  <!-- Single column images -->
+  <div style="margin-bottom:3rem;display:flex;justify-content:center;">
+    <div id="quanzhou-col-wrap" class="proj-col-single" style="width:66.666%;transition:width 0.3s ease;">
+      <div class="col-img-wrap" id="col-S" style="cursor:pointer;" onclick="colStepSingleClick(event)"></div>
+      <div class="col-nav">
+        <span class="col-arrow" onclick="colStepSingle(-1)">&#8592; Prev</span>
+        <span class="col-counter" id="ctr-S"></span>
+        <span class="col-arrow" onclick="colStepSingle(1)">Next &#8594;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PDF reader -->
+  <div class="flipbook-wrap">
+    <div style="font-size:13px;letter-spacing:0.06em;color:var(--black);margin-bottom:1.5rem;font-family:var(--sans);font-weight:400;">Essay Excerpt: Chapter 2 — The Cultural Landscape of Jubao</div>
+    <div>
+      <div id="pdf-container" style="width:100%;background:#f0ede8;outline:0.5px solid #e4e0db;overflow:hidden;position:relative;cursor:zoom-in;" oncontextmenu="return false;" onclick="openPdfLightbox()">
+        <canvas id="pdf-canvas" style="display:block;width:100%;"></canvas>
+        <div style="position:absolute;bottom:10px;right:12px;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--faint);pointer-events:none;">Click to enlarge</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+        <span class="col-arrow" onclick="pdfStep(-1)">&#8592; Prev</span>
+        <span class="col-counter" id="pdf-counter"></span>
+        <span class="col-arrow" onclick="pdfStep(1)">Next &#8594;</span>
+      </div>
+      <p style="font-size:11px;letter-spacing:0.12em;color:var(--faint);text-transform:uppercase;margin-top:1rem;text-align:right;">Full essay available upon request.</p>
+    </div>
+  </div>
+
+  <!-- PDF lightbox -->
+  <div id="pdf-lightbox" style="display:none;position:fixed;inset:0;background:rgba(15,15,14,0.96);z-index:400;overflow-y:auto;padding:3rem 5%;" oncontextmenu="return false;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
+      <div style="display:flex;gap:2rem;align-items:center;">
+        <span class="col-arrow" style="color:#888;" onclick="pdfStepLightbox(-1)">&#8592; Prev</span>
+        <span style="font-size:10px;letter-spacing:0.1em;color:#666;" id="pdf-lb-counter"></span>
+        <span class="col-arrow" style="color:#888;" onclick="pdfStepLightbox(1)">Next &#8594;</span>
+      </div>
+      <span onclick="closePdfLightbox()" style="font-size:28px;font-weight:200;color:#888;cursor:pointer;font-family:var(--sans);transition:color 0.18s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">&#215;</span>
+    </div>
+    <canvas id="pdf-canvas-lb" style="display:block;width:100%;max-width:1300px;margin:0 auto;"></canvas>
+  </div>
+
+  <div class="proj-info">
+    <div class="proj-text">
+      <p>Quanzhou was once the largest port in the world — known as Zayton, described by Marco Polo, visited by Ibn Battuta. Yet when the city submitted sixteen monuments for UNESCO World Heritage status in 2018, the application failed: the nominated sites were too fragmented, too severed from the living fabric of the city to carry the weight of its history.</p>
+      <p>This essay challenges the conventional practice of urban heritage preservation — questioning whether isolated monuments and landmark-driven narratives can ever adequately represent the complexity of a living city. It asks: what happens to the heritage that exists not in objects but in everyday routines, spatial orders, and the accumulated memory of ordinary places?</p>
+      <p>Through walking, field observation and archival research in Jubao, a former trading district at the intersection of city and harbor, the work proposes an alternative reading — that Quanzhou's deeper <em>civitas</em> lies in its canals, temple-dock orders and embankments; in the traces of commerce, conflict and daily life that no single monument could represent alone.</p>
+      <p>Developed as part of the MA Architecture and Historic Urban Environment at The Bartlett UCL, 2020.</p>
+    </div>
+    <div class="proj-details">
+      <div><div class="detail-label">Location</div><div class="detail-value">Quanzhou, China</div></div>
+      <div><div class="detail-label">Year</div><div class="detail-value">2020</div></div>
+      <div><div class="detail-label">Type</div><div class="detail-value">Research</div></div>
+      <div><div class="detail-label">Institution</div><div class="detail-value">The Bartlett UCL</div></div>
+      <div><div class="detail-label">Programme</div><div class="detail-value">MA Architecture &amp; Historic Urban Environment</div></div>
+    </div>
+  </div>
+
+  <div class="proj-nav">
+    <div class="proj-nav-prev">
+      <a href="../in-memory-of/" class="proj-nav-link">&#8592; Prev</a>
+      <div class="proj-nav-title">In Memory of...</div>
+    </div>
+    <div class="proj-nav-next">
+      <a href="../architecture-at-the-intersection/" class="proj-nav-link">Next &#8594;</a>
+      <div class="proj-nav-title">Architecture at the Intersection of Destination and Transition</div>
+    </div>
+  </div>
+
+</div><!-- /proj-content -->
+
+<div class="footer">
+  <span class="footer-inner">© 2026 Veronique Huang Wei</span>
+</div>
+
+<script>
+/* Single column images */
+const imgs = [
+  '../images/quanzhou/photo_1.jpg',
+  '../images/quanzhou/photo_2.jpg',
+  '../images/quanzhou/photo_3.jpg',
+  '../images/quanzhou/photo_4.jpg',
+  '../images/quanzhou/photo_5.jpg',
+  '../images/quanzhou/photo_6.jpg',
+];
+let sIdx = 0;
+
+function initColSingle() {
+  const wrap = document.getElementById('col-S');
+  const ctr  = document.getElementById('ctr-S');
+  if (!wrap || !imgs.length) return;
+  wrap.innerHTML = '';
+  const img = document.createElement('img');
+  img.src = imgs[0]; img.alt = '';
+  img.onerror = function(){ this.style.background='#d8d3cd'; };
+  img.onload = function() { adjustWidth(this); };
+  wrap.appendChild(img);
+  if (ctr) ctr.textContent = imgs.length > 1 ? '1 / ' + imgs.length : '';
+}
+
+function adjustWidth(img) {
+  const container = document.getElementById('quanzhou-col-wrap');
+  if (!container) return;
+  container.style.width = img.naturalHeight > img.naturalWidth ? '44%' : '66.666%';
+}
+
+function colStepSingleClick(e) {
+  const wrap = document.getElementById('col-S');
+  const rect = wrap.getBoundingClientRect();
+  colStepSingle((e.clientX - rect.left) < rect.width / 2 ? -1 : 1);
+}
+
+function colStepSingle(dir) {
+  if (imgs.length <= 1) return;
+  const wrap = document.getElementById('col-S');
+  const ctr  = document.getElementById('ctr-S');
+  const img  = wrap.querySelector('img');
+  if (!img) return;
+  sIdx = (sIdx + dir + imgs.length) % imgs.length;
+  img.style.opacity = '0';
+  img.src = imgs[sIdx];
+  img.onload = () => { img.style.opacity = '1'; adjustWidth(img); };
+  if (ctr) ctr.textContent = (sIdx + 1) + ' / ' + imgs.length;
+}
+
+initColSingle();
+
+/* PDF viewer */
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+let pdfDoc = null;
+let pdfCurrentSpread = 1;
+
+async function initPdfViewer() {
+  try {
+    pdfDoc = await pdfjsLib.getDocument('../documents/quanzhou_chapter2.pdf').promise;
+    renderSpread(1, 'pdf-canvas', 1.5);
+  } catch(e) { console.log('PDF load error:', e); }
+}
+
+async function renderSpread(spreadNum, canvasId, scaleMultiplier) {
+  if (!pdfDoc) return;
+  const totalPages   = pdfDoc.numPages;
+  const leftPageNum  = (spreadNum - 1) * 2 + 1;
+  const rightPageNum = leftPageNum + 1;
+  const totalSpreads = Math.ceil(totalPages / 2);
+  const canvas = document.getElementById(canvasId);
+  const ctx    = canvas.getContext('2d');
+  const leftPage = await pdfDoc.getPage(Math.min(leftPageNum, totalPages));
+  const viewport = leftPage.getViewport({ scale: 1 });
+  const containerWidth = canvasId === 'pdf-canvas-lb'
+    ? Math.min(window.innerWidth * 0.9, 1300)
+    : document.getElementById('pdf-container').clientWidth;
+  const scale    = ((containerWidth / 2) / viewport.width) * (scaleMultiplier || 1);
+  const scaledVP = leftPage.getViewport({ scale });
+  canvas.width  = scaledVP.width * 2;
+  canvas.height = scaledVP.height;
+  canvas.style.width = '100%'; canvas.style.height = 'auto';
+  ctx.fillStyle = '#f0ede8';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  await leftPage.render({ canvasContext: ctx, viewport: scaledVP }).promise;
+  if (rightPageNum <= totalPages) {
+    const rightPage = await pdfDoc.getPage(rightPageNum);
+    const rightVP   = rightPage.getViewport({ scale });
+    const tmp = document.createElement('canvas');
+    tmp.width = rightVP.width; tmp.height = rightVP.height;
+    await rightPage.render({ canvasContext: tmp.getContext('2d'), viewport: rightVP }).promise;
+    ctx.drawImage(tmp, scaledVP.width, 0);
+  }
+  pdfCurrentSpread = spreadNum;
+  const ctr = document.getElementById(canvasId === 'pdf-canvas' ? 'pdf-counter' : 'pdf-lb-counter');
+  if (ctr) ctr.textContent = spreadNum + ' / ' + totalSpreads;
+}
+
+function pdfStep(dir) {
+  if (!pdfDoc) return;
+  const next = pdfCurrentSpread + dir;
+  if (next < 1 || next > Math.ceil(pdfDoc.numPages / 2)) return;
+  renderSpread(next, 'pdf-canvas', 1.5);
+}
+function openPdfLightbox() {
+  if (!pdfDoc) return;
+  document.getElementById('pdf-lightbox').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+  renderSpread(pdfCurrentSpread, 'pdf-canvas-lb', 2.5);
+}
+function closePdfLightbox() {
+  document.getElementById('pdf-lightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
+function pdfStepLightbox(dir) {
+  if (!pdfDoc) return;
+  const next = pdfCurrentSpread + dir;
+  if (next < 1 || next > Math.ceil(pdfDoc.numPages / 2)) return;
+  renderSpread(next, 'pdf-canvas-lb', 2.5);
+}
+
+initPdfViewer();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</body>
+</html>
