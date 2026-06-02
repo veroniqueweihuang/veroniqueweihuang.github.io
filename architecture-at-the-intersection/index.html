@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Architecture at the Intersection of Destination and Transition — Veronique Huang Wei</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="site-name" href="../">Veronique Huang Wei</a>
+    <nav>
+      <a class="active" href="../">Works</a>
+      <a href="../#about">About</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="rule"></div>
+</header>
+
+<div class="proj-content">
+
+  <div class="proj-title-wrap">
+    <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+      <h1 class="proj-title" style="flex:1;">Architecture at the Intersection of Destination and Transition<br><span style="font-size:0.65em;letter-spacing:0.08em;color:var(--mid);">Kharkiv Freedom Square Revival</span></h1>
+      <a href="../" style="font-size:22px;font-weight:200;color:var(--mid);text-decoration:none;padding-left:1.5rem;flex-shrink:0;font-family:var(--sans);transition:color 0.18s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--mid)'">&#215;</a>
+    </div>
+  </div>
+
+  <div class="proj-columns template-b">
+    <div class="proj-col">
+      <div class="col-img-wrap" id="col-L"></div>
+      <div class="col-nav">
+        <span class="col-arrow" onclick="colStep('L',-1)">&#8592; Prev</span>
+        <span class="col-counter" id="ctr-L"></span>
+        <span class="col-arrow" onclick="colStep('L',1)">Next &#8594;</span>
+      </div>
+    </div>
+    <div class="proj-col">
+      <div class="col-img-wrap" id="col-R"></div>
+      <div class="col-nav">
+        <span class="col-arrow" onclick="colStep('R',-1)">&#8592; Prev</span>
+        <span class="col-counter" id="ctr-R"></span>
+        <span class="col-arrow" onclick="colStep('R',1)">Next &#8594;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-info">
+    <div class="proj-text">
+      <p>A survey of Kharkiv residents — conducted while the city was still under conflict — asked how they envisioned rebuilding. Their answers pointed not to monuments or landmarks, but to the rhythms of everyday life: routes, routines, the familiar fabric of the city. This became the design's departure point.</p>
+      <p>The proposal's morphology consists of three elements — each independent, each capable of standing alone, yet designed to combine. Depending on which is built or how they are assembled, Freedom Square takes on a different urban character and civic meaning.</p>
+      <p>In contrast to the strong, solemn presence of the surrounding architecture, the three elements embody a loose, prosaic essence — extending the civic life of the Regional Administrative Building and offering Freedom Square a forward-looking identity rooted in the lives of those who inhabit it.</p>
+    </div>
+    <div class="proj-details">
+      <div><div class="detail-label">Location</div><div class="detail-value">Kharkiv, Ukraine</div></div>
+      <div><div class="detail-label">Year</div><div class="detail-value">2024</div></div>
+      <div><div class="detail-label">Status</div><div class="detail-value">Concept</div></div>
+      <div><div class="detail-label">Role</div><div class="detail-value">Independent Designer</div></div>
+      <div><div class="detail-label">Organisation</div><div class="detail-value"><a href="https://www.normanfosterfoundation.org" target="_blank">Norman Foster Foundation</a></div></div>
+    </div>
+  </div>
+
+  <div class="proj-nav">
+    <div class="proj-nav-prev">
+      <a href="../in-memory-of/" class="proj-nav-link">&#8592; Prev</a>
+      <div class="proj-nav-title">In Memory of...</div>
+    </div>
+    <div class="proj-nav-next">
+      <a href="../a-zenith-factory-showroom/" class="proj-nav-link">Next &#8594;</a>
+      <div class="proj-nav-title">A-Zenith Factory Showroom</div>
+    </div>
+  </div>
+
+</div><!-- /proj-content -->
+
+<div class="footer">
+  <span class="footer-inner">© 2026 Veronique Huang Wei</span>
+</div>
+
+<script>
+const images = {
+  L: [
+    '../images/kharkiv/photo_1.jpg',
+    '../images/kharkiv/photo_2.jpg',
+    '../images/kharkiv/photo_3.jpg',
+    '../images/kharkiv/photo_4.jpg',
+    '../images/kharkiv/photo_5.jpg',
+  ],
+  R: [
+    '../images/kharkiv/drawing_1.jpg',
+    '../images/kharkiv/drawing_1_1.jpg',
+    '../images/kharkiv/drawing_2.jpg',
+    '../images/kharkiv/drawing_3.jpg',
+    '../images/kharkiv/drawing_4.jpg',
+    '../images/kharkiv/drawing_4_1.jpg',
+    '../images/kharkiv/drawing_5.jpg',
+    '../images/kharkiv/drawing_6.jpg',
+    '../images/kharkiv/drawing_7.jpg',
+    '../images/kharkiv/drawing_8.jpg',
+    '../images/kharkiv/drawing_8_1.jpg',
+    '../images/kharkiv/drawing_9.jpg',
+    '../images/kharkiv/drawing_10_1.jpg',
+    '../images/kharkiv/drawing_10_2.jpg',
+    '../images/kharkiv/drawing_10_3.jpg',
+    '../images/kharkiv/drawing_11.jpg',
+    '../images/kharkiv/drawing_12.jpg',
+    '../images/kharkiv/drawing_13.jpg',
+  ],
+};
+const state = {L:0, R:0};
+function initCol(side) {
+  const imgs = images[side];
+  const wrap = document.getElementById('col-' + side);
+  const ctr  = document.getElementById('ctr-' + side);
+  if (!wrap || !imgs.length) return;
+  wrap.innerHTML = '';
+  const img = document.createElement('img');
+  img.src = imgs[0]; img.alt = '';
+  img.onerror = function(){ this.style.background='#d8d3cd'; };
+  img.style.cursor = imgs.length > 1 ? 'pointer' : 'default';
+  img.addEventListener('click', e => {
+    const rect = img.getBoundingClientRect();
+    colStep(side, e.clientX - rect.left < rect.width / 2 ? -1 : 1);
+  });
+  wrap.appendChild(img);
+  if (ctr) ctr.textContent = imgs.length > 1 ? '1 / ' + imgs.length : '';
+}
+function colStep(side, dir) {
+  const imgs = images[side];
+  if (imgs.length <= 1) return;
+  const wrap = document.getElementById('col-' + side);
+  const ctr  = document.getElementById('ctr-' + side);
+  const img  = wrap.querySelector('img');
+  if (!img) return;
+  state[side] = (state[side] + dir + imgs.length) % imgs.length;
+  img.style.opacity = '0';
+  img.src = imgs[state[side]];
+  img.onload = () => { img.style.opacity = '1'; };
+  if (ctr) ctr.textContent = (state[side] + 1) + ' / ' + imgs.length;
+}
+initCol('L'); initCol('R');
+</script>
+</body>
+</html>
