@@ -416,6 +416,6 @@ nav a.active{color:var(--black)}
   nav a{font-size:10px;letter-spacing:0.12em;}
   .site-name{font-size:16px;letter-spacing:0.04em;}
   .proj-name{font-size:12px;}
-  .proj-type{font-size:10px;}
+  .proj-type,.proj-year{font-size:10px;}
   .col-h{font-size:9px;}
 }
