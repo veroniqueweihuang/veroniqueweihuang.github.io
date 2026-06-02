@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Courtyard House — Veronique Huang Wei</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="site-name" href="../">Veronique Huang Wei</a>
+    <nav>
+      <a class="active" href="../">Works</a>
+      <a href="../#about">About</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="rule"></div>
+</header>
+
+<div class="proj-content">
+
+  <div class="proj-title-wrap">
+    <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+      <h1 class="proj-title" style="flex:1;">A Courtyard House</h1>
+      <a href="../" style="font-size:22px;font-weight:200;color:var(--mid);text-decoration:none;padding-left:1.5rem;flex-shrink:0;font-family:var(--sans);transition:color 0.18s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--mid)'">&#215;</a>
+    </div>
+  </div>
+
+  <div class="proj-columns">
+    <div class="proj-col">
+      <div class="col-img-wrap" id="col-L"></div>
+      <div class="col-nav">
+        <span class="col-arrow" onclick="colStep('L',-1)">&#8592; Prev</span>
+        <span class="col-counter" id="ctr-L"></span>
+        <span class="col-arrow" onclick="colStep('L',1)">Next &#8594;</span>
+      </div>
+    </div>
+    <div class="proj-col">
+      <div class="col-img-wrap" id="col-R"></div>
+      <div class="col-nav">
+        <span class="col-arrow" onclick="colStep('R',-1)">&#8592; Prev</span>
+        <span class="col-counter" id="ctr-R"></span>
+        <span class="col-arrow" onclick="colStep('R',1)">Next &#8594;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-info">
+    <div class="proj-text">
+      <p>A three-generation family set out to rebuild their home from the ground up. The original house was a single closed block — dim and humid — and light became the primary concern. Beyond that: a swimming pool for three children, a garden, a koi pond, and a collector's room for the owner.</p>
+      <p>The three hierarchic blocks in a C-shape layout emerged directly from this brief — each block loosely assigned to both a generation and a programme: the front to the living spaces and the master bedroom above, the middle to the kitchen and dining with the children's rooms on top, the furthest to the grandmother's quarters with the owner's collector's room above, all three connected around a shared courtyard.</p>
+      <p>Equal care was given to the linkages between blocks — the staircases, bridges and hallways were crafted to serve the light as much as to create unexpected spatial experiences along the way. Light was further invited through voids punched through ceilings and walls, coloured in different shades drawn from Le Corbusier's palette.</p>
+    </div>
+    <div class="proj-details">
+      <div><div class="detail-label">Location</div><div class="detail-value">Singapore</div></div>
+      <div><div class="detail-label">Year</div><div class="detail-value">2020</div></div>
+      <div><div class="detail-label">Status</div><div class="detail-value">Built</div></div>
+      <div><div class="detail-label">GFA</div><div class="detail-value">535 sqm</div></div>
+      <div><div class="detail-label">Role</div><div class="detail-value">Architect in Charge</div></div>
+      <div><div class="detail-label">Office</div><div class="detail-value"><a href="https://www.rtnq.com/" target="_blank">RT+Q Architects</a></div></div>
+      <div><div class="detail-label">Published</div><div class="detail-value">Singapore Tatler Homes, Aug–Sep 2019</div></div>
+    </div>
+  </div>
+
+  <div class="proj-nav">
+    <div class="proj-nav-prev">
+      <a href="../house-with-two-faces/" class="proj-nav-link">&#8592; Prev</a>
+      <div class="proj-nav-title">House with Two Faces</div>
+    </div>
+    <div class="proj-nav-next">
+      <a href="../in-memory-of/" class="proj-nav-link">Next &#8594;</a>
+      <div class="proj-nav-title">In Memory of...</div>
+    </div>
+  </div>
+
+</div><!-- /proj-content -->
+
+<div class="footer">
+  <span class="footer-inner">© 2026 Veronique Huang Wei</span>
+</div>
+
+<script>
+const images = {
+  L: [
+    '../images/courtyard/photo_3.jpg',
+    '../images/courtyard/photo_1.jpg',
+    '../images/courtyard/photo_2.jpg',
+    '../images/courtyard/photo_4.jpg',
+    '../images/courtyard/photo_5.jpg',
+    '../images/courtyard/photo_6.jpg',
+  ],
+  R: [
+    '../images/courtyard/Drawing_Plan.jpg',
+    '../images/courtyard/Drawing_B100.jpg',
+  ],
+};
+const state = {L:0, R:0};
+function initCol(side) {
+  const imgs = images[side];
+  const wrap = document.getElementById('col-' + side);
+  const ctr  = document.getElementById('ctr-' + side);
+  if (!wrap || !imgs.length) return;
+  wrap.innerHTML = '';
+  const img = document.createElement('img');
+  img.src = imgs[0]; img.alt = '';
+  img.onerror = function(){ this.style.background='#d8d3cd'; };
+  img.style.cursor = imgs.length > 1 ? 'pointer' : 'default';
+  img.addEventListener('click', e => {
+    const rect = img.getBoundingClientRect();
+    colStep(side, e.clientX - rect.left < rect.width / 2 ? -1 : 1);
+  });
+  wrap.appendChild(img);
+  if (ctr) ctr.textContent = imgs.length > 1 ? '1 / ' + imgs.length : '';
+}
+function colStep(side, dir) {
+  const imgs = images[side];
+  if (imgs.length <= 1) return;
+  const wrap = document.getElementById('col-' + side);
+  const ctr  = document.getElementById('ctr-' + side);
+  const img  = wrap.querySelector('img');
+  if (!img) return;
+  state[side] = (state[side] + dir + imgs.length) % imgs.length;
+  img.style.opacity = '0';
+  img.src = imgs[state[side]];
+  img.onload = () => { img.style.opacity = '1'; };
+  if (ctr) ctr.textContent = (state[side] + 1) + ' / ' + imgs.length;
+}
+initCol('L'); initCol('R');
+</script>
+</body>
+</html>
