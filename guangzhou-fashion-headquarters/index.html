@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guangzhou Fashion Headquarters — Veronique Huang Wei</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="site-name" href="../">Veronique Huang Wei</a>
+    <nav>
+      <a class="active" href="../">Works</a>
+      <a href="../#about">About</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="rule"></div>
+</header>
+
+<div class="proj-content">
+
+  <div class="proj-title-wrap">
+    <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+      <h1 class="proj-title" style="flex:1;">Guangzhou Fashion Headquarters</h1>
+      <a href="../" style="font-size:22px;font-weight:200;color:var(--mid);text-decoration:none;padding-left:1.5rem;flex-shrink:0;font-family:var(--sans);transition:color 0.18s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--mid)'">&#215;</a>
+    </div>
+  </div>
+
+  <div class="proj-columns">
+    <div class="proj-col">
+      <div class="col-img-wrap" id="col-L"></div>
+      <div class="col-nav">
+        <span class="col-arrow" onclick="colStep('L',-1)">&#8592; Prev</span>
+        <span class="col-counter" id="ctr-L"></span>
+        <span class="col-arrow" onclick="colStep('L',1)">Next &#8594;</span>
+      </div>
+    </div>
+    <div class="proj-col">
+      <div class="col-img-wrap" id="col-R"></div>
+      <div class="col-nav">
+        <span class="col-arrow" onclick="colStep('R',-1)">&#8592; Prev</span>
+        <span class="col-counter" id="ctr-R"></span>
+        <span class="col-arrow" onclick="colStep('R',1)">Next &#8594;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-info">
+    <div class="proj-text">
+      <p>A headquarters for a Taiwanese fashion brand in Guangzhou — 41,488 sqm organised around four distinct volumetric elements stacked in a deliberate hierarchy: a concrete socle housing the public programme at ground, a sky garden acting as an interval between civic and private realms, pilotis carrying the suspended office volumes above, and a vault — not transparent in the conventional sense, but luminous, admitting light through its structure and motorised louvres.</p>
+      <p>Viewed from the highway, the socle disappears into the landscape. Only the sky garden and the hovering mass above are visible — the building appears to lift.</p>
+      <p>The facade work engaged the full depth of design development — establishing the design matrix and vertical element interfaces, resolving mock-up geometry, coordinating technical drawings, and managing material selection and procurement. Each facade zone demanded its own logic, translating architectural intent into precise, buildable detail while navigating client requirements, regulatory constraints, and consultant coordination. The vault structure was a particular point of focus — its geometry, interfaces and louvre system studied in depth, consolidated into a complete mock-up drawing package, and carried through to construction.</p>
+    </div>
+    <div class="proj-details">
+      <div><div class="detail-label">Location</div><div class="detail-value">Guangzhou</div></div>
+      <div><div class="detail-label">Year</div><div class="detail-value">2021–2022</div></div>
+      <div><div class="detail-label">Status</div><div class="detail-value">Design Development</div></div>
+      <div><div class="detail-label">GFA</div><div class="detail-value">41,488 sqm</div></div>
+      <div><div class="detail-label">Role</div><div class="detail-value">Facade Co-Designer & Co-Manager</div></div>
+      <div><div class="detail-label">Office</div><div class="detail-value"><a href="https://www.jeannouvel.com/en/" target="_blank">Atelier Jean Nouvel</a></div></div>
+    </div>
+  </div>
+
+  <div class="proj-nav">
+    <div class="proj-nav-prev">
+      <a href="../a-zenith-factory-showroom/" class="proj-nav-link">&#8592; Prev</a>
+      <div class="proj-nav-title">A-Zenith Factory Showroom</div>
+    </div>
+    <div class="proj-nav-next">
+      <a href="../u-thant-place/" class="proj-nav-link">Next &#8594;</a>
+      <div class="proj-nav-title">U-Thant Place</div>
+    </div>
+  </div>
+
+</div><!-- /proj-content -->
+
+<div class="footer">
+  <span class="footer-inner">© 2026 Veronique Huang Wei</span>
+</div>
+
+<script>
+const images = {
+  L: [
+    '../images/guangzhou/photo_1.jpg',
+  ],
+  R: [
+    '../images/guangzhou/drawing_1.jpg',
+    '../images/guangzhou/drawing_2.jpg',
+    '../images/guangzhou/drawing_3.jpg',
+    '../images/guangzhou/drawing_4.jpg',
+  ],
+};
+const state = {L:0, R:0};
+function initCol(side) {
+  const imgs = images[side];
+  const wrap = document.getElementById('col-' + side);
+  const ctr  = document.getElementById('ctr-' + side);
+  if (!wrap || !imgs.length) return;
+  wrap.innerHTML = '';
+  const img = document.createElement('img');
+  img.src = imgs[0]; img.alt = '';
+  img.onerror = function(){ this.style.background='#d8d3cd'; };
+  img.style.cursor = imgs.length > 1 ? 'pointer' : 'default';
+  img.addEventListener('click', e => {
+    const rect = img.getBoundingClientRect();
+    colStep(side, e.clientX - rect.left < rect.width / 2 ? -1 : 1);
+  });
+  wrap.appendChild(img);
+  if (ctr) ctr.textContent = imgs.length > 1 ? '1 / ' + imgs.length : '';
+}
+function colStep(side, dir) {
+  const imgs = images[side];
+  if (imgs.length <= 1) return;
+  const wrap = document.getElementById('col-' + side);
+  const ctr  = document.getElementById('ctr-' + side);
+  const img  = wrap.querySelector('img');
+  if (!img) return;
+  state[side] = (state[side] + dir + imgs.length) % imgs.length;
+  img.style.opacity = '0';
+  img.src = imgs[state[side]];
+  img.onload = () => { img.style.opacity = '1'; };
+  if (ctr) ctr.textContent = (state[side] + 1) + ' / ' + imgs.length;
+}
+initCol('L'); initCol('R');
+</script>
+</body>
+</html>
