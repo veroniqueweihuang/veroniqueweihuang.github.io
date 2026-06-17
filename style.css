@@ -250,6 +250,19 @@ nav a.active{color:var(--black)}
   text-align:center;
   width:100%;
 }
+.proj-close-btn{
+  position:fixed;
+  top:1.5rem;
+  right:2rem;
+  font-size:22px;
+  font-weight:200;
+  color:var(--mid);
+  text-decoration:none;
+  font-family:var(--sans);
+  transition:color 0.18s;
+  z-index:150;
+}
+.proj-close-btn:hover{color:var(--black)}
 
 /* ── Two-column image layout ── */
 .proj-columns{
