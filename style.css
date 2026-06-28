@@ -307,6 +307,7 @@ nav a.active{color:var(--black)}
   color:var(--black);
   margin-bottom:18px;
 }
+.proj-columns .proj-col:last-child .col-label{text-align:right;}
 .col-nav{
   display:flex;
   justify-content:flex-end;
@@ -338,8 +339,8 @@ nav a.active{color:var(--black)}
 /* ── Info zone ── */
 .proj-info{
   display:grid;
-  grid-template-columns:minmax(0,1fr) 300px;
-  gap:5rem;
+  grid-template-columns:minmax(0,1fr) 380px;
+  gap:4rem;
   padding:3.5rem 0 4rem;
 }
 .proj-text p{
@@ -420,7 +421,9 @@ nav a.active{color:var(--black)}
 }
 .proj-nav-prev{text-align:left;padding:2.75rem 2.25rem 3rem 1.5rem;border-right:1px solid var(--faint);transition:background 0.22s;}
 .proj-nav-next{text-align:right;padding:2.75rem 1.5rem 3rem 2.25rem;transition:background 0.22s;}
-.proj-nav-prev:hover,.proj-nav-next:hover{background:#F4EAE5;}
+.proj-nav-prev:hover,.proj-nav-next:hover{background:#9C4A2E;}
+.proj-nav-prev:hover .proj-nav-link,.proj-nav-next:hover .proj-nav-link{color:#F2EFE9;}
+.proj-nav-prev:hover .proj-nav-title,.proj-nav-next:hover .proj-nav-title{color:#F2EFE9;}
 
 /* ── Project footer (© / studio) ── */
 .proj-foot{
