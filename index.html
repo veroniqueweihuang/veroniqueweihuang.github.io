@@ -6,7 +6,7 @@
 <title>Veronique Huang Wei</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,61 +16,65 @@
     <a class="site-name" href="index.html">Veronique Huang Wei</a>
     <nav>
       <a id="nav-works" class="active" href="index.html">Works</a>
-      <a id="nav-about" href="#about" onclick="showSection('about')">About</a>
-      <a id="nav-contact" href="#contact" onclick="showSection('contact')">Contact</a>
+      <a id="nav-about" href="#about" onclick="showSection('about');return false;">About</a>
+      <a id="nav-contact" href="#contact" onclick="showSection('contact');return false;">Contact</a>
     </nav>
   </div>
   <div class="rule"></div>
 </header>
 
 <!-- ═══ WORKS ═══ -->
-<div id="sec-works" class="sec active" style="padding:0 0 7rem;">
+<div id="sec-works" class="sec active" style="padding:0 0 96px;">
   <div class="works-wrap" id="works-wrap">
-    <div class="col-heads">
-      <span class="col-h">Project</span>
-      <span class="col-h">Type</span>
-      <span class="col-h" style="text-align:right">Year</span>
+
+    <div style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; padding:14px 0; font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#A8A294;">
+      <span>Project</span>
+      <span data-colhead="type">Type</span>
+      <span data-colhead="year" style="text-align:right;">Year</span>
     </div>
-    <a class="row" href="architecture-at-the-intersection/" data-i="0">
-      <span class="proj-name">Architecture at the Intersection of Destination and Transition</span>
-      <span class="proj-type">Master Plan</span>
-      <span class="proj-year">2024</span>
+
+    <a class="row" data-i="0" href="architecture-at-the-intersection/" data-row="1" style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; column-gap:18px; padding:20px 0; border-bottom:1px solid #E6E3DB; text-decoration:none; color:#1A1813;">
+      <span style="font-family:Newsreader,serif; font-weight:400; font-size:clamp(15px,1.7vw,21px); line-height:1.2; letter-spacing:-.005em;">Architecture at the Intersection of Destination and Transition</span>
+      <span data-col="type" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:#6A655A;">Master Plan</span>
+      <span data-col="year" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6A655A; text-align:right;">2024</span>
     </a>
-    <a class="row" href="a-zenith-factory-showroom/" data-i="1">
-      <span class="proj-name">A-Zenith Factory Showroom</span>
-      <span class="proj-type">Exhibition</span>
-      <span class="proj-year">2023</span>
+    <a class="row" data-i="1" href="a-zenith-factory-showroom/" data-row="1" style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; column-gap:18px; padding:20px 0; border-bottom:1px solid #E6E3DB; text-decoration:none; color:#1A1813;">
+      <span style="font-family:Newsreader,serif; font-weight:400; font-size:clamp(15px,1.7vw,21px); line-height:1.2; letter-spacing:-.005em;">A-Zenith Factory Showroom</span>
+      <span data-col="type" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:#6A655A;">Showroom / Exhibition</span>
+      <span data-col="year" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6A655A; text-align:right;">2023</span>
     </a>
-    <a class="row" href="guangzhou-fashion-headquarters/" data-i="2">
-      <span class="proj-name">Guangzhou Fashion Headquarters</span>
-      <span class="proj-type">Office</span>
-      <span class="proj-year">2022</span>
+    <a class="row" data-i="2" href="guangzhou-fashion-headquarters/" data-row="1" style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; column-gap:18px; padding:20px 0; border-bottom:1px solid #E6E3DB; text-decoration:none; color:#1A1813;">
+      <span style="font-family:Newsreader,serif; font-weight:400; font-size:clamp(15px,1.7vw,21px); line-height:1.2; letter-spacing:-.005em;">Guangzhou Fashion Headquarters</span>
+      <span data-col="type" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:#6A655A;">Office</span>
+      <span data-col="year" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6A655A; text-align:right;">2022</span>
     </a>
-    <a class="row" href="u-thant-place/" data-i="3">
-      <span class="proj-name">U-Thant Place</span>
-      <span class="proj-type">Residential</span>
-      <span class="proj-year">2018</span>
+    <a class="row" data-i="3" href="u-thant-place/" data-row="1" style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; column-gap:18px; padding:20px 0; border-bottom:1px solid #E6E3DB; text-decoration:none; color:#1A1813;">
+      <span style="font-family:Newsreader,serif; font-weight:400; font-size:clamp(15px,1.7vw,21px); line-height:1.2; letter-spacing:-.005em;">U-Thant Place</span>
+      <span data-col="type" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:#6A655A;">Residential</span>
+      <span data-col="year" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6A655A; text-align:right;">2018</span>
     </a>
-    <a class="row" href="house-with-two-faces/" data-i="4">
-      <span class="proj-name">House with Two Faces</span>
-      <span class="proj-type">Residential</span>
-      <span class="proj-year">2020</span>
+    <a class="row" data-i="4" href="house-with-two-faces/" data-row="1" style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; column-gap:18px; padding:20px 0; border-bottom:1px solid #E6E3DB; text-decoration:none; color:#1A1813;">
+      <span style="font-family:Newsreader,serif; font-weight:400; font-size:clamp(15px,1.7vw,21px); line-height:1.2; letter-spacing:-.005em;">House with Two Faces</span>
+      <span data-col="type" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:#6A655A;">Residential</span>
+      <span data-col="year" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6A655A; text-align:right;">2020</span>
     </a>
-    <a class="row" href="a-courtyard-house/" data-i="5">
-      <span class="proj-name">A Courtyard House</span>
-      <span class="proj-type">Residential</span>
-      <span class="proj-year">2020</span>
+    <a class="row" data-i="5" href="a-courtyard-house/" data-row="1" style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; column-gap:18px; padding:20px 0; border-bottom:1px solid #E6E3DB; text-decoration:none; color:#1A1813;">
+      <span style="font-family:Newsreader,serif; font-weight:400; font-size:clamp(15px,1.7vw,21px); line-height:1.2; letter-spacing:-.005em;">A Courtyard House</span>
+      <span data-col="type" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:#6A655A;">Residential</span>
+      <span data-col="year" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6A655A; text-align:right;">2020</span>
     </a>
-    <a class="row" href="in-memory-of/" data-i="6">
-      <span class="proj-name">In Memory of...</span>
-      <span class="proj-type">Memorial</span>
-      <span class="proj-year">2019</span>
+    <a class="row" data-i="6" href="in-memory-of/" data-row="1" style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; column-gap:18px; padding:20px 0; border-bottom:1px solid #E6E3DB; text-decoration:none; color:#1A1813;">
+      <span style="font-family:Newsreader,serif; font-weight:400; font-size:clamp(15px,1.7vw,21px); line-height:1.2; letter-spacing:-.005em;">In Memory of…</span>
+      <span data-col="type" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:#6A655A;">Memorial</span>
+      <span data-col="year" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6A655A; text-align:right;">2019</span>
     </a>
-    <a class="row" href="quanzhou/" data-i="7">
-      <span class="proj-name">The Imaginary Cultural Landscape of the City and Harbor in Quanzhou</span>
-      <span class="proj-type">Research</span>
-      <span class="proj-year">2020</span>
+    <a class="row" data-i="7" href="quanzhou/" data-row="1" style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; column-gap:18px; padding:20px 0; border-bottom:1px solid #E6E3DB; text-decoration:none; color:#1A1813;">
+      <span style="font-family:Newsreader,serif; font-weight:400; font-size:clamp(15px,1.7vw,21px); line-height:1.2; letter-spacing:-.005em;">The Imaginary Cultural Landscape of the City and Harbor in Quanzhou</span>
+      <span data-col="type" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:#6A655A;">Research</span>
+      <span data-col="year" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6A655A; text-align:right;">2020</span>
     </a>
+
+    <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.05em; color:#A8A294; margin-top:18px;">Hover to preview · click to open project</p>
   </div>
 
   <div id="hover-card">
@@ -80,46 +84,75 @@
 </div>
 
 <!-- ═══ ABOUT ═══ -->
-<div id="sec-about" class="sec" style="display:none;padding:0 0 7rem;">
-  <div class="about-grid">
-    <div class="about-photo-frame">
-      <div class="about-photo">
-        <img src="images/about.jpg" alt="Veronique Huang Wei">
+<div id="sec-about" class="sec" style="display:none; padding:64px 0 96px;">
+  <div data-home-about="1" style="display:grid; grid-template-columns:380px 1fr; gap:64px; max-width:1240px;">
+    <div>
+      <div style="background:#9C4A2E; padding:16px 16px 26px;">
+        <div style="width:100%; aspect-ratio:3/4; overflow:hidden; background:#2a2420;">
+          <img src="images/about.jpg" alt="Veronique Huang Wei" style="width:100%; height:100%; object-fit:cover; object-position:center 18%; display:block;" onerror="this.style.opacity=0">
+        </div>
       </div>
+      <p style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:#A8A294; margin:14px 0 0;">Veronique Huang Wei</p>
     </div>
-    <div class="bio">
-      <p>Architect — among other things.</p>
-      <p>Works across scales — from the detail of a single joint to the organisation of a building in its landscape. Has worked with Atelier Jean Nouvel, WOHA, and RT+Q Architects. Currently practises independently through Studio LÁNG.</p>
-      <p class="edu">
-        MA Architecture and Historic Urban Environment<br>
-        The Bartlett UCL<br>
-        <br>
-        Bachelor of Architecture<br>
-        Universiti Teknologi Malaysia
-      </p>
+
+    <div>
+      <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#8C8678; margin:0 0 26px;">About</p>
+      <p style="font-family:Newsreader,serif; font-weight:300; font-size:clamp(21px,2.2vw,27px); line-height:1.45; margin:0 0 22px; max-width:640px; text-wrap:pretty;">Architect — among other things. Working between the tectonic and the poetic — equally at home resolving a façade joint and reading a city. Currently practising independently through Studio LÁNG.</p>
+      <div style="display:flex; gap:40px; flex-wrap:wrap; font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:1.7; color:#3A372F; margin:0 0 50px;">
+        <div>
+          <div style="color:#A8A294; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px;">Education</div>
+          MA Architecture &amp; Historic Urban Environment<br><span style="color:#8C8678;">The Bartlett, UCL</span><br><br>
+          Bachelor of Architecture<br><span style="color:#8C8678;">Universiti Teknologi Malaysia</span>
+        </div>
+        <div>
+          <div style="color:#A8A294; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px;">Practices</div>
+          Atelier Jean Nouvel<br>WOHA<br>RT+Q Architects<br>Studio LÁNG <span style="color:#8C8678;">(current)</span>
+        </div>
+      </div>
+
+      <div data-home-specs="1" style="display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:36px;">
+        <div>
+          <h3 style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#1A1813; margin:0 0 14px; padding-bottom:10px; border-bottom:1px solid #1A1813;">Speciality</h3>
+          <ul style="list-style:none; margin:0; padding:0; font-family:'IBM Plex Mono',monospace; font-size:13px; line-height:1.9; color:#3A372F;">
+            <li>Concept design stack</li>
+            <li>Spatial planning &amp; feasibility</li>
+            <li>Adaptive reuse &amp; heritage</li>
+            <li>Façade &amp; complex geometry</li>
+            <li>Construction detail</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#1A1813; margin:0 0 14px; padding-bottom:10px; border-bottom:1px solid #1A1813;">Tools</h3>
+          <ul style="list-style:none; margin:0; padding:0; font-family:'IBM Plex Mono',monospace; font-size:13px; line-height:1.9; color:#3A372F;">
+            <li>Rhino</li><li>SketchUp</li><li>Revit</li><li>AutoCAD</li><li>Adobe CC</li><li>Claude</li><li>Gemini</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#1A1813; margin:0 0 14px; padding-bottom:10px; border-bottom:1px solid #1A1813;">A fan of</h3>
+          <ul style="list-style:none; margin:0; padding:0; font-family:'IBM Plex Mono',monospace; font-size:13px; line-height:1.9; color:#3A372F;">
+            <li>Carlo Scarpa</li><li>Pier Luigi Nervi</li><li>I. M. Pei</li><li>Renzo Piano</li><li>Jean Nouvel</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- ═══ CONTACT ═══ -->
-<div id="sec-contact" class="sec" style="display:none;padding:0 0 7rem;">
-  <div class="contact-wrap">
-    <form id="contact-form" action="https://formspree.io/f/mwvyqyyd" method="POST">
-      <div class="field">
-        <label>Name</label>
-        <input type="text" name="name" required autocomplete="off">
+<div id="sec-contact" class="sec" style="display:none; padding:64px 0 96px;">
+  <div data-home-contact="1" style="width:380px; max-width:100%; background:#9C4A2E; color:#F2EFE9; padding:32px 30px 34px;">
+    <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:rgba(242,239,233,.72); margin:0 0 6px;">Contact</p>
+    <p style="font-family:Newsreader,serif; font-style:italic; font-weight:300; font-size:17px; color:rgba(242,239,233,.85); margin:0 0 26px;">Drop a note — I'll get back to you.</p>
+
+    <form id="contact-form" action="https://formspree.io/f/mwvyqyyd" method="POST" style="display:flex; flex-direction:column; gap:0;">
+      <input type="text" name="name" required autocomplete="off" placeholder="Name" style="background:transparent; border:none; border-bottom:1px solid rgba(242,239,233,.4); color:#F2EFE9; font-family:'IBM Plex Mono',monospace; font-size:14px; padding:13px 0; outline:none;">
+      <input type="email" name="email" required autocomplete="off" placeholder="Email" style="background:transparent; border:none; border-bottom:1px solid rgba(242,239,233,.4); color:#F2EFE9; font-family:'IBM Plex Mono',monospace; font-size:14px; padding:13px 0; outline:none;">
+      <textarea name="message" rows="3" required placeholder="Message" style="background:transparent; border:none; border-bottom:1px solid rgba(242,239,233,.4); color:#F2EFE9; font-family:'IBM Plex Mono',monospace; font-size:14px; padding:13px 0; outline:none; margin-bottom:26px; resize:vertical;"></textarea>
+      <div style="display:flex; align-items:center; gap:18px;">
+        <button type="submit" class="send-btn" style="background:#F2EFE9; color:#1A1813; border:none; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; padding:14px 28px; cursor:pointer;">Send</button>
+        <p class="form-success" id="form-success" style="display:none; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#F2EFE9; letter-spacing:.04em; margin:0;">✓ Message sent.</p>
       </div>
-      <div class="field">
-        <label>Email</label>
-        <input type="email" name="email" required autocomplete="off">
-      </div>
-      <div class="field">
-        <label>Message</label>
-        <textarea name="message" rows="6" required></textarea>
-      </div>
-      <button type="submit" class="send-btn">Send</button>
     </form>
-    <p class="form-success" id="form-success">Message sent.</p>
   </div>
 </div>
 
@@ -128,7 +161,7 @@
 </div>
 
 <script>
-/* ── Section switching (About / Contact stay in-page) ── */
+/* ── Section switching (Works / About / Contact stay in-page) ── */
 function showSection(id) {
   document.querySelectorAll('.sec').forEach(s => s.style.display = 'none');
   document.getElementById('sec-' + id).style.display = 'block';
@@ -156,7 +189,6 @@ const capEl  = document.getElementById('hover-cap');
 
 document.querySelectorAll('.row').forEach(row => {
   const p = projects[parseInt(row.dataset.i)];
-
   row.addEventListener('mouseenter', () => {
     imgBox.style.background = p.bg;
     imgBox.innerHTML = `<img src="${p.img}" alt="" onerror="this.style.display='none'">`;
