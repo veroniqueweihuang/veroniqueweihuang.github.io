@@ -32,7 +32,7 @@
     </div>
   </div>
 
-  <div class="proj-columns template-b">
+  <div class="proj-columns">
     <div class="proj-col">
       <div class="col-label">Photographs</div>
       <div class="col-img-wrap" id="col-L"></div>
@@ -116,9 +116,7 @@ const images = {
     '../images/housefaces/drawing_detail.jpg',
   ],
 };
-
-const state = { L: 0, R: 0 };
-
+const state = {L:0, R:0};
 function initCol(side) {
   const imgs = images[side];
   const wrap = document.getElementById('col-' + side);
@@ -126,8 +124,7 @@ function initCol(side) {
   if (!wrap || !imgs.length) return;
   wrap.innerHTML = '';
   const img = document.createElement('img');
-  img.src = imgs[0];
-  img.alt = '';
+  img.src = imgs[0]; img.alt = '';
   img.onerror = function(){ this.style.background='#d8d3cd'; };
   img.style.cursor = imgs.length > 1 ? 'pointer' : 'default';
   img.addEventListener('click', e => {
@@ -137,7 +134,6 @@ function initCol(side) {
   wrap.appendChild(img);
   if (ctr) ctr.textContent = imgs.length > 1 ? '1 / ' + imgs.length : '';
 }
-
 function colStep(side, dir) {
   const imgs = images[side];
   if (imgs.length <= 1) return;
@@ -151,9 +147,7 @@ function colStep(side, dir) {
   img.onload = () => { img.style.opacity = '1'; };
   if (ctr) ctr.textContent = (state[side] + 1) + ' / ' + imgs.length;
 }
-
-initCol('L');
-initCol('R');
+initCol('L'); initCol('R');
 </script>
 <script src="../proj-nav.js"></script>
 </body>
