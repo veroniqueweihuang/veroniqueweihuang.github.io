@@ -237,6 +237,8 @@ nav a.active{color:var(--black)}
 }
 .proj-title-wrap{
   padding:2rem 0 1.5rem;
+  margin-bottom:2.25rem;
+  border-bottom:1px solid var(--faint);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -350,6 +352,7 @@ nav a.active{color:var(--black)}
   font-family:var(--serif);
   text-align:justify;
   hyphens:auto;
+  max-width:760px;
 }
 .proj-details{
   align-content:start;
@@ -415,8 +418,9 @@ nav a.active{color:var(--black)}
   font-style:normal;
   line-height:1.25;
 }
-.proj-nav-prev{text-align:left;padding:2.75rem 2.5rem 3rem 0;border-right:1px solid var(--faint);}
-.proj-nav-next{text-align:right;padding:2.75rem 0 3rem 2.5rem;}
+.proj-nav-prev{text-align:left;padding:2.75rem 2.25rem 3rem 1.5rem;border-right:1px solid var(--faint);transition:background 0.22s;}
+.proj-nav-next{text-align:right;padding:2.75rem 1.5rem 3rem 2.25rem;transition:background 0.22s;}
+.proj-nav-prev:hover,.proj-nav-next:hover{background:#F4F1EA;}
 
 /* ── Project footer (© / studio) ── */
 .proj-foot{
