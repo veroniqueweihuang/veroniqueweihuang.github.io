@@ -17,6 +17,12 @@ var PROJECT_SEQUENCE = [
 (function () {
   function currentSlug() {
     var parts = window.location.pathname.split('/').filter(Boolean);
+    // Ignore a trailing file name (e.g. "index.html") so we land on the
+    // folder name — works whether the URL is ".../quanzhou/" or
+    // ".../quanzhou/index.html".
+    while (parts.length && /\.html?$/i.test(parts[parts.length - 1])) {
+      parts.pop();
+    }
     return parts[parts.length - 1] || '';
   }
 
