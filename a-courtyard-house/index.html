@@ -6,7 +6,7 @@
 <title>A Courtyard House — Veronique Huang Wei</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -34,19 +34,25 @@
 
   <div class="proj-columns">
     <div class="proj-col">
+      <div class="col-label">Photographs</div>
       <div class="col-img-wrap" id="col-L"></div>
       <div class="col-nav">
-        <span class="col-arrow" onclick="colStep('L',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-L"></span>
-        <span class="col-arrow" onclick="colStep('L',1)">Next &#8594;</span>
+        <div class="col-arrows">
+          <button class="col-arrow-btn" onclick="colStep('L',-1)" aria-label="Previous">&#8592;</button>
+          <button class="col-arrow-btn" onclick="colStep('L',1)" aria-label="Next">&#8594;</button>
+        </div>
       </div>
     </div>
     <div class="proj-col">
+      <div class="col-label">Drawings</div>
       <div class="col-img-wrap" id="col-R"></div>
       <div class="col-nav">
-        <span class="col-arrow" onclick="colStep('R',-1)">&#8592; Prev</span>
         <span class="col-counter" id="ctr-R"></span>
-        <span class="col-arrow" onclick="colStep('R',1)">Next &#8594;</span>
+        <div class="col-arrows">
+          <button class="col-arrow-btn" onclick="colStep('R',-1)" aria-label="Previous">&#8592;</button>
+          <button class="col-arrow-btn" onclick="colStep('R',1)" aria-label="Next">&#8594;</button>
+        </div>
       </div>
     </div>
   </div>
@@ -58,32 +64,33 @@
       <p>Equal care was given to the linkages between blocks — the staircases, bridges and hallways were crafted to serve the light as much as to create unexpected spatial experiences along the way. Light was further invited through voids punched through ceilings and walls, coloured in different shades drawn from Le Corbusier's palette.</p>
     </div>
     <div class="proj-details">
-      <div><div class="detail-label">Location</div><div class="detail-value">Singapore</div></div>
-      <div><div class="detail-label">Year</div><div class="detail-value">2020</div></div>
-      <div><div class="detail-label">Status</div><div class="detail-value">Built</div></div>
-      <div><div class="detail-label">GFA</div><div class="detail-value">535 sqm</div></div>
-      <div><div class="detail-label">Role</div><div class="detail-value">Architect in Charge</div></div>
-      <div><div class="detail-label">Office</div><div class="detail-value"><a href="https://www.rtnq.com/" target="_blank">RT+Q Architects</a></div></div>
-      <div><div class="detail-label">Published</div><div class="detail-value">Singapore Tatler Homes, Aug–Sep 2019</div></div>
+      <div class="detail-row"><span class="detail-label">Location</span><span class="detail-value">Singapore</span></div>
+      <div class="detail-row"><span class="detail-label">Year</span><span class="detail-value">2020</span></div>
+      <div class="detail-row"><span class="detail-label">Status</span><span class="detail-value">Built</span></div>
+      <div class="detail-row"><span class="detail-label">GFA</span><span class="detail-value">535 sqm</span></div>
+      <div class="detail-row"><span class="detail-label">Role</span><span class="detail-value">Architect in Charge</span></div>
+      <div class="detail-row"><span class="detail-label">Office</span><span class="detail-value"><a href="https://www.rtnq.com/" target="_blank" rel="noopener">RT+Q Architects &#8599;</a></span></div>
+      <div class="detail-row"><span class="detail-label">Published</span><span class="detail-value">Singapore Tatler Homes, Aug–Sep 2019</span></div>
     </div>
   </div>
 
   <div class="proj-nav">
     <div class="proj-nav-prev">
-      <a href="#" id="proj-nav-prev-link" class="proj-nav-link">&#8592; Prev</a>
+      <a href="#" id="proj-nav-prev-link" class="proj-nav-link">&#8592; Previous Project</a>
       <div class="proj-nav-title" id="proj-nav-prev-title"></div>
     </div>
     <div class="proj-nav-next">
-      <a href="#" id="proj-nav-next-link" class="proj-nav-link">Next &#8594;</a>
+      <a href="#" id="proj-nav-next-link" class="proj-nav-link">Next Project &#8594;</a>
       <div class="proj-nav-title" id="proj-nav-next-title"></div>
     </div>
   </div>
 
-</div><!-- /proj-content -->
+  <div class="proj-foot">
+    <span>&#169; 2026 Veronique Huang Wei</span>
+    <span>Studio LÁNG</span>
+  </div>
 
-<div class="footer">
-  <span class="footer-inner">© 2026 Veronique Huang Wei</span>
-</div>
+</div><!-- /proj-content -->
 
 <script>
 const images = {
