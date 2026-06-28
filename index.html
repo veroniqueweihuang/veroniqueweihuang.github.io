@@ -3,237 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Veronique Huang Wei</title>
+<title>Architecture at the Intersection of Destination and Transition — Veronique Huang Wei</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
 <header>
   <div class="header-inner">
-    <a class="site-name" href="index.html">Veronique Huang Wei</a>
+    <a class="site-name" href="../">Veronique Huang Wei</a>
     <nav>
-      <a id="nav-works" class="active" href="index.html">Works</a>
-      <a id="nav-about" href="#about" onclick="showSection('about');return false;">About</a>
-      <a id="nav-contact" href="#contact" onclick="showSection('contact');return false;">Contact</a>
+      <a class="active" href="../">Works</a>
+      <a href="../#about">About</a>
+      <a href="../#contact">Contact</a>
     </nav>
   </div>
   <div class="rule"></div>
 </header>
 
-<!-- ═══ WORKS ═══ -->
-<div id="sec-works" class="sec active" style="padding:0 0 96px;">
-  <div class="works-wrap" id="works-wrap">
+<div class="proj-content">
 
-    <div style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; padding:14px 0; font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#A8A294;">
-      <span>Project</span>
-      <span data-colhead="type">Type</span>
-      <span data-colhead="year" style="text-align:right;">Year</span>
+  <div class="proj-title-wrap">
+    <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+      <h1 class="proj-title" style="flex:1;">Architecture at the Intersection of Destination and Transition<br><span style="font-size:14px;font-style:italic;font-weight:300;letter-spacing:0.02em;color:var(--mid);">Kharkiv Freedom Square Revival</span></h1>
+      <a href="../" class="proj-close-btn">&#215;</a>
     </div>
-
-    <a class="row" data-i="0" href="architecture-at-the-intersection/" data-row="1" style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; column-gap:18px; padding:20px 0; border-bottom:1px solid #E6E3DB; text-decoration:none; color:#1A1813;">
-      <span style="font-family:Newsreader,serif; font-weight:400; font-size:clamp(15px,1.7vw,21px); line-height:1.2; letter-spacing:-.005em;">Architecture at the Intersection of Destination and Transition</span>
-      <span data-col="type" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:#6A655A;">Master Plan</span>
-      <span data-col="year" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6A655A; text-align:right;">2024</span>
-    </a>
-    <a class="row" data-i="1" href="a-zenith-factory-showroom/" data-row="1" style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; column-gap:18px; padding:20px 0; border-bottom:1px solid #E6E3DB; text-decoration:none; color:#1A1813;">
-      <span style="font-family:Newsreader,serif; font-weight:400; font-size:clamp(15px,1.7vw,21px); line-height:1.2; letter-spacing:-.005em;">A-Zenith Factory Showroom</span>
-      <span data-col="type" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:#6A655A;">Showroom / Exhibition</span>
-      <span data-col="year" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6A655A; text-align:right;">2023</span>
-    </a>
-    <a class="row" data-i="2" href="guangzhou-fashion-headquarters/" data-row="1" style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; column-gap:18px; padding:20px 0; border-bottom:1px solid #E6E3DB; text-decoration:none; color:#1A1813;">
-      <span style="font-family:Newsreader,serif; font-weight:400; font-size:clamp(15px,1.7vw,21px); line-height:1.2; letter-spacing:-.005em;">Guangzhou Fashion Headquarters</span>
-      <span data-col="type" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:#6A655A;">Office</span>
-      <span data-col="year" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6A655A; text-align:right;">2022</span>
-    </a>
-    <a class="row" data-i="3" href="u-thant-place/" data-row="1" style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; column-gap:18px; padding:20px 0; border-bottom:1px solid #E6E3DB; text-decoration:none; color:#1A1813;">
-      <span style="font-family:Newsreader,serif; font-weight:400; font-size:clamp(15px,1.7vw,21px); line-height:1.2; letter-spacing:-.005em;">U-Thant Place</span>
-      <span data-col="type" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:#6A655A;">Residential</span>
-      <span data-col="year" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6A655A; text-align:right;">2018</span>
-    </a>
-    <a class="row" data-i="4" href="house-with-two-faces/" data-row="1" style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; column-gap:18px; padding:20px 0; border-bottom:1px solid #E6E3DB; text-decoration:none; color:#1A1813;">
-      <span style="font-family:Newsreader,serif; font-weight:400; font-size:clamp(15px,1.7vw,21px); line-height:1.2; letter-spacing:-.005em;">House with Two Faces</span>
-      <span data-col="type" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:#6A655A;">Residential</span>
-      <span data-col="year" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6A655A; text-align:right;">2020</span>
-    </a>
-    <a class="row" data-i="5" href="a-courtyard-house/" data-row="1" style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; column-gap:18px; padding:20px 0; border-bottom:1px solid #E6E3DB; text-decoration:none; color:#1A1813;">
-      <span style="font-family:Newsreader,serif; font-weight:400; font-size:clamp(15px,1.7vw,21px); line-height:1.2; letter-spacing:-.005em;">A Courtyard House</span>
-      <span data-col="type" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:#6A655A;">Residential</span>
-      <span data-col="year" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6A655A; text-align:right;">2020</span>
-    </a>
-    <a class="row" data-i="6" href="in-memory-of/" data-row="1" style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; column-gap:18px; padding:20px 0; border-bottom:1px solid #E6E3DB; text-decoration:none; color:#1A1813;">
-      <span style="font-family:Newsreader,serif; font-weight:400; font-size:clamp(15px,1.7vw,21px); line-height:1.2; letter-spacing:-.005em;">In Memory of…</span>
-      <span data-col="type" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:#6A655A;">Memorial</span>
-      <span data-col="year" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6A655A; text-align:right;">2019</span>
-    </a>
-    <a class="row" data-i="7" href="quanzhou/" data-row="1" style="display:grid; grid-template-columns:minmax(0,1fr) 14rem 5rem; align-items:center; column-gap:18px; padding:20px 0; border-bottom:1px solid #E6E3DB; text-decoration:none; color:#1A1813;">
-      <span style="font-family:Newsreader,serif; font-weight:400; font-size:clamp(15px,1.7vw,21px); line-height:1.2; letter-spacing:-.005em;">The Imaginary Cultural Landscape of the City and Harbor in Quanzhou</span>
-      <span data-col="type" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:#6A655A;">Research</span>
-      <span data-col="year" style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6A655A; text-align:right;">2020</span>
-    </a>
-
-    <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.05em; color:#A8A294; margin-top:18px;">Hover to preview · click to open project</p>
   </div>
 
-  <div id="hover-card">
-    <div id="hover-img"></div>
-    <div class="hover-cap" id="hover-cap"></div>
-  </div>
-</div>
-
-<!-- ═══ ABOUT ═══ -->
-<div id="sec-about" class="sec" style="display:none; padding:64px 0 96px;">
-  <div data-home-about="1" style="display:grid; grid-template-columns:380px 1fr; gap:64px; max-width:1240px;">
-    <div>
-      <div style="background:#9C4A2E; padding:16px 16px 26px;">
-        <div style="width:100%; aspect-ratio:3/4; overflow:hidden; background:#2a2420;">
-          <img src="images/about.jpg" alt="Veronique Huang Wei" style="width:100%; height:100%; object-fit:cover; object-position:center 18%; display:block;" onerror="this.style.opacity=0">
+  <div class="proj-columns template-b">
+    <div class="proj-col">
+      <div class="col-label">Visualisation</div>
+      <div class="col-img-wrap" id="col-L"></div>
+      <div class="col-nav">
+        <span class="col-counter" id="ctr-L"></span>
+        <div class="col-arrows">
+          <button class="col-arrow-btn" onclick="colStep('L',-1)" aria-label="Previous">&#8592;</button>
+          <button class="col-arrow-btn" onclick="colStep('L',1)" aria-label="Next">&#8594;</button>
         </div>
       </div>
-      <p style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:#A8A294; margin:14px 0 0;">Veronique Huang Wei</p>
     </div>
-
-    <div>
-      <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#8C8678; margin:0 0 26px;">About</p>
-      <p style="font-family:Newsreader,serif; font-weight:300; font-size:clamp(21px,2.2vw,27px); line-height:1.45; margin:0 0 22px; max-width:640px; text-wrap:pretty;">Architect — among other things. Working between the tectonic and the poetic — equally at home resolving a façade joint and reading a city. Currently practising independently through Studio LÁNG.</p>
-      <div style="display:flex; gap:40px; flex-wrap:wrap; font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:1.7; color:#3A372F; margin:0 0 50px;">
-        <div>
-          <div style="color:#A8A294; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px;">Education</div>
-          MA Architecture &amp; Historic Urban Environment<br><span style="color:#8C8678;">The Bartlett, UCL</span><br><br>
-          Bachelor of Architecture<br><span style="color:#8C8678;">Universiti Teknologi Malaysia</span>
-        </div>
-        <div>
-          <div style="color:#A8A294; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px;">Practices</div>
-          Atelier Jean Nouvel<br>WOHA<br>RT+Q Architects<br>Studio LÁNG <span style="color:#8C8678;">(current)</span>
-        </div>
-      </div>
-
-      <div data-home-specs="1" style="display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:36px;">
-        <div>
-          <h3 style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#1A1813; margin:0 0 14px; padding-bottom:10px; border-bottom:1px solid #1A1813;">Speciality</h3>
-          <ul style="list-style:none; margin:0; padding:0; font-family:'IBM Plex Mono',monospace; font-size:13px; line-height:1.9; color:#3A372F;">
-            <li>Concept design stack</li>
-            <li>Spatial planning &amp; feasibility</li>
-            <li>Adaptive reuse &amp; heritage</li>
-            <li>Façade &amp; complex geometry</li>
-            <li>Construction detail</li>
-          </ul>
-        </div>
-        <div>
-          <h3 style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#1A1813; margin:0 0 14px; padding-bottom:10px; border-bottom:1px solid #1A1813;">Tools</h3>
-          <ul style="list-style:none; margin:0; padding:0; font-family:'IBM Plex Mono',monospace; font-size:13px; line-height:1.9; color:#3A372F;">
-            <li>Rhino</li><li>SketchUp</li><li>Revit</li><li>AutoCAD</li><li>Adobe CC</li><li>Claude</li><li>Gemini</li>
-          </ul>
-        </div>
-        <div>
-          <h3 style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#1A1813; margin:0 0 14px; padding-bottom:10px; border-bottom:1px solid #1A1813;">A fan of</h3>
-          <ul style="list-style:none; margin:0; padding:0; font-family:'IBM Plex Mono',monospace; font-size:13px; line-height:1.9; color:#3A372F;">
-            <li>Carlo Scarpa</li><li>Pier Luigi Nervi</li><li>I. M. Pei</li><li>Renzo Piano</li><li>Jean Nouvel</li>
-          </ul>
+    <div class="proj-col">
+      <div class="col-label">Process</div>
+      <div class="col-img-wrap" id="col-R"></div>
+      <div class="col-nav">
+        <span class="col-counter" id="ctr-R"></span>
+        <div class="col-arrows">
+          <button class="col-arrow-btn" onclick="colStep('R',-1)" aria-label="Previous">&#8592;</button>
+          <button class="col-arrow-btn" onclick="colStep('R',1)" aria-label="Next">&#8594;</button>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- ═══ CONTACT ═══ -->
-<div id="sec-contact" class="sec" style="display:none; padding:64px 0 96px;">
-  <div data-home-contact="1" style="width:380px; max-width:100%; background:#9C4A2E; color:#F2EFE9; padding:32px 30px 34px;">
-    <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:rgba(242,239,233,.72); margin:0 0 6px;">Contact</p>
-    <p style="font-family:Newsreader,serif; font-style:italic; font-weight:300; font-size:17px; color:rgba(242,239,233,.85); margin:0 0 26px;">Drop a note — I'll get back to you.</p>
-
-    <form id="contact-form" action="https://formspree.io/f/mwvyqyyd" method="POST" style="display:flex; flex-direction:column; gap:0;">
-      <input type="text" name="name" required autocomplete="off" placeholder="Name" style="background:transparent; border:none; border-bottom:1px solid rgba(242,239,233,.4); color:#F2EFE9; font-family:'IBM Plex Mono',monospace; font-size:14px; padding:13px 0; outline:none;">
-      <input type="email" name="email" required autocomplete="off" placeholder="Email" style="background:transparent; border:none; border-bottom:1px solid rgba(242,239,233,.4); color:#F2EFE9; font-family:'IBM Plex Mono',monospace; font-size:14px; padding:13px 0; outline:none;">
-      <textarea name="message" rows="3" required placeholder="Message" style="background:transparent; border:none; border-bottom:1px solid rgba(242,239,233,.4); color:#F2EFE9; font-family:'IBM Plex Mono',monospace; font-size:14px; padding:13px 0; outline:none; margin-bottom:26px; resize:vertical;"></textarea>
-      <div style="display:flex; align-items:center; gap:18px;">
-        <button type="submit" class="send-btn" style="background:#F2EFE9; color:#1A1813; border:none; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; padding:14px 28px; cursor:pointer;">Send</button>
-        <p class="form-success" id="form-success" style="display:none; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#F2EFE9; letter-spacing:.04em; margin:0;">✓ Message sent.</p>
-      </div>
-    </form>
+  <div class="proj-info">
+    <div class="proj-text">
+      <p>A survey of Kharkiv residents — conducted while the city was still under conflict — asked how they envisioned rebuilding. Their answers pointed not to monuments or landmarks, but to the rhythms of everyday life: routes, routines, the familiar fabric of the city. This became the design's departure point.</p>
+      <p>The proposal's morphology consists of three elements — each independent, each capable of standing alone, yet designed to combine. Depending on which is built or how they are assembled, Freedom Square takes on a different urban character and civic meaning.</p>
+      <p>In contrast to the strong, solemn presence of the surrounding architecture, the three elements embody a loose, prosaic essence — extending the civic life of the Regional Administrative Building and offering Freedom Square a forward-looking identity rooted in the lives of those who inhabit it.</p>
+    </div>
+    <div class="proj-details">
+      <div class="detail-row"><span class="detail-label">Location</span><span class="detail-value">Kharkiv, Ukraine</span></div>
+      <div class="detail-row"><span class="detail-label">Year</span><span class="detail-value">2024</span></div>
+      <div class="detail-row"><span class="detail-label">Status</span><span class="detail-value">Concept</span></div>
+      <div class="detail-row"><span class="detail-label">Role</span><span class="detail-value">Independent Designer</span></div>
+      <div class="detail-row"><span class="detail-label">Organisation</span><span class="detail-value"><a href="https://www.normanfosterfoundation.org" target="_blank" rel="noopener">Norman Foster Foundation &#8599;</a></span></div>
+    </div>
   </div>
-</div>
 
-<div class="footer">
-  <span class="footer-inner">© 2026 Veronique Huang Wei</span>
-</div>
+  <div class="proj-nav">
+    <div class="proj-nav-prev">
+      <a href="#" id="proj-nav-prev-link" class="proj-nav-link">&#8592; Previous Project</a>
+      <div class="proj-nav-title" id="proj-nav-prev-title"></div>
+    </div>
+    <div class="proj-nav-next">
+      <a href="#" id="proj-nav-next-link" class="proj-nav-link">Next Project &#8594;</a>
+      <div class="proj-nav-title" id="proj-nav-next-title"></div>
+    </div>
+  </div>
+
+  <div class="proj-foot">
+    <span>&#169; 2026 Veronique Huang Wei</span>
+    <span>Studio LÁNG</span>
+  </div>
+
+</div><!-- /proj-content -->
 
 <script>
-/* ── Section switching (Works / About / Contact stay in-page) ── */
-function showSection(id) {
-  document.querySelectorAll('.sec').forEach(s => s.style.display = 'none');
-  document.getElementById('sec-' + id).style.display = 'block';
-  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-  document.getElementById('nav-' + id).classList.add('active');
-  window.scrollTo(0, 0);
+const images = {
+  L: [
+    '../images/kharkiv/photo_1.jpg',
+    '../images/kharkiv/photo_2.jpg',
+    '../images/kharkiv/photo_3.jpg',
+    '../images/kharkiv/photo_4.jpg',
+    '../images/kharkiv/photo_5.jpg',
+  ],
+  R: [
+    '../images/kharkiv/drawing_1.jpg',
+    '../images/kharkiv/drawing_1_1.jpg',
+    '../images/kharkiv/drawing_2.jpg',
+    '../images/kharkiv/drawing_3.jpg',
+    '../images/kharkiv/drawing_4.jpg',
+    '../images/kharkiv/drawing_4_1.jpg',
+    '../images/kharkiv/drawing_5.jpg',
+    '../images/kharkiv/drawing_6.jpg',
+    '../images/kharkiv/drawing_7.jpg',
+    '../images/kharkiv/drawing_8.jpg',
+    '../images/kharkiv/drawing_8_1.jpg',
+    '../images/kharkiv/drawing_9.jpg',
+    '../images/kharkiv/drawing_10_1.jpg',
+    '../images/kharkiv/drawing_10_2.jpg',
+    '../images/kharkiv/drawing_10_3.jpg',
+    '../images/kharkiv/drawing_11.jpg',
+    '../images/kharkiv/drawing_12.jpg',
+    '../images/kharkiv/drawing_13.jpg',
+  ],
+};
+const state = {L:0, R:0};
+function initCol(side) {
+  const imgs = images[side];
+  const wrap = document.getElementById('col-' + side);
+  const ctr  = document.getElementById('ctr-' + side);
+  if (!wrap || !imgs.length) return;
+  wrap.innerHTML = '';
+  const img = document.createElement('img');
+  img.src = imgs[0]; img.alt = '';
+  img.onerror = function(){ this.style.background='#eceae6'; };
+  img.style.cursor = imgs.length > 1 ? 'pointer' : 'default';
+  img.addEventListener('click', e => {
+    const rect = img.getBoundingClientRect();
+    colStep(side, e.clientX - rect.left < rect.width / 2 ? -1 : 1);
+  });
+  wrap.appendChild(img);
+  if (ctr) ctr.textContent = imgs.length > 1 ? '1 / ' + imgs.length : '';
 }
-
-/* ── Hover card ── */
-const projects = [
-  { img:'images/kharkiv/hover.jpg',   bg:'#cccac8', cap:'Kharkiv — Competition 2024' },
-  { img:'images/azenith/hover.jpg',   bg:'#d0cec8', cap:'A-Zenith — China 2023' },
-  { img:'images/guangzhou/hover.jpg', bg:'#d5cec8', cap:'Guangzhou — 2021–2022' },
-  { img:'images/uthant/hover.jpg',    bg:'#c7cfcc', cap:'Kuala Lumpur — 2018' },
-  { img:'images/housefaces/hover.jpg',bg:'#cbc9d3', cap:'Singapore — 2020' },
-  { img:'images/courtyard/hover.jpg', bg:'#d0ccc8', cap:'Singapore — 2020' },
-  { img:'images/inmemory/hover.jpg',  bg:'#d2cbc9', cap:'Singapore — 2019' },
-  { img:'images/quanzhou/hover.jpg',  bg:'#c8cac8', cap:'Quanzhou — Research 2020' },
-];
-
-const wrap   = document.getElementById('works-wrap');
-const card   = document.getElementById('hover-card');
-const imgBox = document.getElementById('hover-img');
-const capEl  = document.getElementById('hover-cap');
-
-document.querySelectorAll('.row').forEach(row => {
-  const p = projects[parseInt(row.dataset.i)];
-  row.addEventListener('mouseenter', () => {
-    imgBox.style.background = p.bg;
-    imgBox.innerHTML = `<img src="${p.img}" alt="" onerror="this.style.display='none'">`;
-    capEl.textContent = p.cap;
-    card.style.display = 'block';
-    wrap.classList.add('hovering');
-  });
-  row.addEventListener('mouseleave', () => {
-    card.style.display = 'none';
-    wrap.classList.remove('hovering');
-  });
-  row.addEventListener('mousemove', e => {
-    let x = e.clientX + 26;
-    let y = e.clientY - 90;
-    if (x + 228 > window.innerWidth - 12) x = e.clientX - 254;
-    if (y < 70) y = 70;
-    card.style.left = x + 'px';
-    card.style.top  = y + 'px';
-  });
-});
-
-/* ── Contact form ── */
-const form = document.getElementById('contact-form');
-form.addEventListener('submit', async e => {
-  e.preventDefault();
-  const btn = form.querySelector('.send-btn');
-  btn.textContent = '...';
-  btn.disabled = true;
-  try {
-    const res = await fetch(form.action, {
-      method:'POST',
-      body: new FormData(form),
-      headers:{'Accept':'application/json'}
-    });
-    if (res.ok) {
-      form.reset();
-      form.style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    } else { btn.textContent = 'Send'; btn.disabled = false; }
-  } catch(_) { btn.textContent = 'Send'; btn.disabled = false; }
-});
-
-/* ── Handle hash on load (e.g. index.html#about) ── */
-const hash = window.location.hash.replace('#','');
-if (hash === 'about' || hash === 'contact') showSection(hash);
+function colStep(side, dir) {
+  const imgs = images[side];
+  if (imgs.length <= 1) return;
+  const wrap = document.getElementById('col-' + side);
+  const ctr  = document.getElementById('ctr-' + side);
+  const img  = wrap.querySelector('img');
+  if (!img) return;
+  state[side] = (state[side] + dir + imgs.length) % imgs.length;
+  img.style.opacity = '0';
+  img.src = imgs[state[side]];
+  img.onload = () => { img.style.opacity = '1'; };
+  if (ctr) ctr.textContent = (state[side] + 1) + ' / ' + imgs.length;
+}
+initCol('L'); initCol('R');
 </script>
+<script src="../proj-nav.js"></script>
 </body>
 </html>
