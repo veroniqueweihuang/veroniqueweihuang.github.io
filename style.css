@@ -296,6 +296,7 @@ nav a.active{color:var(--black)}
 
 /* Template B — unbuilt/rendered projects (stacked rows) */
 .proj-columns.template-b{grid-template-columns:1fr;}
+.proj-columns.template-b .proj-col{width:66.666%;margin:0 auto;}
 .proj-columns.template-b .col-img-wrap{width:100%;}
 .proj-columns.template-b .col-img-wrap img{width:100%;height:auto;object-fit:contain;}
 .proj-columns.template-b .proj-col:last-child .col-label{text-align:left;}
