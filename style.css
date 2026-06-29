@@ -294,9 +294,11 @@ nav a.active{color:var(--black)}
 .proj-col .col-img-wrap{outline:1px solid #e4e0db;}
 .proj-col .col-img-wrap img{object-fit:contain;width:100%;height:auto;}
 
-/* Template B — unbuilt/rendered projects */
+/* Template B — unbuilt/rendered projects (stacked rows) */
+.proj-columns.template-b{grid-template-columns:1fr;}
 .proj-columns.template-b .col-img-wrap{aspect-ratio:13/10;}
 .proj-columns.template-b .col-img-wrap img{width:100%;height:100%;object-fit:contain;}
+.proj-columns.template-b .proj-col:last-child .col-label{text-align:left;}
 
 /* Column nav arrows */
 .col-label{
