@@ -11,6 +11,14 @@
   --rule:2.5px;
 }
 html,body{background:var(--bg);color:var(--black)}
+/* ── Image protection: raises friction against right-click / drag saving ── */
+img{
+  -webkit-user-drag:none;
+  user-drag:none;
+  -webkit-touch-callout:none; /* blocks iOS long-press "Save Image" */
+  -webkit-user-select:none;
+  user-select:none;
+}
 body{
   font-family:var(--sans);
   font-weight:300;
